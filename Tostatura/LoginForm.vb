@@ -57,9 +57,8 @@ Public Class LoginForm
                     reader.Close()
 
                     If (operatore Is Nothing) Then
-                        'operatore = New Operatore(codiceOperatore, nome, codiceRuolo)
-                        'If (Not changeOp) Then 'se non sto cambiando Operatore
-                        Dim f As New MainForm(operatore)
+                        operatore = New Operatore(idOperatore, nome, codiceRuolo)
+                        Dim f As New FormMain(operatore)
                         f.Show()
                         Me.Hide()
                     End If
@@ -68,7 +67,7 @@ Public Class LoginForm
                 End If
 
             Catch ex As Exception
-
+                MsgBox("ERRORE: " + ex.Message, MsgBoxStyle.Exclamation, "Attenzione")
             cn.Close()
                 reader.Close()
             End Try
