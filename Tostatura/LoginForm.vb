@@ -58,7 +58,7 @@ Public Class LoginForm
 
                     If (operatore Is Nothing) Then
                         operatore = New Operatore(idOperatore, nome, codiceRuolo)
-                        Dim f As New FormMain(operatore)
+                        Dim f As New MainForm(operatore)
                         f.Show()
                         Me.Hide()
                     End If
@@ -82,7 +82,7 @@ Public Class LoginForm
 
     Private Sub LoginForm_Load(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles MyBase.Load
         Try
-            Me.OperatoriTableAdapter.FillByNome(Me.TostaturaDataSet.Operatori)
+            Me.OperatoriTableAdapter.Fill(Me.TostaturaDataSet.Operatori)
         Catch ex As Exception
 
         End Try

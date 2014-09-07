@@ -35,12 +35,13 @@ Partial Class FormMain
         Me.Timer1 = New System.Windows.Forms.Timer(Me.components)
         Me.PoohFinsETN1 = New PoohPlcLink.PoohFinsETN
         Me.TextBox1 = New System.Windows.Forms.TextBox
+        Me.Button3 = New System.Windows.Forms.Button
         Me.PictureBox2 = New System.Windows.Forms.PictureBox
         Me.PictureBox1 = New System.Windows.Forms.PictureBox
         Me.BttStatistiche = New System.Windows.Forms.Button
         Me.Button2 = New System.Windows.Forms.Button
         Me.Button1 = New System.Windows.Forms.Button
-        Me.Button3 = New System.Windows.Forms.Button
+        Me.OK = New System.Windows.Forms.Button
         CType(Me.PictureBox2, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.PictureBox1, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.SuspendLayout()
@@ -109,6 +110,18 @@ Partial Class FormMain
         Me.TextBox1.TabIndex = 27
         Me.TextBox1.Visible = False
         '
+        'Button3
+        '
+        Me.Button3.BackgroundImage = Global.Tostatura.My.Resources.Resources.BtnBck
+        Me.Button3.Font = New System.Drawing.Font("Microsoft Sans Serif", 14.25!)
+        Me.Button3.ForeColor = System.Drawing.SystemColors.HotTrack
+        Me.Button3.Location = New System.Drawing.Point(586, 461)
+        Me.Button3.Name = "Button3"
+        Me.Button3.Size = New System.Drawing.Size(269, 48)
+        Me.Button3.TabIndex = 29
+        Me.Button3.Text = "Cambia Operatore"
+        Me.Button3.UseVisualStyleBackColor = True
+        '
         'PictureBox2
         '
         Me.PictureBox2.Image = Global.Tostatura.My.Resources.Resources.Logo_its_Blu1
@@ -164,17 +177,16 @@ Partial Class FormMain
         Me.Button1.Text = "Gestione Anagrafiche"
         Me.Button1.UseVisualStyleBackColor = True
         '
-        'Button3
+        'OK
         '
-        Me.Button3.BackgroundImage = Global.Tostatura.My.Resources.Resources.BtnBck
-        Me.Button3.Font = New System.Drawing.Font("Microsoft Sans Serif", 14.25!)
-        Me.Button3.ForeColor = System.Drawing.SystemColors.HotTrack
-        Me.Button3.Location = New System.Drawing.Point(586, 461)
-        Me.Button3.Name = "Button3"
-        Me.Button3.Size = New System.Drawing.Size(269, 48)
-        Me.Button3.TabIndex = 29
-        Me.Button3.Text = "Cambia Operatore"
-        Me.Button3.UseVisualStyleBackColor = True
+        Me.OK.BackgroundImage = CType(resources.GetObject("OK.BackgroundImage"), System.Drawing.Image)
+        Me.OK.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.OK.ForeColor = System.Drawing.SystemColors.HotTrack
+        Me.OK.Location = New System.Drawing.Point(376, 269)
+        Me.OK.Name = "OK"
+        Me.OK.Size = New System.Drawing.Size(131, 41)
+        Me.OK.TabIndex = 30
+        Me.OK.Text = "OK"
         '
         'FormMain
         '
@@ -182,6 +194,7 @@ Partial Class FormMain
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.BackColor = System.Drawing.SystemColors.Info
         Me.ClientSize = New System.Drawing.Size(882, 578)
+        Me.Controls.Add(Me.OK)
         Me.Controls.Add(Me.Button3)
         Me.Controls.Add(Me.PictureBox2)
         Me.Controls.Add(Me.TextBox1)
@@ -221,4 +234,5 @@ Partial Class FormMain
     Friend WithEvents TextBox1 As System.Windows.Forms.TextBox
     Friend WithEvents PictureBox2 As System.Windows.Forms.PictureBox
     Friend WithEvents Button3 As System.Windows.Forms.Button
+    Friend WithEvents OK As System.Windows.Forms.Button
 End Class
