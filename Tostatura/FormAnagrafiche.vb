@@ -71,6 +71,7 @@
     Private Sub ProdottiBTN_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles ProdottiBTN.Click
         Me.ProdottiPNL.Visible = True
         Me.CategoriePNL.Visible = False
+        Me.PnlOperatori.Visible = False
 
         Me.AnagraficaProdottiTableAdapter.Fill(Me.TostaturaDataSet.AnagraficaProdotti)
         Me.BindingNavigator.BindingSource = Me.AnagraficaProdottiBindingSource
@@ -82,10 +83,22 @@
     Private Sub CategorieBTN_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles CategorieBTN.Click
         Me.CategoriePNL.Visible = True
         Me.ProdottiPNL.Visible = False
+        Me.PnlOperatori.Visible = False
 
         Me.CategoriaProdottiTableAdapter.Fill(Me.TostaturaDataSet.CategoriaProdotti)
 
         Me.BindingNavigator.BindingSource = Me.CategoriaProdottiBindingSource
+
+    End Sub
+
+    Private Sub OperatoriBTN_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles OperatoriBTN.Click
+        Me.CategoriePNL.Visible = False
+        Me.ProdottiPNL.Visible = False
+        Me.PnlOperatori.Visible = True
+
+        'Me.CategoriaProdottiTableAdapter.Fill(Me.TostaturaDataSet.CategoriaProdotti)
+
+        'Me.BindingNavigator.BindingSource = Me.CategoriaProdottiBindingSource
 
     End Sub
     Private Sub CodiceTXT_Leave(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles CodiceTXT.Leave
@@ -125,5 +138,62 @@
         If index <> -1 Then
             Me.BindingNavigator.BindingSource.Position = index
         End If
+    End Sub
+
+    Private Sub BNCodiceTXT_TextChanged(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles BNCodiceTXT.TextChanged
+        If Not (Me.BNCodiceTXT.Text Is Nothing And Me.BNCodiceTXT.Text.Equals("")) Then
+            If Me.ProdottiPNL.Visible Then
+                Me.AnagraficaProdottiTableAdapter.SearchByCodice(Me.TostaturaDataSet.AnagraficaProdotti, Me.BNCodiceTXT.Text)
+            ElseIf Me.CategoriePNL.Visible Then
+                'Dim res As Integer = 0
+                'If Integer.TryParse(Me.BNCodiceTXT.Text, res) Then
+                'Me.CategoriaProdottiTableAdapter.FillByid(Me.TostaturaDataSet.CategoriaProdotti, Integer.Parse(BNCodiceTXT.Text))
+                'Else
+                'MessageBox.Show("Specifica un valore numerico per il codice Categoria.", My.Application.Info.Title, MessageBoxButtons.OK, MessageBoxIcon.Information)
+                'End If
+            End If
+        End If
+    End Sub
+
+    Private Sub BNCodiceTXT_Leave(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles BNCodiceTXT.Leave
+        If Not (Me.BNCodiceTXT.Text Is Nothing And Me.BNCodiceTXT.Text.Equals("")) Then
+            If Me.ProdottiPNL.Visible Then
+                Me.AnagraficaProdottiTableAdapter.SearchByCodice(Me.TostaturaDataSet.AnagraficaProdotti, Me.BNCodiceTXT.Text)
+            ElseIf Me.CategoriePNL.Visible Then
+                Dim res As Integer = 0
+                If Integer.TryParse(Me.BNCodiceTXT.Text, res) Then
+                    Me.CategoriaProdottiTableAdapter.FillByid(Me.TostaturaDataSet.CategoriaProdotti, Integer.Parse(BNCodiceTXT.Text))
+                Else
+                    MessageBox.Show("Specifica un valore numerico per il codice Categoria.", My.Application.Info.Title, MessageBoxButtons.OK, MessageBoxIcon.Information)
+                End If
+            End If
+        End If
+    End Sub
+
+    Private Sub BNCodiceTXT_KeyPress(ByVal sender As System.Object, ByVal e As System.Windows.Forms.KeyPressEventArgs) Handles BNCodiceTXT.KeyPress
+        If e.KeyChar = Microsoft.VisualBasic.ChrW(Keys.Return) Then
+            SendKeys.Send("{TAB}")
+            e.Handled = True
+        End If
+    End Sub
+
+    Private Sub BNDescrizoneTXT_TextChanged(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles BNDescrizoneTXT.TextChanged
+        If Not (Me.BNDescrizoneTXT.Text Is Nothing And Me.BNDescrizoneTXT.Text.Equals("")) Then
+            If Me.ProdottiPNL.Visible Then
+                Me.AnagraficaProdottiTableAdapter.SearchByDescrizione(Me.TostaturaDataSet.AnagraficaProdotti, Me.BNDescrizoneTXT.Text)
+            ElseIf Me.CategoriePNL.Visible Then
+                Me.CategoriaProdottiTableAdapter.SearchByDescrizione(Me.TostaturaDataSet.CategoriaProdotti, Me.BNDescrizoneTXT.Text)
+            End If
+        End If
+    End Sub
+
+    Private Sub BNUpdateButton_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles BNUpdateButton.Click
+
+        If Me.ProdottiPNL.Visible Then
+            Me.AnagraficaProdottiTableAdapter.Fill(Me.TostaturaDataSet.AnagraficaProdotti)
+        ElseIf Me.CategoriePNL.Visible Then
+            Me.CategoriaProdottiTableAdapter.Fill(Me.TostaturaDataSet.CategoriaProdotti)
+        End If
+
     End Sub
 End Class

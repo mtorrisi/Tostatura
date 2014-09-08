@@ -28,17 +28,37 @@ Partial Class FormAnagrafiche
         Me.CtlAvanzatiGPB = New System.Windows.Forms.GroupBox
         Me.Button8 = New System.Windows.Forms.Button
         Me.Button5 = New System.Windows.Forms.Button
-        Me.Button2 = New System.Windows.Forms.Button
+        Me.OperatoriBTN = New System.Windows.Forms.Button
         Me.CategorieBTN = New System.Windows.Forms.Button
         Me.ProdottiBTN = New System.Windows.Forms.Button
+        Me.CategoriePNL = New System.Windows.Forms.Panel
+        Me.PnlOperatori = New System.Windows.Forms.Panel
+        Me.PswCHB = New System.Windows.Forms.CheckBox
+        Me.GroupBox4 = New System.Windows.Forms.GroupBox
+        Me.OperatoriDataGridView = New System.Windows.Forms.DataGridView
+        Me.Label19 = New System.Windows.Forms.Label
+        Me.PaswOperatoreTXT = New System.Windows.Forms.TextBox
+        Me.Label22 = New System.Windows.Forms.Label
+        Me.nomeOperatoreTXT = New System.Windows.Forms.TextBox
+        Me.codoperatoreTXT = New System.Windows.Forms.TextBox
+        Me.Label20 = New System.Windows.Forms.Label
+        Me.Label23 = New System.Windows.Forms.Label
+        Me.RuoliCmb = New System.Windows.Forms.ComboBox
+        Me.Label21 = New System.Windows.Forms.Label
+        Me.ruoloSelectedTXT = New System.Windows.Forms.TextBox
+        Me.IdTXT = New System.Windows.Forms.TextBox
+        Me.CategoriaProdottiBindingSource = New System.Windows.Forms.BindingSource(Me.components)
+        Me.TostaturaDataSet = New Tostatura.TostaturaDataSet
+        Me.Label5 = New System.Windows.Forms.Label
+        Me.DescrCategoriaTXT = New System.Windows.Forms.TextBox
+        Me.Label7 = New System.Windows.Forms.Label
+        Me.Label9 = New System.Windows.Forms.Label
         Me.ProdottiPNL = New System.Windows.Forms.Panel
         Me.idCategoriaTXT = New System.Windows.Forms.TextBox
         Me.AnagraficaProdottiBindingSource = New System.Windows.Forms.BindingSource(Me.components)
-        Me.TostaturaDataSet = New Tostatura.TostaturaDataSet
         Me.CalibroTXT = New System.Windows.Forms.TextBox
         Me.Label4 = New System.Windows.Forms.Label
         Me.CategoriaCMB = New System.Windows.Forms.ComboBox
-        Me.CategoriaProdottiBindingSource = New System.Windows.Forms.BindingSource(Me.components)
         Me.Label3 = New System.Windows.Forms.Label
         Me.DescrizioneTXT = New System.Windows.Forms.TextBox
         Me.Label2 = New System.Windows.Forms.Label
@@ -49,12 +69,7 @@ Partial Class FormAnagrafiche
         Me.DataGridViewTextBoxColumn1 = New System.Windows.Forms.DataGridViewTextBoxColumn
         Me.DataGridViewTextBoxColumn2 = New System.Windows.Forms.DataGridViewTextBoxColumn
         Me.DataGridViewTextBoxColumn4 = New System.Windows.Forms.DataGridViewTextBoxColumn
-        Me.CategoriePNL = New System.Windows.Forms.Panel
-        Me.IdTXT = New System.Windows.Forms.TextBox
-        Me.Label5 = New System.Windows.Forms.Label
-        Me.DescrCategoriaTXT = New System.Windows.Forms.TextBox
-        Me.Label7 = New System.Windows.Forms.Label
-        Me.Label9 = New System.Windows.Forms.Label
+        Me.Categoria = New System.Windows.Forms.DataGridViewTextBoxColumn
         Me.PnlDataMemory = New System.Windows.Forms.Panel
         Me.tipoOperazioneTXT = New System.Windows.Forms.TextBox
         Me.BilanciaCollegataCMB = New System.Windows.Forms.ComboBox
@@ -77,7 +92,6 @@ Partial Class FormAnagrafiche
         Me.BindingNavigator = New System.Windows.Forms.BindingNavigator(Me.components)
         Me.BindingNavigatorAddNewItem = New System.Windows.Forms.ToolStripButton
         Me.BindingNavigatorCountItem = New System.Windows.Forms.ToolStripLabel
-        Me.BindingNavigatorDeleteItem = New System.Windows.Forms.ToolStripButton
         Me.BindingNavigatorMoveFirstItem = New System.Windows.Forms.ToolStripButton
         Me.BindingNavigatorMovePreviousItem = New System.Windows.Forms.ToolStripButton
         Me.BindingNavigatorSeparator = New System.Windows.Forms.ToolStripSeparator
@@ -86,17 +100,27 @@ Partial Class FormAnagrafiche
         Me.BindingNavigatorMoveNextItem = New System.Windows.Forms.ToolStripButton
         Me.BindingNavigatorMoveLastItem = New System.Windows.Forms.ToolStripButton
         Me.BindingNavigatorSeparator2 = New System.Windows.Forms.ToolStripSeparator
+        Me.BindingNavigatorDeleteItem = New System.Windows.Forms.ToolStripButton
         Me.AnagraficaProdottiBindingNavigatorSaveItem = New System.Windows.Forms.ToolStripButton
+        Me.BNUpdateButton = New System.Windows.Forms.ToolStripButton
+        Me.ToolStripSeparator1 = New System.Windows.Forms.ToolStripSeparator
+        Me.ToolStripLabel1 = New System.Windows.Forms.ToolStripLabel
+        Me.BNCodiceTXT = New System.Windows.Forms.ToolStripTextBox
+        Me.ToolStripLabel2 = New System.Windows.Forms.ToolStripLabel
+        Me.BNDescrizoneTXT = New System.Windows.Forms.ToolStripTextBox
         Me.SplitContainer1.Panel1.SuspendLayout()
         Me.SplitContainer1.Panel2.SuspendLayout()
         Me.SplitContainer1.SuspendLayout()
         Me.CtlAvanzatiGPB.SuspendLayout()
+        Me.CategoriePNL.SuspendLayout()
+        Me.PnlOperatori.SuspendLayout()
+        Me.GroupBox4.SuspendLayout()
+        CType(Me.OperatoriDataGridView, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.CategoriaProdottiBindingSource, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.TostaturaDataSet, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.ProdottiPNL.SuspendLayout()
         CType(Me.AnagraficaProdottiBindingSource, System.ComponentModel.ISupportInitialize).BeginInit()
-        CType(Me.TostaturaDataSet, System.ComponentModel.ISupportInitialize).BeginInit()
-        CType(Me.CategoriaProdottiBindingSource, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.AnagraficaProdottiDataGridView, System.ComponentModel.ISupportInitialize).BeginInit()
-        Me.CategoriePNL.SuspendLayout()
         Me.PnlDataMemory.SuspendLayout()
         Me.GroupBox13.SuspendLayout()
         CType(Me.AnagraficaDataMemoryDataGridView, System.ComponentModel.ISupportInitialize).BeginInit()
@@ -122,8 +146,8 @@ Partial Class FormAnagrafiche
         '
         Me.SplitContainer1.Panel2.AutoScroll = True
         Me.SplitContainer1.Panel2.BackColor = System.Drawing.SystemColors.Info
-        Me.SplitContainer1.Panel2.Controls.Add(Me.ProdottiPNL)
         Me.SplitContainer1.Panel2.Controls.Add(Me.CategoriePNL)
+        Me.SplitContainer1.Panel2.Controls.Add(Me.ProdottiPNL)
         Me.SplitContainer1.Panel2.Controls.Add(Me.PnlDataMemory)
         Me.SplitContainer1.Size = New System.Drawing.Size(878, 585)
         Me.SplitContainer1.SplitterDistance = 147
@@ -134,7 +158,7 @@ Partial Class FormAnagrafiche
         Me.CtlAvanzatiGPB.Anchor = CType((System.Windows.Forms.AnchorStyles.Left Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
         Me.CtlAvanzatiGPB.Controls.Add(Me.Button8)
         Me.CtlAvanzatiGPB.Controls.Add(Me.Button5)
-        Me.CtlAvanzatiGPB.Controls.Add(Me.Button2)
+        Me.CtlAvanzatiGPB.Controls.Add(Me.OperatoriBTN)
         Me.CtlAvanzatiGPB.Location = New System.Drawing.Point(3, 292)
         Me.CtlAvanzatiGPB.Name = "CtlAvanzatiGPB"
         Me.CtlAvanzatiGPB.Size = New System.Drawing.Size(137, 279)
@@ -167,17 +191,17 @@ Partial Class FormAnagrafiche
         Me.Button5.TextImageRelation = System.Windows.Forms.TextImageRelation.TextBeforeImage
         Me.Button5.UseVisualStyleBackColor = True
         '
-        'Button2
+        'OperatoriBTN
         '
-        Me.Button2.Anchor = CType((System.Windows.Forms.AnchorStyles.Left Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
-        Me.Button2.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Button2.Location = New System.Drawing.Point(0, 18)
-        Me.Button2.Name = "Button2"
-        Me.Button2.Size = New System.Drawing.Size(134, 40)
-        Me.Button2.TabIndex = 2
-        Me.Button2.Text = "Anagrafica Operatori"
-        Me.Button2.TextImageRelation = System.Windows.Forms.TextImageRelation.TextBeforeImage
-        Me.Button2.UseVisualStyleBackColor = True
+        Me.OperatoriBTN.Anchor = CType((System.Windows.Forms.AnchorStyles.Left Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
+        Me.OperatoriBTN.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.OperatoriBTN.Location = New System.Drawing.Point(0, 18)
+        Me.OperatoriBTN.Name = "OperatoriBTN"
+        Me.OperatoriBTN.Size = New System.Drawing.Size(134, 40)
+        Me.OperatoriBTN.TabIndex = 2
+        Me.OperatoriBTN.Text = "Anagrafica Operatori"
+        Me.OperatoriBTN.TextImageRelation = System.Windows.Forms.TextImageRelation.TextBeforeImage
+        Me.OperatoriBTN.UseVisualStyleBackColor = True
         '
         'CategorieBTN
         '
@@ -198,6 +222,234 @@ Partial Class FormAnagrafiche
         Me.ProdottiBTN.TabIndex = 0
         Me.ProdottiBTN.Text = "Anagrafica Prodotti"
         Me.ProdottiBTN.UseVisualStyleBackColor = True
+        '
+        'CategoriePNL
+        '
+        Me.CategoriePNL.Controls.Add(Me.PnlOperatori)
+        Me.CategoriePNL.Controls.Add(Me.IdTXT)
+        Me.CategoriePNL.Controls.Add(Me.Label5)
+        Me.CategoriePNL.Controls.Add(Me.DescrCategoriaTXT)
+        Me.CategoriePNL.Controls.Add(Me.Label7)
+        Me.CategoriePNL.Controls.Add(Me.Label9)
+        Me.CategoriePNL.Location = New System.Drawing.Point(3, 23)
+        Me.CategoriePNL.Name = "CategoriePNL"
+        Me.CategoriePNL.Size = New System.Drawing.Size(719, 545)
+        Me.CategoriePNL.TabIndex = 37
+        Me.CategoriePNL.Visible = False
+        '
+        'PnlOperatori
+        '
+        Me.PnlOperatori.Controls.Add(Me.PswCHB)
+        Me.PnlOperatori.Controls.Add(Me.GroupBox4)
+        Me.PnlOperatori.Controls.Add(Me.Label19)
+        Me.PnlOperatori.Controls.Add(Me.PaswOperatoreTXT)
+        Me.PnlOperatori.Controls.Add(Me.Label22)
+        Me.PnlOperatori.Controls.Add(Me.nomeOperatoreTXT)
+        Me.PnlOperatori.Controls.Add(Me.codoperatoreTXT)
+        Me.PnlOperatori.Controls.Add(Me.Label20)
+        Me.PnlOperatori.Controls.Add(Me.Label23)
+        Me.PnlOperatori.Controls.Add(Me.RuoliCmb)
+        Me.PnlOperatori.Controls.Add(Me.Label21)
+        Me.PnlOperatori.Controls.Add(Me.ruoloSelectedTXT)
+        Me.PnlOperatori.Location = New System.Drawing.Point(-5, -3)
+        Me.PnlOperatori.Name = "PnlOperatori"
+        Me.PnlOperatori.Size = New System.Drawing.Size(729, 551)
+        Me.PnlOperatori.TabIndex = 34
+        Me.PnlOperatori.Visible = False
+        '
+        'PswCHB
+        '
+        Me.PswCHB.AutoSize = True
+        Me.PswCHB.Location = New System.Drawing.Point(299, 137)
+        Me.PswCHB.Name = "PswCHB"
+        Me.PswCHB.Size = New System.Drawing.Size(107, 17)
+        Me.PswCHB.TabIndex = 33
+        Me.PswCHB.Text = "Mostra Password"
+        Me.PswCHB.UseVisualStyleBackColor = True
+        '
+        'GroupBox4
+        '
+        Me.GroupBox4.Controls.Add(Me.OperatoriDataGridView)
+        Me.GroupBox4.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.GroupBox4.Location = New System.Drawing.Point(19, 194)
+        Me.GroupBox4.Name = "GroupBox4"
+        Me.GroupBox4.Size = New System.Drawing.Size(682, 285)
+        Me.GroupBox4.TabIndex = 17
+        Me.GroupBox4.TabStop = False
+        Me.GroupBox4.Text = "Operatori presenti"
+        '
+        'OperatoriDataGridView
+        '
+        Me.OperatoriDataGridView.AllowUserToDeleteRows = False
+        Me.OperatoriDataGridView.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill
+        Me.OperatoriDataGridView.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
+        Me.OperatoriDataGridView.Dock = System.Windows.Forms.DockStyle.Fill
+        Me.OperatoriDataGridView.Location = New System.Drawing.Point(3, 18)
+        Me.OperatoriDataGridView.Name = "OperatoriDataGridView"
+        Me.OperatoriDataGridView.ReadOnly = True
+        Me.OperatoriDataGridView.Size = New System.Drawing.Size(676, 264)
+        Me.OperatoriDataGridView.TabIndex = 16
+        '
+        'Label19
+        '
+        Me.Label19.AutoSize = True
+        Me.Label19.Font = New System.Drawing.Font("Microsoft Sans Serif", 24.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Label19.ForeColor = System.Drawing.SystemColors.HotTrack
+        Me.Label19.Location = New System.Drawing.Point(181, 36)
+        Me.Label19.Name = "Label19"
+        Me.Label19.Size = New System.Drawing.Size(315, 37)
+        Me.Label19.TabIndex = 15
+        Me.Label19.Text = "Anagrafica Operatori"
+        '
+        'PaswOperatoreTXT
+        '
+        Me.PaswOperatoreTXT.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.PaswOperatoreTXT.Location = New System.Drawing.Point(99, 133)
+        Me.PaswOperatoreTXT.MaxLength = 30
+        Me.PaswOperatoreTXT.Name = "PaswOperatoreTXT"
+        Me.PaswOperatoreTXT.ReadOnly = True
+        Me.PaswOperatoreTXT.Size = New System.Drawing.Size(188, 22)
+        Me.PaswOperatoreTXT.TabIndex = 32
+        Me.PaswOperatoreTXT.UseSystemPasswordChar = True
+        '
+        'Label22
+        '
+        Me.Label22.AutoSize = True
+        Me.Label22.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Label22.Location = New System.Drawing.Point(431, 138)
+        Me.Label22.Name = "Label22"
+        Me.Label22.Size = New System.Drawing.Size(47, 16)
+        Me.Label22.TabIndex = 33
+        Me.Label22.Text = "Ruolo:"
+        '
+        'nomeOperatoreTXT
+        '
+        Me.nomeOperatoreTXT.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.nomeOperatoreTXT.Location = New System.Drawing.Point(415, 89)
+        Me.nomeOperatoreTXT.MaxLength = 30
+        Me.nomeOperatoreTXT.Name = "nomeOperatoreTXT"
+        Me.nomeOperatoreTXT.ReadOnly = True
+        Me.nomeOperatoreTXT.Size = New System.Drawing.Size(286, 22)
+        Me.nomeOperatoreTXT.TabIndex = 31
+        '
+        'codoperatoreTXT
+        '
+        Me.codoperatoreTXT.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.codoperatoreTXT.Location = New System.Drawing.Point(145, 89)
+        Me.codoperatoreTXT.MaxLength = 4
+        Me.codoperatoreTXT.Name = "codoperatoreTXT"
+        Me.codoperatoreTXT.ReadOnly = True
+        Me.codoperatoreTXT.Size = New System.Drawing.Size(133, 22)
+        Me.codoperatoreTXT.TabIndex = 29
+        '
+        'Label20
+        '
+        Me.Label20.AutoSize = True
+        Me.Label20.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Label20.Location = New System.Drawing.Point(21, 92)
+        Me.Label20.Name = "Label20"
+        Me.Label20.Size = New System.Drawing.Size(118, 16)
+        Me.Label20.TabIndex = 30
+        Me.Label20.Text = "Codice Operatore:"
+        '
+        'Label23
+        '
+        Me.Label23.AutoSize = True
+        Me.Label23.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Label23.Location = New System.Drawing.Point(22, 136)
+        Me.Label23.Name = "Label23"
+        Me.Label23.Size = New System.Drawing.Size(71, 16)
+        Me.Label23.TabIndex = 35
+        Me.Label23.Text = "Password:"
+        '
+        'RuoliCmb
+        '
+        Me.RuoliCmb.DisplayMember = "descrizione"
+        Me.RuoliCmb.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList
+        Me.RuoliCmb.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.RuoliCmb.FormattingEnabled = True
+        Me.RuoliCmb.Location = New System.Drawing.Point(484, 133)
+        Me.RuoliCmb.Name = "RuoliCmb"
+        Me.RuoliCmb.Size = New System.Drawing.Size(145, 24)
+        Me.RuoliCmb.TabIndex = 35
+        Me.RuoliCmb.ValueMember = "codice_ruolo"
+        '
+        'Label21
+        '
+        Me.Label21.AutoSize = True
+        Me.Label21.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Label21.Location = New System.Drawing.Point(284, 92)
+        Me.Label21.Name = "Label21"
+        Me.Label21.Size = New System.Drawing.Size(121, 16)
+        Me.Label21.TabIndex = 32
+        Me.Label21.Text = "Nome e Cognome:"
+        '
+        'ruoloSelectedTXT
+        '
+        Me.ruoloSelectedTXT.Location = New System.Drawing.Point(529, 133)
+        Me.ruoloSelectedTXT.Name = "ruoloSelectedTXT"
+        Me.ruoloSelectedTXT.Size = New System.Drawing.Size(100, 20)
+        Me.ruoloSelectedTXT.TabIndex = 37
+        '
+        'IdTXT
+        '
+        Me.IdTXT.DataBindings.Add(New System.Windows.Forms.Binding("Text", Me.CategoriaProdottiBindingSource, "id", True))
+        Me.IdTXT.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.IdTXT.Location = New System.Drawing.Point(103, 93)
+        Me.IdTXT.Name = "IdTXT"
+        Me.IdTXT.ReadOnly = True
+        Me.IdTXT.Size = New System.Drawing.Size(99, 22)
+        Me.IdTXT.TabIndex = 33
+        '
+        'CategoriaProdottiBindingSource
+        '
+        Me.CategoriaProdottiBindingSource.DataMember = "CategoriaProdotti"
+        Me.CategoriaProdottiBindingSource.DataSource = Me.TostaturaDataSet
+        '
+        'TostaturaDataSet
+        '
+        Me.TostaturaDataSet.DataSetName = "TostaturaDataSet"
+        Me.TostaturaDataSet.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema
+        '
+        'Label5
+        '
+        Me.Label5.AutoSize = True
+        Me.Label5.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Label5.Location = New System.Drawing.Point(15, 96)
+        Me.Label5.Name = "Label5"
+        Me.Label5.Size = New System.Drawing.Size(22, 16)
+        Me.Label5.TabIndex = 32
+        Me.Label5.Text = "id:"
+        '
+        'DescrCategoriaTXT
+        '
+        Me.DescrCategoriaTXT.DataBindings.Add(New System.Windows.Forms.Binding("Text", Me.CategoriaProdottiBindingSource, "descrizione", True))
+        Me.DescrCategoriaTXT.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.DescrCategoriaTXT.Location = New System.Drawing.Point(103, 125)
+        Me.DescrCategoriaTXT.Name = "DescrCategoriaTXT"
+        Me.DescrCategoriaTXT.Size = New System.Drawing.Size(556, 22)
+        Me.DescrCategoriaTXT.TabIndex = 31
+        '
+        'Label7
+        '
+        Me.Label7.AutoSize = True
+        Me.Label7.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Label7.Location = New System.Drawing.Point(15, 128)
+        Me.Label7.Name = "Label7"
+        Me.Label7.Size = New System.Drawing.Size(82, 16)
+        Me.Label7.TabIndex = 30
+        Me.Label7.Text = "Descrizione:"
+        '
+        'Label9
+        '
+        Me.Label9.AutoSize = True
+        Me.Label9.Font = New System.Drawing.Font("Microsoft Sans Serif", 24.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Label9.ForeColor = System.Drawing.SystemColors.HotTrack
+        Me.Label9.Location = New System.Drawing.Point(204, 26)
+        Me.Label9.Name = "Label9"
+        Me.Label9.Size = New System.Drawing.Size(312, 37)
+        Me.Label9.TabIndex = 27
+        Me.Label9.Text = "Anagrafica categorie"
         '
         'ProdottiPNL
         '
@@ -231,11 +483,6 @@ Partial Class FormAnagrafiche
         Me.AnagraficaProdottiBindingSource.DataMember = "AnagraficaProdotti"
         Me.AnagraficaProdottiBindingSource.DataSource = Me.TostaturaDataSet
         '
-        'TostaturaDataSet
-        '
-        Me.TostaturaDataSet.DataSetName = "TostaturaDataSet"
-        Me.TostaturaDataSet.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema
-        '
         'CalibroTXT
         '
         Me.CalibroTXT.DataBindings.Add(New System.Windows.Forms.Binding("Text", Me.AnagraficaProdottiBindingSource, "calibro", True))
@@ -268,11 +515,6 @@ Partial Class FormAnagrafiche
         Me.CategoriaCMB.Size = New System.Drawing.Size(159, 24)
         Me.CategoriaCMB.TabIndex = 33
         Me.CategoriaCMB.ValueMember = "id"
-        '
-        'CategoriaProdottiBindingSource
-        '
-        Me.CategoriaProdottiBindingSource.DataMember = "CategoriaProdotti"
-        Me.CategoriaProdottiBindingSource.DataSource = Me.TostaturaDataSet
         '
         'Label3
         '
@@ -339,7 +581,7 @@ Partial Class FormAnagrafiche
         Me.AnagraficaProdottiDataGridView.AutoGenerateColumns = False
         Me.AnagraficaProdottiDataGridView.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill
         Me.AnagraficaProdottiDataGridView.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
-        Me.AnagraficaProdottiDataGridView.Columns.AddRange(New System.Windows.Forms.DataGridViewColumn() {Me.DataGridViewTextBoxColumn1, Me.DataGridViewTextBoxColumn2, Me.DataGridViewTextBoxColumn4})
+        Me.AnagraficaProdottiDataGridView.Columns.AddRange(New System.Windows.Forms.DataGridViewColumn() {Me.DataGridViewTextBoxColumn1, Me.DataGridViewTextBoxColumn2, Me.DataGridViewTextBoxColumn4, Me.Categoria})
         Me.AnagraficaProdottiDataGridView.DataSource = Me.AnagraficaProdottiBindingSource
         Me.AnagraficaProdottiDataGridView.Location = New System.Drawing.Point(15, 251)
         Me.AnagraficaProdottiDataGridView.Name = "AnagraficaProdottiDataGridView"
@@ -368,68 +610,11 @@ Partial Class FormAnagrafiche
         Me.DataGridViewTextBoxColumn4.Name = "DataGridViewTextBoxColumn4"
         Me.DataGridViewTextBoxColumn4.ReadOnly = True
         '
-        'CategoriePNL
+        'Categoria
         '
-        Me.CategoriePNL.Controls.Add(Me.IdTXT)
-        Me.CategoriePNL.Controls.Add(Me.Label5)
-        Me.CategoriePNL.Controls.Add(Me.DescrCategoriaTXT)
-        Me.CategoriePNL.Controls.Add(Me.Label7)
-        Me.CategoriePNL.Controls.Add(Me.Label9)
-        Me.CategoriePNL.Location = New System.Drawing.Point(3, 23)
-        Me.CategoriePNL.Name = "CategoriePNL"
-        Me.CategoriePNL.Size = New System.Drawing.Size(719, 545)
-        Me.CategoriePNL.TabIndex = 37
-        Me.CategoriePNL.Visible = False
-        '
-        'IdTXT
-        '
-        Me.IdTXT.DataBindings.Add(New System.Windows.Forms.Binding("Text", Me.CategoriaProdottiBindingSource, "id", True))
-        Me.IdTXT.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.IdTXT.Location = New System.Drawing.Point(103, 93)
-        Me.IdTXT.Name = "IdTXT"
-        Me.IdTXT.ReadOnly = True
-        Me.IdTXT.Size = New System.Drawing.Size(99, 22)
-        Me.IdTXT.TabIndex = 33
-        '
-        'Label5
-        '
-        Me.Label5.AutoSize = True
-        Me.Label5.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label5.Location = New System.Drawing.Point(15, 96)
-        Me.Label5.Name = "Label5"
-        Me.Label5.Size = New System.Drawing.Size(22, 16)
-        Me.Label5.TabIndex = 32
-        Me.Label5.Text = "id:"
-        '
-        'DescrCategoriaTXT
-        '
-        Me.DescrCategoriaTXT.DataBindings.Add(New System.Windows.Forms.Binding("Text", Me.CategoriaProdottiBindingSource, "descrizione", True))
-        Me.DescrCategoriaTXT.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.DescrCategoriaTXT.Location = New System.Drawing.Point(103, 125)
-        Me.DescrCategoriaTXT.Name = "DescrCategoriaTXT"
-        Me.DescrCategoriaTXT.Size = New System.Drawing.Size(556, 22)
-        Me.DescrCategoriaTXT.TabIndex = 31
-        '
-        'Label7
-        '
-        Me.Label7.AutoSize = True
-        Me.Label7.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label7.Location = New System.Drawing.Point(15, 128)
-        Me.Label7.Name = "Label7"
-        Me.Label7.Size = New System.Drawing.Size(82, 16)
-        Me.Label7.TabIndex = 30
-        Me.Label7.Text = "Descrizione:"
-        '
-        'Label9
-        '
-        Me.Label9.AutoSize = True
-        Me.Label9.Font = New System.Drawing.Font("Microsoft Sans Serif", 24.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label9.ForeColor = System.Drawing.SystemColors.HotTrack
-        Me.Label9.Location = New System.Drawing.Point(204, 26)
-        Me.Label9.Name = "Label9"
-        Me.Label9.Size = New System.Drawing.Size(312, 37)
-        Me.Label9.TabIndex = 27
-        Me.Label9.Text = "Anagrafica categorie"
+        Me.Categoria.HeaderText = "Categoria"
+        Me.Categoria.Name = "Categoria"
+        Me.Categoria.ReadOnly = True
         '
         'PnlDataMemory
         '
@@ -642,7 +827,7 @@ Partial Class FormAnagrafiche
         Me.BindingNavigator.BindingSource = Me.AnagraficaProdottiBindingSource
         Me.BindingNavigator.CountItem = Me.BindingNavigatorCountItem
         Me.BindingNavigator.DeleteItem = Nothing
-        Me.BindingNavigator.Items.AddRange(New System.Windows.Forms.ToolStripItem() {Me.BindingNavigatorMoveFirstItem, Me.BindingNavigatorMovePreviousItem, Me.BindingNavigatorSeparator, Me.BindingNavigatorPositionItem, Me.BindingNavigatorCountItem, Me.BindingNavigatorSeparator1, Me.BindingNavigatorMoveNextItem, Me.BindingNavigatorMoveLastItem, Me.BindingNavigatorSeparator2, Me.BindingNavigatorAddNewItem, Me.BindingNavigatorDeleteItem, Me.AnagraficaProdottiBindingNavigatorSaveItem})
+        Me.BindingNavigator.Items.AddRange(New System.Windows.Forms.ToolStripItem() {Me.BindingNavigatorMoveFirstItem, Me.BindingNavigatorMovePreviousItem, Me.BindingNavigatorSeparator, Me.BindingNavigatorPositionItem, Me.BindingNavigatorCountItem, Me.BindingNavigatorSeparator1, Me.BindingNavigatorMoveNextItem, Me.BindingNavigatorMoveLastItem, Me.BindingNavigatorSeparator2, Me.BindingNavigatorAddNewItem, Me.BindingNavigatorDeleteItem, Me.AnagraficaProdottiBindingNavigatorSaveItem, Me.BNUpdateButton, Me.ToolStripSeparator1, Me.ToolStripLabel1, Me.BNCodiceTXT, Me.ToolStripLabel2, Me.BNDescrizoneTXT})
         Me.BindingNavigator.Location = New System.Drawing.Point(0, 0)
         Me.BindingNavigator.MoveFirstItem = Me.BindingNavigatorMoveFirstItem
         Me.BindingNavigator.MoveLastItem = Me.BindingNavigatorMoveLastItem
@@ -669,15 +854,6 @@ Partial Class FormAnagrafiche
         Me.BindingNavigatorCountItem.Size = New System.Drawing.Size(34, 22)
         Me.BindingNavigatorCountItem.Text = "di {0}"
         Me.BindingNavigatorCountItem.ToolTipText = "Numero totale di elementi"
-        '
-        'BindingNavigatorDeleteItem
-        '
-        Me.BindingNavigatorDeleteItem.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image
-        Me.BindingNavigatorDeleteItem.Image = CType(resources.GetObject("BindingNavigatorDeleteItem.Image"), System.Drawing.Image)
-        Me.BindingNavigatorDeleteItem.Name = "BindingNavigatorDeleteItem"
-        Me.BindingNavigatorDeleteItem.RightToLeftAutoMirrorImage = True
-        Me.BindingNavigatorDeleteItem.Size = New System.Drawing.Size(23, 22)
-        Me.BindingNavigatorDeleteItem.Text = "Elimina"
         '
         'BindingNavigatorMoveFirstItem
         '
@@ -739,6 +915,15 @@ Partial Class FormAnagrafiche
         Me.BindingNavigatorSeparator2.Name = "BindingNavigatorSeparator2"
         Me.BindingNavigatorSeparator2.Size = New System.Drawing.Size(6, 25)
         '
+        'BindingNavigatorDeleteItem
+        '
+        Me.BindingNavigatorDeleteItem.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image
+        Me.BindingNavigatorDeleteItem.Image = CType(resources.GetObject("BindingNavigatorDeleteItem.Image"), System.Drawing.Image)
+        Me.BindingNavigatorDeleteItem.Name = "BindingNavigatorDeleteItem"
+        Me.BindingNavigatorDeleteItem.RightToLeftAutoMirrorImage = True
+        Me.BindingNavigatorDeleteItem.Size = New System.Drawing.Size(23, 22)
+        Me.BindingNavigatorDeleteItem.Text = "Elimina"
+        '
         'AnagraficaProdottiBindingNavigatorSaveItem
         '
         Me.AnagraficaProdottiBindingNavigatorSaveItem.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image
@@ -746,6 +931,42 @@ Partial Class FormAnagrafiche
         Me.AnagraficaProdottiBindingNavigatorSaveItem.Name = "AnagraficaProdottiBindingNavigatorSaveItem"
         Me.AnagraficaProdottiBindingNavigatorSaveItem.Size = New System.Drawing.Size(23, 22)
         Me.AnagraficaProdottiBindingNavigatorSaveItem.Text = "Salva dati"
+        '
+        'BNUpdateButton
+        '
+        Me.BNUpdateButton.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image
+        Me.BNUpdateButton.Image = Global.Tostatura.My.Resources.Resources.aggiorna
+        Me.BNUpdateButton.ImageTransparentColor = System.Drawing.Color.Magenta
+        Me.BNUpdateButton.Name = "BNUpdateButton"
+        Me.BNUpdateButton.Size = New System.Drawing.Size(23, 22)
+        Me.BNUpdateButton.Text = "BNUpdateBTN"
+        '
+        'ToolStripSeparator1
+        '
+        Me.ToolStripSeparator1.Name = "ToolStripSeparator1"
+        Me.ToolStripSeparator1.Size = New System.Drawing.Size(6, 25)
+        '
+        'ToolStripLabel1
+        '
+        Me.ToolStripLabel1.Name = "ToolStripLabel1"
+        Me.ToolStripLabel1.Size = New System.Drawing.Size(46, 22)
+        Me.ToolStripLabel1.Text = "Codice: "
+        '
+        'BNCodiceTXT
+        '
+        Me.BNCodiceTXT.Name = "BNCodiceTXT"
+        Me.BNCodiceTXT.Size = New System.Drawing.Size(100, 25)
+        '
+        'ToolStripLabel2
+        '
+        Me.ToolStripLabel2.Name = "ToolStripLabel2"
+        Me.ToolStripLabel2.Size = New System.Drawing.Size(65, 22)
+        Me.ToolStripLabel2.Text = "Descrizione:"
+        '
+        'BNDescrizoneTXT
+        '
+        Me.BNDescrizoneTXT.Name = "BNDescrizoneTXT"
+        Me.BNDescrizoneTXT.Size = New System.Drawing.Size(100, 25)
         '
         'FormAnagrafiche
         '
@@ -761,14 +982,18 @@ Partial Class FormAnagrafiche
         Me.SplitContainer1.Panel2.ResumeLayout(False)
         Me.SplitContainer1.ResumeLayout(False)
         Me.CtlAvanzatiGPB.ResumeLayout(False)
+        Me.CategoriePNL.ResumeLayout(False)
+        Me.CategoriePNL.PerformLayout()
+        Me.PnlOperatori.ResumeLayout(False)
+        Me.PnlOperatori.PerformLayout()
+        Me.GroupBox4.ResumeLayout(False)
+        CType(Me.OperatoriDataGridView, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.CategoriaProdottiBindingSource, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.TostaturaDataSet, System.ComponentModel.ISupportInitialize).EndInit()
         Me.ProdottiPNL.ResumeLayout(False)
         Me.ProdottiPNL.PerformLayout()
         CType(Me.AnagraficaProdottiBindingSource, System.ComponentModel.ISupportInitialize).EndInit()
-        CType(Me.TostaturaDataSet, System.ComponentModel.ISupportInitialize).EndInit()
-        CType(Me.CategoriaProdottiBindingSource, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.AnagraficaProdottiDataGridView, System.ComponentModel.ISupportInitialize).EndInit()
-        Me.CategoriePNL.ResumeLayout(False)
-        Me.CategoriePNL.PerformLayout()
         Me.PnlDataMemory.ResumeLayout(False)
         Me.PnlDataMemory.PerformLayout()
         Me.GroupBox13.ResumeLayout(False)
@@ -781,8 +1006,6 @@ Partial Class FormAnagrafiche
 
     End Sub
     Friend WithEvents SplitContainer1 As System.Windows.Forms.SplitContainer
-    Friend WithEvents CategorieBTN As System.Windows.Forms.Button
-    Friend WithEvents ProdottiBTN As System.Windows.Forms.Button
     Friend WithEvents TostaturaDataSet As Tostatura.TostaturaDataSet
     Friend WithEvents AnagraficaProdottiBindingSource As System.Windows.Forms.BindingSource
     Friend WithEvents AnagraficaProdottiTableAdapter As Tostatura.TostaturaDataSetTableAdapters.AnagraficaProdottiTableAdapter
@@ -839,8 +1062,31 @@ Partial Class FormAnagrafiche
     Friend WithEvents CtlAvanzatiGPB As System.Windows.Forms.GroupBox
     Friend WithEvents Button8 As System.Windows.Forms.Button
     Friend WithEvents Button5 As System.Windows.Forms.Button
-    Friend WithEvents Button2 As System.Windows.Forms.Button
+    Friend WithEvents OperatoriBTN As System.Windows.Forms.Button
     Friend WithEvents DataGridViewTextBoxColumn1 As System.Windows.Forms.DataGridViewTextBoxColumn
     Friend WithEvents DataGridViewTextBoxColumn2 As System.Windows.Forms.DataGridViewTextBoxColumn
     Friend WithEvents DataGridViewTextBoxColumn4 As System.Windows.Forms.DataGridViewTextBoxColumn
+    Friend WithEvents CategorieBTN As System.Windows.Forms.Button
+    Friend WithEvents ProdottiBTN As System.Windows.Forms.Button
+    Friend WithEvents Categoria As System.Windows.Forms.DataGridViewTextBoxColumn
+    Friend WithEvents BNUpdateButton As System.Windows.Forms.ToolStripButton
+    Friend WithEvents ToolStripSeparator1 As System.Windows.Forms.ToolStripSeparator
+    Friend WithEvents ToolStripLabel1 As System.Windows.Forms.ToolStripLabel
+    Friend WithEvents BNCodiceTXT As System.Windows.Forms.ToolStripTextBox
+    Friend WithEvents ToolStripLabel2 As System.Windows.Forms.ToolStripLabel
+    Friend WithEvents BNDescrizoneTXT As System.Windows.Forms.ToolStripTextBox
+    Friend WithEvents PnlOperatori As System.Windows.Forms.Panel
+    Friend WithEvents PswCHB As System.Windows.Forms.CheckBox
+    Friend WithEvents GroupBox4 As System.Windows.Forms.GroupBox
+    Friend WithEvents OperatoriDataGridView As System.Windows.Forms.DataGridView
+    Friend WithEvents Label19 As System.Windows.Forms.Label
+    Friend WithEvents PaswOperatoreTXT As System.Windows.Forms.TextBox
+    Friend WithEvents Label22 As System.Windows.Forms.Label
+    Friend WithEvents nomeOperatoreTXT As System.Windows.Forms.TextBox
+    Friend WithEvents codoperatoreTXT As System.Windows.Forms.TextBox
+    Friend WithEvents Label20 As System.Windows.Forms.Label
+    Friend WithEvents Label23 As System.Windows.Forms.Label
+    Friend WithEvents RuoliCmb As System.Windows.Forms.ComboBox
+    Friend WithEvents Label21 As System.Windows.Forms.Label
+    Friend WithEvents ruoloSelectedTXT As System.Windows.Forms.TextBox
 End Class
