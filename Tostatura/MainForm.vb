@@ -113,4 +113,13 @@
         OpLbl.Text = operatore.NomeOperatore
         CodOpLbl.Text = operatore.CodiceOperatore
     End Sub
+
+    Private Sub Button2_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles Button2.Click
+        Dim f As New TostaturaForm(operatore)
+        'Control.CheckForIllegalCrossThreadCalls = False
+        f.Show()
+
+        f.callingForm = Me 'assegno un riferimento alla form corrente alla form GestioneFormule1 per poter richiamare i suoi controlli
+        
+    End Sub
 End Class

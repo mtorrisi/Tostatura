@@ -34,6 +34,7 @@ Partial Class MainForm
         Me.TextBox1 = New System.Windows.Forms.TextBox
         Me.PoohFinsETN1 = New PoohPlcLink.PoohFinsETN
         Me.Timer1 = New System.Windows.Forms.Timer(Me.components)
+        Me.Button2 = New System.Windows.Forms.Button
         CType(Me.PictureBox1, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.PictureBox2, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.SuspendLayout()
@@ -133,12 +134,24 @@ Partial Class MainForm
         '
         Me.Timer1.Interval = 1000
         '
+        'Button2
+        '
+        Me.Button2.BackgroundImage = CType(resources.GetObject("Button2.BackgroundImage"), System.Drawing.Image)
+        Me.Button2.Font = New System.Drawing.Font("Microsoft Sans Serif", 14.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Button2.ForeColor = System.Drawing.SystemColors.HotTrack
+        Me.Button2.Location = New System.Drawing.Point(515, 315)
+        Me.Button2.Name = "Button2"
+        Me.Button2.Size = New System.Drawing.Size(254, 45)
+        Me.Button2.TabIndex = 32
+        Me.Button2.Text = "Gestione Tostatura"
+        '
         'MainForm
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.BackColor = System.Drawing.SystemColors.Info
         Me.ClientSize = New System.Drawing.Size(801, 578)
+        Me.Controls.Add(Me.Button2)
         Me.Controls.Add(Me.TextBox1)
         Me.Controls.Add(Me.PictureBox2)
         Me.Controls.Add(Me.CodOpLbl)
@@ -165,4 +178,5 @@ Partial Class MainForm
     Friend WithEvents TextBox1 As System.Windows.Forms.TextBox
     Friend WithEvents PoohFinsETN1 As PoohPlcLink.PoohFinsETN
     Friend WithEvents Timer1 As System.Windows.Forms.Timer
+    Friend WithEvents Button2 As System.Windows.Forms.Button
 End Class
