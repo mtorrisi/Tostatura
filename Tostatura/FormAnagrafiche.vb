@@ -11,21 +11,43 @@
 
     Private Sub BindingNavigatorAddNewItem_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles BindingNavigatorAddNewItem.Click
         Me.addNewItem = True
-        Me.CodiceTXT.ReadOnly = False
+        If Me.ProdottiGrezziPNL.Visible Then
+            Me.CodiceTXT.ReadOnly = False
+        ElseIf Me.ProdottiFinitiPNL.Visible Then
+            Me.CodiceFinitoTXT.ReadOnly = False
+        End If
+
     End Sub
 
     Private Sub AnagraficaProdottiBindingNavigatorSaveItem_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles AnagraficaProdottiBindingNavigatorSaveItem.Click
+        Dim oldCodice As String
+        If ProdottiGrezziPNL.Visible Then
 
-        If ProdottiPNL.Visible Then
-            Dim oldCodice As String
             Me.Validate()
-            'Me.AnagraficaProdottiBindingSource.EndEdit()
+            Me.AnagraficaGrezziBindingSource.EndEdit()
             If addNewItem Then
-                Me.AnagraficaProdottiTableAdapter.Insert(CodiceTXT.Text, DescrizioneTXT.Text, CategoriaCMB.SelectedValue, CalibroTXT.Text)
+                Me.AnagraficaGrezziTableAdapter.Insert(CodiceTXT.Text, DescrizioneTXT.Text, CategoriaTXT.Text)
                 Me.addNewItem = False
                 Me.CodiceTXT.ReadOnly = True
             Else
-                Me.AnagraficaProdottiTableAdapter.UpdateProdotto(DescrizioneTXT.Text, CategoriaCMB.SelectedValue, CalibroTXT.Text, CodiceTXT.Text)
+                Me.AnagraficaGrezziTableAdapter.UpdateGrezzo(DescrizioneTXT.Text, CategoriaTXT.Text, CodiceTXT.Text)
+            End If
+            oldCodice = Me.CodiceTXT.Text
+            Me.AnagraficaGrezziTableAdapter.Fill(Me.TostaturaDataSet.AnagraficaGrezzi)
+            Dim index As Integer = Me.BindingNavigator.BindingSource.Find("codice", oldCodice)
+            If index <> -1 Then
+                Me.BindingNavigator.BindingSource.Position = index
+            End If
+        ElseIf Me.ProdottiFinitiPNL.Visible Then
+
+            Me.Validate()
+            Me.AnagraficaProdottiBindingSource.EndEdit()
+            If addNewItem Then
+                Me.AnagraficaProdottiTableAdapter.Insert(CodiceFinitoTXT.Text, DescrizioneFinitoTXT.Text, CategoriaFinitoTXT.Text, CalibroFinitoTXT.Text, CodiceGrezzoTXT.Text, 0)
+                Me.addNewItem = False
+                Me.CodiceFinitoTXT.ReadOnly = True
+            Else
+                Me.AnagraficaProdottiTableAdapter.UpdateFinito(DescrizioneFinitoTXT.Text, CategoriaFinitoTXT.Text, CalibroFinitoTXT.Text, CodiceGrezzoTXT.Text, 0, CodiceFinitoTXT.Text)
             End If
             oldCodice = Me.CodiceTXT.Text
             Me.AnagraficaProdottiTableAdapter.Fill(Me.TostaturaDataSet.AnagraficaProdotti)
@@ -33,17 +55,23 @@
             If index <> -1 Then
                 Me.BindingNavigator.BindingSource.Position = index
             End If
+
         End If
 
-        
+
     End Sub
 
     Private Sub FormAnagrafiche_Load(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles MyBase.Load
-        'TODO: questa riga di codice carica i dati nella tabella 'TostaturaDataSet.CategoriaProdotti'. È possibile spostarla o rimuoverla se necessario.
-        Me.CategoriaProdottiTableAdapter.Fill(Me.TostaturaDataSet.CategoriaProdotti)
-        'TODO: questa riga di codice carica i dati nella tabella 'TostaturaDataSet.AnagraficaProdotti'. È possibile spostarla o rimuoverla se necessario.
+        'TODO: questa riga di codice carica i dati nella tabella 'TostaturaDataSet.TipoLavorazione'. È possibile spostarla o rimuoverla se necessario.
+        Me.TipoLavorazioneTableAdapter.Fill(Me.TostaturaDataSet.TipoLavorazione)
+        'TODO: questa riga di codice carica i dati nella tabella 'TostaturaDataSet.GrezziFinitiParametriView'. È possibile spostarla o rimuoverla se necessario.
+        'Me.GrezziFinitiParametriViewTableAdapter.Fill(Me.TostaturaDataSet.GrezziFinitiParametriView)
+        'TODO: questa riga di codice carica i dati nella tabella 'TostaturaDataSet.GrezziFinitiParametriView'. È possibile spostarla o rimuoverla se necessario.
+        'Me.GrezziFinitiParametriViewTableAdapter.Fill(Me.TostaturaDataSet.GrezziFinitiParametriView)
+        'TODO: questa riga di codice carica i dati nella tabella 'TostaturaDataSet.AnagraficaGrezzi'. È possibile spostarla o rimuoverla se necessario.
+        Me.AnagraficaGrezziTableAdapter.Fill(Me.TostaturaDataSet.AnagraficaGrezzi)
         Me.AnagraficaProdottiTableAdapter.Fill(Me.TostaturaDataSet.AnagraficaProdotti)
-        Me.ProdottiPNL.Visible = True
+        Me.ProdottiGrezziPNL.Visible = True
 
         If Me.operatore.CodiceRuolo = 3 Then
             Me.CtlAvanzatiGPB.Visible = True
@@ -51,49 +79,35 @@
             Me.CtlAvanzatiGPB.Visible = False
         End If
 
+        Me.BindingNavigator.BindingSource = Me.AnagraficaGrezziBindingSource
     End Sub
 
-    Private Sub idCategoriaTXT_TextChanged(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles idCategoriaTXT.TextChanged
-        'If (Not idCategoriaTXT.Text.Equals("")) And (Not idCategoriaTXT.Text Is Nothing) Then
-        'Dim idCategoria As Integer
-        'idCategoria = Integer.Parse(idCategoriaTXT.Text)
-        'Me.CategoriaProdottiTableAdapter.FillByid(Me.TostaturaDataSet.CategoriaProdotti, idCategoria)
-        'Else
-        'Me.CategoriaProdottiTableAdapter.Fill(Me.TostaturaDataSet.CategoriaProdotti)
-        'End If
-        If (Not idCategoriaTXT.Text.Equals("")) And (Not idCategoriaTXT.Text Is Nothing) Then
-            Me.CategoriaCMB.SelectedValue = Integer.Parse(Me.idCategoriaTXT.Text)
-
-        End If
-
-    End Sub
 
     Private Sub ProdottiBTN_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles ProdottiBTN.Click
-        Me.ProdottiPNL.Visible = True
-        Me.CategoriePNL.Visible = False
+        Me.ProdottiGrezziPNL.Visible = True
+        Me.ProdottiFinitiPNL.Visible = False
         Me.PnlOperatori.Visible = False
 
-        Me.AnagraficaProdottiTableAdapter.Fill(Me.TostaturaDataSet.AnagraficaProdotti)
-        Me.BindingNavigator.BindingSource = Me.AnagraficaProdottiBindingSource
-
-        Me.CategoriaProdottiTableAdapter.Fill(Me.TostaturaDataSet.CategoriaProdotti)
+        Me.AnagraficaGrezziTableAdapter.Fill(Me.TostaturaDataSet.AnagraficaGrezzi)
+        Me.BindingNavigator.BindingSource = Me.AnagraficaGrezziBindingSource
 
     End Sub
 
-    Private Sub CategorieBTN_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles CategorieBTN.Click
-        Me.CategoriePNL.Visible = True
-        Me.ProdottiPNL.Visible = False
+    Private Sub FinitiBTN_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles FinitiBTN.Click
+        Me.ProdottiGrezziPNL.Visible = False
+        Me.ProdottiFinitiPNL.Visible = True
         Me.PnlOperatori.Visible = False
 
-        Me.CategoriaProdottiTableAdapter.Fill(Me.TostaturaDataSet.CategoriaProdotti)
-
-        Me.BindingNavigator.BindingSource = Me.CategoriaProdottiBindingSource
+        Me.BindingNavigator.BindingSource = Me.AnagraficaProdottiBindingSource
+        Me.AnagraficaProdottiTableAdapter.Fill(Me.TostaturaDataSet.AnagraficaProdotti)
+        'Me.GrezziFinitiParametriViewTableAdapter.Fill(Me.TostaturaDataSet.GrezziFinitiParametriView)
+        'Me.BindingNavigator.BindingSource = Me.GrezziFinitiParametriViewBindingSource
 
     End Sub
 
     Private Sub OperatoriBTN_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles OperatoriBTN.Click
-        Me.CategoriePNL.Visible = False
-        Me.ProdottiPNL.Visible = False
+        Me.ProdottiGrezziPNL.Visible = False
+        Me.ProdottiFinitiPNL.Visible = False
         Me.PnlOperatori.Visible = True
 
         'Me.CategoriaProdottiTableAdapter.Fill(Me.TostaturaDataSet.CategoriaProdotti)
@@ -104,11 +118,11 @@
     Private Sub CodiceTXT_Leave(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles CodiceTXT.Leave
         If Not CodiceTXT.ReadOnly Then
             If Not (CodiceTXT.Text.Equals("") And CodiceTXT.Text Is Nothing) Then
-                If Not Me.AnagraficaProdottiTableAdapter.CountElemenByCodice(CodiceTXT.Text) = 0 Then
+                If Not Me.AnagraficaGrezziTableAdapter.CountElementByCodice(CodiceTXT.Text) = 0 Then
                     Me.CodiceTXT.ReadOnly = True
                     Me.addNewItem = False
 
-                    Me.AnagraficaProdottiTableAdapter.FillByCodice(Me.TostaturaDataSet.AnagraficaProdotti, Me.CodiceTXT.Text)
+                    Me.AnagraficaGrezziTableAdapter.FillByCodice(Me.TostaturaDataSet.AnagraficaGrezzi, Me.CodiceTXT.Text)
                 End If
             End If
         End If
@@ -119,7 +133,7 @@
         Dim item As String = ""
         Dim oldCodice As String = ""
         Dim index As Integer = -1
-        If ProdottiPNL.Visible Then
+        If ProdottiGrezziPNL.Visible Then
             message = "il prodotto"
             item = "Codice: " & CodiceTXT.Text & vbNewLine & "Descrizione: " & DescrizioneTXT.Text
             oldCodice = Me.CodiceTXT.Text
@@ -127,8 +141,8 @@
 
         If MessageBox.Show("Stai per rimuovere" & message & ": " & vbNewLine & item & vbNewLine & "Confermi l'eliminazione?", My.Application.Info.Title, MessageBoxButtons.YesNo, MessageBoxIcon.Question) = Windows.Forms.DialogResult.Yes Then
             index = Me.BindingNavigator.BindingSource.Position - 1
-            Me.AnagraficaProdottiTableAdapter.DeleteByCodice(Me.CodiceTXT.Text)
-            Me.AnagraficaProdottiTableAdapter.Fill(Me.TostaturaDataSet.AnagraficaProdotti)
+            Me.AnagraficaGrezziTableAdapter.DeleteByCodice(Me.CodiceTXT.Text)
+            Me.AnagraficaGrezziTableAdapter.Fill(Me.TostaturaDataSet.AnagraficaGrezzi)
 
         Else
             MessageBox.Show("Eliminazione annullata.", My.Application.Info.Title, MessageBoxButtons.OK, MessageBoxIcon.Information)
@@ -142,30 +156,24 @@
 
     Private Sub BNCodiceTXT_TextChanged(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles BNCodiceTXT.TextChanged
         If Not (Me.BNCodiceTXT.Text Is Nothing And Me.BNCodiceTXT.Text.Equals("")) Then
-            If Me.ProdottiPNL.Visible Then
-                Me.AnagraficaProdottiTableAdapter.SearchByCodice(Me.TostaturaDataSet.AnagraficaProdotti, Me.BNCodiceTXT.Text)
-            ElseIf Me.CategoriePNL.Visible Then
-                'Dim res As Integer = 0
-                'If Integer.TryParse(Me.BNCodiceTXT.Text, res) Then
-                'Me.CategoriaProdottiTableAdapter.FillByid(Me.TostaturaDataSet.CategoriaProdotti, Integer.Parse(BNCodiceTXT.Text))
-                'Else
-                'MessageBox.Show("Specifica un valore numerico per il codice Categoria.", My.Application.Info.Title, MessageBoxButtons.OK, MessageBoxIcon.Information)
-                'End If
+            If Me.ProdottiGrezziPNL.Visible Then
+                Me.AnagraficaGrezziTableAdapter.SearchByCodice(Me.TostaturaDataSet.AnagraficaGrezzi, Me.BNCodiceTXT.Text)
+            ElseIf Me.ProdottiFinitiPNL.Visible Then
+                'Me.GrezziFinitiParametriViewTableAdapter.SearchByCodiceFinito(Me.TostaturaDataSet.GrezziFinitiParametriView, BNCodiceTXT.Text)
+                Me.AnagraficaProdottiTableAdapter.SearchByCodiceFinito(Me.TostaturaDataSet.AnagraficaProdotti, BNCodiceTXT.Text)
+                
             End If
         End If
     End Sub
 
     Private Sub BNCodiceTXT_Leave(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles BNCodiceTXT.Leave
         If Not (Me.BNCodiceTXT.Text Is Nothing And Me.BNCodiceTXT.Text.Equals("")) Then
-            If Me.ProdottiPNL.Visible Then
-                Me.AnagraficaProdottiTableAdapter.SearchByCodice(Me.TostaturaDataSet.AnagraficaProdotti, Me.BNCodiceTXT.Text)
-            ElseIf Me.CategoriePNL.Visible Then
-                Dim res As Integer = 0
-                If Integer.TryParse(Me.BNCodiceTXT.Text, res) Then
-                    Me.CategoriaProdottiTableAdapter.FillByid(Me.TostaturaDataSet.CategoriaProdotti, Integer.Parse(BNCodiceTXT.Text))
-                Else
-                    MessageBox.Show("Specifica un valore numerico per il codice Categoria.", My.Application.Info.Title, MessageBoxButtons.OK, MessageBoxIcon.Information)
-                End If
+            If Me.ProdottiGrezziPNL.Visible Then
+                Me.AnagraficaGrezziTableAdapter.SearchByCodice(Me.TostaturaDataSet.AnagraficaGrezzi, Me.BNCodiceTXT.Text)
+            ElseIf Me.ProdottiFinitiPNL.Visible Then
+                Me.AnagraficaProdottiTableAdapter.SearchByCodiceFinito(Me.TostaturaDataSet.AnagraficaProdotti, BNCodiceTXT.Text)
+                'Else
+                '   MessageBox.Show("Specifica un valore numerico per il codice Categoria.", My.Application.Info.Title, MessageBoxButtons.OK, MessageBoxIcon.Information)
             End If
         End If
     End Sub
@@ -179,21 +187,53 @@
 
     Private Sub BNDescrizoneTXT_TextChanged(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles BNDescrizoneTXT.TextChanged
         If Not (Me.BNDescrizoneTXT.Text Is Nothing And Me.BNDescrizoneTXT.Text.Equals("")) Then
-            If Me.ProdottiPNL.Visible Then
+            If Me.ProdottiGrezziPNL.Visible Then
+                Me.AnagraficaGrezziTableAdapter.SearchByDescrizione(Me.TostaturaDataSet.AnagraficaGrezzi, Me.BNDescrizoneTXT.Text)
+            ElseIf Me.ProdottiFinitiPNL.Visible Then
                 Me.AnagraficaProdottiTableAdapter.SearchByDescrizione(Me.TostaturaDataSet.AnagraficaProdotti, Me.BNDescrizoneTXT.Text)
-            ElseIf Me.CategoriePNL.Visible Then
-                Me.CategoriaProdottiTableAdapter.SearchByDescrizione(Me.TostaturaDataSet.CategoriaProdotti, Me.BNDescrizoneTXT.Text)
             End If
         End If
     End Sub
 
     Private Sub BNUpdateButton_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles BNUpdateButton.Click
 
-        If Me.ProdottiPNL.Visible Then
+        If Me.ProdottiGrezziPNL.Visible Then
+            Me.AnagraficaGrezziTableAdapter.Fill(Me.TostaturaDataSet.AnagraficaGrezzi)
+        ElseIf Me.ProdottiGrezziPNL.Visible Then
             Me.AnagraficaProdottiTableAdapter.Fill(Me.TostaturaDataSet.AnagraficaProdotti)
-        ElseIf Me.CategoriePNL.Visible Then
-            Me.CategoriaProdottiTableAdapter.Fill(Me.TostaturaDataSet.CategoriaProdotti)
         End If
 
+    End Sub
+
+    Private Sub CodiceGrezzoTXT_TextChanged(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles CodiceGrezzoTXT.TextChanged
+        If Not (Me.CodiceGrezzoTXT.Text.Equals("") And CodiceGrezzoTXT.Text = Nothing) Then
+            Me.DescrizioneGrezzoCMB.SelectedValue = Me.CodiceGrezzoTXT.Text
+        End If
+    End Sub
+
+    Private Sub IdTipoLavorazioneTXT_TextChanged(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles IdTipoLavorazioneTXT.TextChanged
+        If Not (Me.IdTipoLavorazioneTXT.Text.Equals("") And IdTipoLavorazioneTXT.Text = Nothing) Then
+            Me.TipoLavorazioneCMB.SelectedValue = Me.IdTipoLavorazioneTXT.Text
+        End If
+    End Sub
+
+    Private Sub CodiceFinitoTXT_Leave(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles CodiceFinitoTXT.Leave
+        If Not CodiceFinitoTXT.ReadOnly Then
+            If Not (CodiceFinitoTXT.Text.Equals("") And CodiceFinitoTXT.Text Is Nothing) Then
+                If Not Me.AnagraficaProdottiTableAdapter.CountElementByCodice(CodiceFinitoTXT.Text) = 0 Then
+                    Me.CodiceFinitoTXT.ReadOnly = True
+                    Me.addNewItem = False
+
+                    Me.AnagraficaProdottiTableAdapter.FillByCodice(Me.TostaturaDataSet.AnagraficaProdotti, Me.CodiceFinitoTXT.Text)
+                End If
+            End If
+        End If
+    End Sub
+
+    Private Sub DescrizioneGrezzoCMB_SelectedIndexChanged(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles DescrizioneGrezzoCMB.SelectedIndexChanged
+        If CodiceGrezzoTXT.Text.Equals("") Then
+            MsgBox("Prova2", MsgBoxStyle.Information, My.Application.Info.Title)
+            Me.CodiceGrezzoTXT.Text = Me.DescrizioneGrezzoCMB.SelectedValue.ToString()
+        End If
     End Sub
 End Class

@@ -15,7 +15,7 @@
 
     Private Sub Tstatura_Load(ByVal sender As Object, ByVal e As EventArgs) Handles MyBase.Load
         'TODO: questa riga di codice carica i dati nella tabella 'TostaturaDataSet.ProdottiCategorieView'. È possibile spostarla o rimuoverla se necessario.
-        Me.ProdottiCategorieViewTableAdapter.Fill(Me.TostaturaDataSet.ProdottiCategorieView)
+        'Me.ProdottiCategorieViewTableAdapter.Fill(Me.TostaturaDataSet.ProdottiCategorieView)
 
 
         Me.OpLbl.Text = operatore.NomeOperatore

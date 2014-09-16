@@ -61,7 +61,6 @@ Partial Class TostaturaForm
         Me.OpLbl = New System.Windows.Forms.Label
         Me.Label18 = New System.Windows.Forms.Label
         Me.Label17 = New System.Windows.Forms.Label
-        Me.ProdottiCategorieViewTableAdapter = New Tostatura.TostaturaDataSetTableAdapters.ProdottiCategorieViewTableAdapter
         Me.TableAdapterManager = New Tostatura.TostaturaDataSetTableAdapters.TableAdapterManager
         Me.ProdottiCategorieViewBindingNavigator = New System.Windows.Forms.BindingNavigator(Me.components)
         Me.BindingNavigatorAddNewItem = New System.Windows.Forms.ToolStripButton
@@ -498,21 +497,14 @@ Partial Class TostaturaForm
         Me.Label17.TabIndex = 33
         Me.Label17.Text = "Operatore:"
         '
-        'ProdottiCategorieViewTableAdapter
-        '
-        Me.ProdottiCategorieViewTableAdapter.ClearBeforeFill = True
-        '
         'TableAdapterManager
         '
         Me.TableAdapterManager.AnagraficaProdottiTableAdapter = Nothing
         Me.TableAdapterManager.BackupDataSetBeforeUpdate = False
-        Me.TableAdapterManager.CategoriaProdottiTableAdapter = Nothing
         Me.TableAdapterManager.Connection = Nothing
-        Me.TableAdapterManager.DistintaBaseTableAdapter = Nothing
         Me.TableAdapterManager.OperatoriTableAdapter = Nothing
         Me.TableAdapterManager.RuoliTableAdapter = Nothing
         Me.TableAdapterManager.StoricoInputTostaturaTableAdapter = Nothing
-        Me.TableAdapterManager.StoricoOpzioniTostaturaTableAdapter = Nothing
         Me.TableAdapterManager.TipoLavorazioneTableAdapter = Nothing
         Me.TableAdapterManager.UpdateOrder = Tostatura.TostaturaDataSetTableAdapters.TableAdapterManager.UpdateOrderOption.InsertUpdateDelete
         '
@@ -716,7 +708,6 @@ Partial Class TostaturaForm
     Friend WithEvents Label13 As System.Windows.Forms.Label
     Friend WithEvents TostaturaDataSet As Tostatura.TostaturaDataSet
     Friend WithEvents ProdottiCategorieViewBindingSource As System.Windows.Forms.BindingSource
-    Friend WithEvents ProdottiCategorieViewTableAdapter As Tostatura.TostaturaDataSetTableAdapters.ProdottiCategorieViewTableAdapter
     Friend WithEvents TableAdapterManager As Tostatura.TostaturaDataSetTableAdapters.TableAdapterManager
     Friend WithEvents ProdottiCategorieViewBindingNavigator As System.Windows.Forms.BindingNavigator
     Friend WithEvents BindingNavigatorAddNewItem As System.Windows.Forms.ToolStripButton
