@@ -1,5 +1,6 @@
 ﻿Public Class TostaturaForm
 
+    Friend WithEvents u As New Utils()
     Dim operatore As Operatore
     Public callingForm As MainForm
 

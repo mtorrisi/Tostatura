@@ -3,3 +3,5 @@
 /Tostatura/My Project/*.myapp
 /Tostatura/*.vbproj
 /Tostatura/*.user
+/Tostatura/obj
+/Tostatura/bin
