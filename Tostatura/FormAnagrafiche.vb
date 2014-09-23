@@ -20,7 +20,7 @@
     End Sub
 
     Private Sub AnagraficaProdottiBindingNavigatorSaveItem_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles AnagraficaProdottiBindingNavigatorSaveItem.Click
-        Dim oldCodice As String
+        Dim oldCodice As String =""
         If ProdottiGrezziPNL.Visible Then
 
             Me.Validate()
@@ -34,40 +34,52 @@
             End If
             oldCodice = Me.CodiceTXT.Text
             Me.AnagraficaGrezziTableAdapter.Fill(Me.TostaturaDataSet.AnagraficaGrezzi)
-            Dim index As Integer = Me.BindingNavigator.BindingSource.Find("codice", oldCodice)
-            If index <> -1 Then
-                Me.BindingNavigator.BindingSource.Position = index
-            End If
+            'Dim index As Integer = Me.BindingNavigator.BindingSource.Find("codice", oldCodice)
+            'If index <> -1 Then
+            'Me.BindingNavigator.BindingSource.Position = index
+            'End If
         ElseIf Me.ProdottiFinitiPNL.Visible Then
 
-            Me.Validate()
-            Me.AnagraficaProdottiBindingSource.EndEdit()
+        Me.Validate()
+        Me.AnagraficaProdottiBindingSource.EndEdit()
             If addNewItem Then
+                Dim UmiditaProdotto As Double
+                Dim UmiditaEsterna As Double
+                Dim TemperaturaForno As Double
+                Dim TempoCottura As Double
+                Dim QuantitaCarico As Double
+                Double.TryParse(Me.UmiditaProdottoTXT.Text, UmiditaProdotto)
+                Double.TryParse(Me.UmiditaEsternaTXT.Text, UmiditaEsterna)
+                Double.TryParse(Me.TemperaturaFornoTXT.Text, TemperaturaForno)
+                Double.TryParse(Me.TempoCotturaTXT.Text, TempoCottura)
+                Double.TryParse(Me.QuantitaCaricoTXT.Text, QuantitaCarico)
                 Me.AnagraficaProdottiTableAdapter.Insert(CodiceFinitoTXT.Text, DescrizioneFinitoTXT.Text, CategoriaFinitoTXT.Text, CalibroFinitoTXT.Text, CodiceGrezzoTXT.Text, 0)
                 Me.addNewItem = False
                 Me.CodiceFinitoTXT.ReadOnly = True
             Else
                 Me.AnagraficaProdottiTableAdapter.UpdateFinito(DescrizioneFinitoTXT.Text, CategoriaFinitoTXT.Text, CalibroFinitoTXT.Text, CodiceGrezzoTXT.Text, 0, CodiceFinitoTXT.Text)
             End If
-            oldCodice = Me.CodiceTXT.Text
-            Me.AnagraficaProdottiTableAdapter.Fill(Me.TostaturaDataSet.AnagraficaProdotti)
-            Dim index As Integer = Me.BindingNavigator.BindingSource.Find("codice", oldCodice)
-            If index <> -1 Then
-                Me.BindingNavigator.BindingSource.Position = index
-            End If
+            oldCodice = Me.CodiceFinitoTXT.Text
+        Me.AnagraficaProdottiTableAdapter.Fill(Me.TostaturaDataSet.AnagraficaProdotti)
+            'Dim index As Integer = Me.BindingNavigator.BindingSource.Find("codice", oldCodice)
+            'If index <> -1 Then
+            'Me.BindingNavigator.BindingSource.Position = index
+            'End If
 
         End If
 
+        Dim index As Integer = Me.BindingNavigator.BindingSource.Find("codice", oldCodice)
+        If index <> -1 Then
+            Me.BindingNavigator.BindingSource.Position = index
+        End If
 
     End Sub
 
     Private Sub FormAnagrafiche_Load(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles MyBase.Load
+        'TODO: questa riga di codice carica i dati nella tabella 'TostaturaDataSet.ParametriTostatura'. È possibile spostarla o rimuoverla se necessario.
+        Me.ParametriTostaturaTableAdapter.Fill(Me.TostaturaDataSet.ParametriTostatura)
         'TODO: questa riga di codice carica i dati nella tabella 'TostaturaDataSet.TipoLavorazione'. È possibile spostarla o rimuoverla se necessario.
         Me.TipoLavorazioneTableAdapter.Fill(Me.TostaturaDataSet.TipoLavorazione)
-        'TODO: questa riga di codice carica i dati nella tabella 'TostaturaDataSet.GrezziFinitiParametriView'. È possibile spostarla o rimuoverla se necessario.
-        'Me.GrezziFinitiParametriViewTableAdapter.Fill(Me.TostaturaDataSet.GrezziFinitiParametriView)
-        'TODO: questa riga di codice carica i dati nella tabella 'TostaturaDataSet.GrezziFinitiParametriView'. È possibile spostarla o rimuoverla se necessario.
-        'Me.GrezziFinitiParametriViewTableAdapter.Fill(Me.TostaturaDataSet.GrezziFinitiParametriView)
         'TODO: questa riga di codice carica i dati nella tabella 'TostaturaDataSet.AnagraficaGrezzi'. È possibile spostarla o rimuoverla se necessario.
         Me.AnagraficaGrezziTableAdapter.Fill(Me.TostaturaDataSet.AnagraficaGrezzi)
         Me.AnagraficaProdottiTableAdapter.Fill(Me.TostaturaDataSet.AnagraficaProdotti)
@@ -199,7 +211,7 @@
 
         If Me.ProdottiGrezziPNL.Visible Then
             Me.AnagraficaGrezziTableAdapter.Fill(Me.TostaturaDataSet.AnagraficaGrezzi)
-        ElseIf Me.ProdottiGrezziPNL.Visible Then
+        ElseIf Me.ProdottiFinitiPNL.Visible Then
             Me.AnagraficaProdottiTableAdapter.Fill(Me.TostaturaDataSet.AnagraficaProdotti)
         End If
 
@@ -231,9 +243,27 @@
     End Sub
 
     Private Sub DescrizioneGrezzoCMB_SelectedIndexChanged(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles DescrizioneGrezzoCMB.SelectedIndexChanged
-        If CodiceGrezzoTXT.Text.Equals("") Then
-            MsgBox("Prova2", MsgBoxStyle.Information, My.Application.Info.Title)
-            Me.CodiceGrezzoTXT.Text = Me.DescrizioneGrezzoCMB.SelectedValue.ToString()
+        'If CodiceGrezzoTXT.Text.Equals("") Then
+        'MsgBox("Prova2", MsgBoxStyle.Information, My.Application.Info.Title)
+        Me.CodiceGrezzoTXT.Text = Me.DescrizioneGrezzoCMB.SelectedValue.ToString()
+        'End If
+    End Sub
+
+    Private Sub IdParametriTXT_TextChanged(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles IdParametriTXT.TextChanged
+        If Not (Me.IdParametriTXT.Text.Equals("") And Me.IdParametriTXT.Text = Nothing) Then
+            Dim index As Integer
+
+            If Integer.TryParse(IdParametriTXT.Text, index) Then
+                Me.ParametriTostaturaBindingSource.Position = index
+            End If
+        End If
+
+    End Sub
+
+    Private Sub Button1_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles Button1.Click
+        Dim d As New DialogTest
+        If d.ShowDialog(Me) = System.Windows.Forms.DialogResult.OK Then
+            Me.IdParametriTXT.Text = d.ParametriDeaultLavorazioneDataGridView.SelectedRows(0).Cells(0).Value
         End If
     End Sub
 End Class

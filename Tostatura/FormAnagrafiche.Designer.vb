@@ -23,6 +23,9 @@ Partial Class FormAnagrafiche
     <System.Diagnostics.DebuggerStepThrough()> _
     Private Sub InitializeComponent()
         Me.components = New System.ComponentModel.Container
+        Dim DataGridViewCellStyle4 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle
+        Dim DataGridViewCellStyle5 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle
+        Dim DataGridViewCellStyle6 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle
         Dim resources As System.ComponentModel.ComponentResourceManager = New System.ComponentModel.ComponentResourceManager(GetType(FormAnagrafiche))
         Me.SplitContainer1 = New System.Windows.Forms.SplitContainer
         Me.CtlAvanzatiGPB = New System.Windows.Forms.GroupBox
@@ -41,8 +44,10 @@ Partial Class FormAnagrafiche
         Me.CalibroFinitoTXT = New System.Windows.Forms.TextBox
         Me.Label17 = New System.Windows.Forms.Label
         Me.GroupBox1 = New System.Windows.Forms.GroupBox
+        Me.IdParametriTXT = New System.Windows.Forms.TextBox
+        Me.Button1 = New System.Windows.Forms.Button
         Me.IdTipoLavorazioneTXT = New System.Windows.Forms.TextBox
-        Me.GrezziFinitiParametriViewBindingSource = New System.Windows.Forms.BindingSource(Me.components)
+        Me.ParametriTostaturaBindingSource = New System.Windows.Forms.BindingSource(Me.components)
         Me.TipoLavorazioneCMB = New System.Windows.Forms.ComboBox
         Me.TipoLavorazioneBindingSource = New System.Windows.Forms.BindingSource(Me.components)
         Me.Label16 = New System.Windows.Forms.Label
@@ -131,8 +136,8 @@ Partial Class FormAnagrafiche
         Me.AnagraficaProdottiTableAdapter = New Tostatura.TostaturaDataSetTableAdapters.AnagraficaProdottiTableAdapter
         Me.TableAdapterManager = New Tostatura.TostaturaDataSetTableAdapters.TableAdapterManager
         Me.AnagraficaGrezziTableAdapter = New Tostatura.TostaturaDataSetTableAdapters.AnagraficaGrezziTableAdapter
+        Me.ParametriTostaturaTableAdapter = New Tostatura.TostaturaDataSetTableAdapters.ParametriTostaturaTableAdapter
         Me.TipoLavorazioneTableAdapter = New Tostatura.TostaturaDataSetTableAdapters.TipoLavorazioneTableAdapter
-        Me.GrezziFinitiParametriViewTableAdapter = New Tostatura.TostaturaDataSetTableAdapters.GrezziFinitiParametriViewTableAdapter
         Me.SplitContainer1.Panel1.SuspendLayout()
         Me.SplitContainer1.Panel2.SuspendLayout()
         Me.SplitContainer1.SuspendLayout()
@@ -142,7 +147,7 @@ Partial Class FormAnagrafiche
         CType(Me.TostaturaDataSet, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.AnagraficaGrezziBindingSource, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.GroupBox1.SuspendLayout()
-        CType(Me.GrezziFinitiParametriViewBindingSource, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.ParametriTostaturaBindingSource, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.TipoLavorazioneBindingSource, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.ProdottiGrezziPNL.SuspendLayout()
         CType(Me.AnagraficaGrezziDataGridView, System.ComponentModel.ISupportInitialize).BeginInit()
@@ -339,6 +344,8 @@ Partial Class FormAnagrafiche
         '
         'GroupBox1
         '
+        Me.GroupBox1.Controls.Add(Me.IdParametriTXT)
+        Me.GroupBox1.Controls.Add(Me.Button1)
         Me.GroupBox1.Controls.Add(Me.IdTipoLavorazioneTXT)
         Me.GroupBox1.Controls.Add(Me.TipoLavorazioneCMB)
         Me.GroupBox1.Controls.Add(Me.Label16)
@@ -355,24 +362,42 @@ Partial Class FormAnagrafiche
         Me.GroupBox1.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.GroupBox1.Location = New System.Drawing.Point(16, 186)
         Me.GroupBox1.Name = "GroupBox1"
-        Me.GroupBox1.Size = New System.Drawing.Size(692, 316)
+        Me.GroupBox1.Size = New System.Drawing.Size(692, 320)
         Me.GroupBox1.TabIndex = 42
         Me.GroupBox1.TabStop = False
         Me.GroupBox1.Text = "Parametri di Tostatura"
         '
+        'IdParametriTXT
+        '
+        Me.IdParametriTXT.DataBindings.Add(New System.Windows.Forms.Binding("Text", Me.AnagraficaProdottiBindingSource, "id_parametri", True))
+        Me.IdParametriTXT.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.IdParametriTXT.Location = New System.Drawing.Point(290, 19)
+        Me.IdParametriTXT.Name = "IdParametriTXT"
+        Me.IdParametriTXT.Size = New System.Drawing.Size(67, 22)
+        Me.IdParametriTXT.TabIndex = 58
+        '
+        'Button1
+        '
+        Me.Button1.Location = New System.Drawing.Point(350, 68)
+        Me.Button1.Name = "Button1"
+        Me.Button1.Size = New System.Drawing.Size(104, 58)
+        Me.Button1.TabIndex = 57
+        Me.Button1.Text = "Seleziona Parametri"
+        Me.Button1.UseVisualStyleBackColor = True
+        '
         'IdTipoLavorazioneTXT
         '
-        Me.IdTipoLavorazioneTXT.DataBindings.Add(New System.Windows.Forms.Binding("Text", Me.GrezziFinitiParametriViewBindingSource, "tipo_lavorazione", True))
+        Me.IdTipoLavorazioneTXT.DataBindings.Add(New System.Windows.Forms.Binding("Text", Me.ParametriTostaturaBindingSource, "tipo_lavorazione", True))
         Me.IdTipoLavorazioneTXT.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.IdTipoLavorazioneTXT.Location = New System.Drawing.Point(290, 162)
         Me.IdTipoLavorazioneTXT.Name = "IdTipoLavorazioneTXT"
         Me.IdTipoLavorazioneTXT.Size = New System.Drawing.Size(67, 22)
         Me.IdTipoLavorazioneTXT.TabIndex = 56
         '
-        'GrezziFinitiParametriViewBindingSource
+        'ParametriTostaturaBindingSource
         '
-        Me.GrezziFinitiParametriViewBindingSource.DataMember = "GrezziFinitiParametriView"
-        Me.GrezziFinitiParametriViewBindingSource.DataSource = Me.TostaturaDataSet
+        Me.ParametriTostaturaBindingSource.DataMember = "ParametriTostatura"
+        Me.ParametriTostaturaBindingSource.DataSource = Me.TostaturaDataSet
         '
         'TipoLavorazioneCMB
         '
@@ -405,7 +430,7 @@ Partial Class FormAnagrafiche
         '
         'QuantitaCaricoTXT
         '
-        Me.QuantitaCaricoTXT.DataBindings.Add(New System.Windows.Forms.Binding("Text", Me.GrezziFinitiParametriViewBindingSource, "quantita_carico", True))
+        Me.QuantitaCaricoTXT.DataBindings.Add(New System.Windows.Forms.Binding("Text", Me.ParametriTostaturaBindingSource, "quantita_carico", True))
         Me.QuantitaCaricoTXT.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.QuantitaCaricoTXT.Location = New System.Drawing.Point(147, 132)
         Me.QuantitaCaricoTXT.Name = "QuantitaCaricoTXT"
@@ -424,7 +449,7 @@ Partial Class FormAnagrafiche
         '
         'TempoCotturaTXT
         '
-        Me.TempoCotturaTXT.DataBindings.Add(New System.Windows.Forms.Binding("Text", Me.GrezziFinitiParametriViewBindingSource, "tempo_cottura", True))
+        Me.TempoCotturaTXT.DataBindings.Add(New System.Windows.Forms.Binding("Text", Me.ParametriTostaturaBindingSource, "tempo_cottura", True))
         Me.TempoCotturaTXT.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.TempoCotturaTXT.Location = New System.Drawing.Point(147, 104)
         Me.TempoCotturaTXT.Name = "TempoCotturaTXT"
@@ -443,7 +468,7 @@ Partial Class FormAnagrafiche
         '
         'TemperaturaFornoTXT
         '
-        Me.TemperaturaFornoTXT.DataBindings.Add(New System.Windows.Forms.Binding("Text", Me.GrezziFinitiParametriViewBindingSource, "temperatura_forno", True))
+        Me.TemperaturaFornoTXT.DataBindings.Add(New System.Windows.Forms.Binding("Text", Me.ParametriTostaturaBindingSource, "temperatura_forno", True))
         Me.TemperaturaFornoTXT.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.TemperaturaFornoTXT.Location = New System.Drawing.Point(147, 75)
         Me.TemperaturaFornoTXT.Name = "TemperaturaFornoTXT"
@@ -462,7 +487,7 @@ Partial Class FormAnagrafiche
         '
         'UmiditaEsternaTXT
         '
-        Me.UmiditaEsternaTXT.DataBindings.Add(New System.Windows.Forms.Binding("Text", Me.GrezziFinitiParametriViewBindingSource, "umidita_esterna", True))
+        Me.UmiditaEsternaTXT.DataBindings.Add(New System.Windows.Forms.Binding("Text", Me.ParametriTostaturaBindingSource, "umidita_esterna", True))
         Me.UmiditaEsternaTXT.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.UmiditaEsternaTXT.Location = New System.Drawing.Point(147, 47)
         Me.UmiditaEsternaTXT.Name = "UmiditaEsternaTXT"
@@ -481,7 +506,7 @@ Partial Class FormAnagrafiche
         '
         'UmiditaProdottoTXT
         '
-        Me.UmiditaProdottoTXT.DataBindings.Add(New System.Windows.Forms.Binding("Text", Me.GrezziFinitiParametriViewBindingSource, "umidita_prodotto", True))
+        Me.UmiditaProdottoTXT.DataBindings.Add(New System.Windows.Forms.Binding("Text", Me.ParametriTostaturaBindingSource, "umidita_prodotto", True))
         Me.UmiditaProdottoTXT.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.UmiditaProdottoTXT.Location = New System.Drawing.Point(147, 19)
         Me.UmiditaProdottoTXT.Name = "UmiditaProdottoTXT"
@@ -522,6 +547,7 @@ Partial Class FormAnagrafiche
         Me.DescrizioneFinitoTXT.DataBindings.Add(New System.Windows.Forms.Binding("Text", Me.AnagraficaProdottiBindingSource, "descrizione", True))
         Me.DescrizioneFinitoTXT.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.DescrizioneFinitoTXT.Location = New System.Drawing.Point(291, 88)
+        Me.DescrizioneFinitoTXT.MaxLength = 50
         Me.DescrizioneFinitoTXT.Name = "DescrizioneFinitoTXT"
         Me.DescrizioneFinitoTXT.Size = New System.Drawing.Size(417, 22)
         Me.DescrizioneFinitoTXT.TabIndex = 38
@@ -587,11 +613,35 @@ Partial Class FormAnagrafiche
         '
         Me.AnagraficaGrezziDataGridView.AutoGenerateColumns = False
         Me.AnagraficaGrezziDataGridView.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill
+        DataGridViewCellStyle4.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft
+        DataGridViewCellStyle4.BackColor = System.Drawing.SystemColors.Control
+        DataGridViewCellStyle4.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        DataGridViewCellStyle4.ForeColor = System.Drawing.SystemColors.WindowText
+        DataGridViewCellStyle4.SelectionBackColor = System.Drawing.SystemColors.Highlight
+        DataGridViewCellStyle4.SelectionForeColor = System.Drawing.SystemColors.HighlightText
+        DataGridViewCellStyle4.WrapMode = System.Windows.Forms.DataGridViewTriState.[True]
+        Me.AnagraficaGrezziDataGridView.ColumnHeadersDefaultCellStyle = DataGridViewCellStyle4
         Me.AnagraficaGrezziDataGridView.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
         Me.AnagraficaGrezziDataGridView.Columns.AddRange(New System.Windows.Forms.DataGridViewColumn() {Me.DataGridViewTextBoxColumn1, Me.DataGridViewTextBoxColumn2, Me.DataGridViewTextBoxColumn3})
         Me.AnagraficaGrezziDataGridView.DataSource = Me.AnagraficaGrezziBindingSource
+        DataGridViewCellStyle5.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft
+        DataGridViewCellStyle5.BackColor = System.Drawing.SystemColors.Window
+        DataGridViewCellStyle5.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        DataGridViewCellStyle5.ForeColor = System.Drawing.SystemColors.ControlText
+        DataGridViewCellStyle5.SelectionBackColor = System.Drawing.SystemColors.Highlight
+        DataGridViewCellStyle5.SelectionForeColor = System.Drawing.SystemColors.HighlightText
+        DataGridViewCellStyle5.WrapMode = System.Windows.Forms.DataGridViewTriState.[False]
+        Me.AnagraficaGrezziDataGridView.DefaultCellStyle = DataGridViewCellStyle5
         Me.AnagraficaGrezziDataGridView.Location = New System.Drawing.Point(16, 194)
         Me.AnagraficaGrezziDataGridView.Name = "AnagraficaGrezziDataGridView"
+        DataGridViewCellStyle6.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft
+        DataGridViewCellStyle6.BackColor = System.Drawing.SystemColors.Control
+        DataGridViewCellStyle6.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        DataGridViewCellStyle6.ForeColor = System.Drawing.SystemColors.WindowText
+        DataGridViewCellStyle6.SelectionBackColor = System.Drawing.SystemColors.Highlight
+        DataGridViewCellStyle6.SelectionForeColor = System.Drawing.SystemColors.HighlightText
+        DataGridViewCellStyle6.WrapMode = System.Windows.Forms.DataGridViewTriState.[True]
+        Me.AnagraficaGrezziDataGridView.RowHeadersDefaultCellStyle = DataGridViewCellStyle6
         Me.AnagraficaGrezziDataGridView.Size = New System.Drawing.Size(690, 344)
         Me.AnagraficaGrezziDataGridView.TabIndex = 33
         '
@@ -1199,7 +1249,7 @@ Partial Class FormAnagrafiche
         Me.TableAdapterManager.AnagraficaProdottiTableAdapter = Me.AnagraficaProdottiTableAdapter
         Me.TableAdapterManager.BackupDataSetBeforeUpdate = False
         Me.TableAdapterManager.OperatoriTableAdapter = Nothing
-        Me.TableAdapterManager.ParametriTostaturaTableAdapter = Nothing
+        Me.TableAdapterManager.ParametriTostaturaTableAdapter = Me.ParametriTostaturaTableAdapter
         Me.TableAdapterManager.RuoliTableAdapter = Nothing
         Me.TableAdapterManager.StoricoAllarmiTableAdapter = Nothing
         Me.TableAdapterManager.StoricoInputTostaturaTableAdapter = Nothing
@@ -1211,13 +1261,13 @@ Partial Class FormAnagrafiche
         '
         Me.AnagraficaGrezziTableAdapter.ClearBeforeFill = True
         '
+        'ParametriTostaturaTableAdapter
+        '
+        Me.ParametriTostaturaTableAdapter.ClearBeforeFill = True
+        '
         'TipoLavorazioneTableAdapter
         '
         Me.TipoLavorazioneTableAdapter.ClearBeforeFill = True
-        '
-        'GrezziFinitiParametriViewTableAdapter
-        '
-        Me.GrezziFinitiParametriViewTableAdapter.ClearBeforeFill = True
         '
         'FormAnagrafiche
         '
@@ -1240,7 +1290,7 @@ Partial Class FormAnagrafiche
         CType(Me.AnagraficaGrezziBindingSource, System.ComponentModel.ISupportInitialize).EndInit()
         Me.GroupBox1.ResumeLayout(False)
         Me.GroupBox1.PerformLayout()
-        CType(Me.GrezziFinitiParametriViewBindingSource, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.ParametriTostaturaBindingSource, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.TipoLavorazioneBindingSource, System.ComponentModel.ISupportInitialize).EndInit()
         Me.ProdottiGrezziPNL.ResumeLayout(False)
         Me.ProdottiGrezziPNL.PerformLayout()
@@ -1363,8 +1413,10 @@ Partial Class FormAnagrafiche
     Friend WithEvents DescrizioneGrezzoCMB As System.Windows.Forms.ComboBox
     Friend WithEvents Label18 As System.Windows.Forms.Label
     Friend WithEvents IdTipoLavorazioneTXT As System.Windows.Forms.TextBox
-    Friend WithEvents GrezziFinitiParametriViewBindingSource As System.Windows.Forms.BindingSource
-    Friend WithEvents GrezziFinitiParametriViewTableAdapter As Tostatura.TostaturaDataSetTableAdapters.GrezziFinitiParametriViewTableAdapter
     Friend WithEvents TipoLavorazioneTableAdapter As Tostatura.TostaturaDataSetTableAdapters.TipoLavorazioneTableAdapter
     Friend WithEvents TipoLavorazioneBindingSource As System.Windows.Forms.BindingSource
+    Friend WithEvents Button1 As System.Windows.Forms.Button
+    Friend WithEvents ParametriTostaturaTableAdapter As Tostatura.TostaturaDataSetTableAdapters.ParametriTostaturaTableAdapter
+    Friend WithEvents ParametriTostaturaBindingSource As System.Windows.Forms.BindingSource
+    Friend WithEvents IdParametriTXT As System.Windows.Forms.TextBox
 End Class

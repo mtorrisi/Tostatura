@@ -25,9 +25,10 @@ Partial Class TostaturaForm
         Me.components = New System.ComponentModel.Container
         Dim resources As System.ComponentModel.ComponentResourceManager = New System.ComponentModel.ComponentResourceManager(GetType(TostaturaForm))
         Me.GroupBox3 = New System.Windows.Forms.GroupBox
-        Me.idCategoriaTXT = New System.Windows.Forms.TextBox
-        Me.ProdottiCategorieViewBindingSource = New System.Windows.Forms.BindingSource(Me.components)
+        Me.codiceGrezzoTXT = New System.Windows.Forms.TextBox
+        Me.AnagraficaProdottiBindingSource = New System.Windows.Forms.BindingSource(Me.components)
         Me.TostaturaDataSet = New Tostatura.TostaturaDataSet
+        Me.idCategoriaTXT = New System.Windows.Forms.TextBox
         Me.CalibroTXT = New System.Windows.Forms.TextBox
         Me.Label5 = New System.Windows.Forms.Label
         Me.Label6 = New System.Windows.Forms.Label
@@ -37,23 +38,28 @@ Partial Class TostaturaForm
         Me.Label1 = New System.Windows.Forms.Label
         Me.GroupBox1 = New System.Windows.Forms.GroupBox
         Me.CategoriaGrzTXT = New System.Windows.Forms.TextBox
+        Me.AnagraficaGrezziBindingSource = New System.Windows.Forms.BindingSource(Me.components)
         Me.Label13 = New System.Windows.Forms.Label
         Me.DescrizioneGrzTXT = New System.Windows.Forms.TextBox
         Me.Label3 = New System.Windows.Forms.Label
         Me.CodiceGrzTXT = New System.Windows.Forms.TextBox
         Me.Label4 = New System.Windows.Forms.Label
         Me.GroupBox2 = New System.Windows.Forms.GroupBox
+        Me.idLavorazioneTXT = New System.Windows.Forms.TextBox
+        Me.ParametriTostaturaBindingSource = New System.Windows.Forms.BindingSource(Me.components)
+        Me.IdParametriTXT = New System.Windows.Forms.TextBox
         Me.ComboBox2 = New System.Windows.Forms.ComboBox
-        Me.TextBox8 = New System.Windows.Forms.TextBox
-        Me.TextBox9 = New System.Windows.Forms.TextBox
+        Me.TipoLavorazioneBindingSource = New System.Windows.Forms.BindingSource(Me.components)
+        Me.tCotturaTXT = New System.Windows.Forms.TextBox
+        Me.tempFornoTXT = New System.Windows.Forms.TextBox
         Me.Label11 = New System.Windows.Forms.Label
-        Me.TextBox11 = New System.Windows.Forms.TextBox
+        Me.qCaricoTXT = New System.Windows.Forms.TextBox
         Me.Label12 = New System.Windows.Forms.Label
-        Me.TextBox6 = New System.Windows.Forms.TextBox
+        Me.umidEsternaTXT = New System.Windows.Forms.TextBox
         Me.Label9 = New System.Windows.Forms.Label
         Me.Label7 = New System.Windows.Forms.Label
         Me.Label8 = New System.Windows.Forms.Label
-        Me.TextBox7 = New System.Windows.Forms.TextBox
+        Me.umidProdottoTXT = New System.Windows.Forms.TextBox
         Me.Label10 = New System.Windows.Forms.Label
         Me.Button1 = New System.Windows.Forms.Button
         Me.Button2 = New System.Windows.Forms.Button
@@ -61,8 +67,7 @@ Partial Class TostaturaForm
         Me.OpLbl = New System.Windows.Forms.Label
         Me.Label18 = New System.Windows.Forms.Label
         Me.Label17 = New System.Windows.Forms.Label
-        Me.TableAdapterManager = New Tostatura.TostaturaDataSetTableAdapters.TableAdapterManager
-        Me.ProdottiCategorieViewBindingNavigator = New System.Windows.Forms.BindingNavigator(Me.components)
+        Me.BindingNavigator1 = New System.Windows.Forms.BindingNavigator(Me.components)
         Me.BindingNavigatorAddNewItem = New System.Windows.Forms.ToolStripButton
         Me.BindingNavigatorCountItem = New System.Windows.Forms.ToolStripLabel
         Me.BindingNavigatorDeleteItem = New System.Windows.Forms.ToolStripButton
@@ -74,21 +79,26 @@ Partial Class TostaturaForm
         Me.BindingNavigatorMoveNextItem = New System.Windows.Forms.ToolStripButton
         Me.BindingNavigatorMoveLastItem = New System.Windows.Forms.ToolStripButton
         Me.BindingNavigatorSeparator2 = New System.Windows.Forms.ToolStripSeparator
-        Me.ProdottiCategorieViewBindingNavigatorSaveItem = New System.Windows.Forms.ToolStripButton
-        Me.ToolStripSeparator1 = New System.Windows.Forms.ToolStripSeparator
-        Me.ToolStripLabel1 = New System.Windows.Forms.ToolStripLabel
-        Me.TSCodiceFinitoTXT = New System.Windows.Forms.ToolStripTextBox
+        Me.AnagraficaGrezziTableAdapter = New Tostatura.TostaturaDataSetTableAdapters.AnagraficaGrezziTableAdapter
+        Me.TableAdapterManager = New Tostatura.TostaturaDataSetTableAdapters.TableAdapterManager
+        Me.AnagraficaProdottiTableAdapter = New Tostatura.TostaturaDataSetTableAdapters.AnagraficaProdottiTableAdapter
+        Me.ParametriTostaturaTableAdapter = New Tostatura.TostaturaDataSetTableAdapters.ParametriTostaturaTableAdapter
+        Me.TipoLavorazioneTableAdapter = New Tostatura.TostaturaDataSetTableAdapters.TipoLavorazioneTableAdapter
         Me.GroupBox3.SuspendLayout()
-        CType(Me.ProdottiCategorieViewBindingSource, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.AnagraficaProdottiBindingSource, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.TostaturaDataSet, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.GroupBox1.SuspendLayout()
+        CType(Me.AnagraficaGrezziBindingSource, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.GroupBox2.SuspendLayout()
-        CType(Me.ProdottiCategorieViewBindingNavigator, System.ComponentModel.ISupportInitialize).BeginInit()
-        Me.ProdottiCategorieViewBindingNavigator.SuspendLayout()
+        CType(Me.ParametriTostaturaBindingSource, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.TipoLavorazioneBindingSource, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.BindingNavigator1, System.ComponentModel.ISupportInitialize).BeginInit()
+        Me.BindingNavigator1.SuspendLayout()
         Me.SuspendLayout()
         '
         'GroupBox3
         '
+        Me.GroupBox3.Controls.Add(Me.codiceGrezzoTXT)
         Me.GroupBox3.Controls.Add(Me.idCategoriaTXT)
         Me.GroupBox3.Controls.Add(Me.CalibroTXT)
         Me.GroupBox3.Controls.Add(Me.Label5)
@@ -106,9 +116,30 @@ Partial Class TostaturaForm
         Me.GroupBox3.TabStop = False
         Me.GroupBox3.Text = "Prodotto Finito:"
         '
+        'codiceGrezzoTXT
+        '
+        Me.codiceGrezzoTXT.DataBindings.Add(New System.Windows.Forms.Binding("Text", Me.AnagraficaProdottiBindingSource, "codice_grezzo", True))
+        Me.codiceGrezzoTXT.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.codiceGrezzoTXT.Location = New System.Drawing.Point(381, 28)
+        Me.codiceGrezzoTXT.Margin = New System.Windows.Forms.Padding(4)
+        Me.codiceGrezzoTXT.Name = "codiceGrezzoTXT"
+        Me.codiceGrezzoTXT.ReadOnly = True
+        Me.codiceGrezzoTXT.Size = New System.Drawing.Size(36, 22)
+        Me.codiceGrezzoTXT.TabIndex = 41
+        '
+        'AnagraficaProdottiBindingSource
+        '
+        Me.AnagraficaProdottiBindingSource.DataMember = "AnagraficaProdotti"
+        Me.AnagraficaProdottiBindingSource.DataSource = Me.TostaturaDataSet
+        '
+        'TostaturaDataSet
+        '
+        Me.TostaturaDataSet.DataSetName = "TostaturaDataSet"
+        Me.TostaturaDataSet.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema
+        '
         'idCategoriaTXT
         '
-        Me.idCategoriaTXT.DataBindings.Add(New System.Windows.Forms.Binding("Text", Me.ProdottiCategorieViewBindingSource, "categoria", True))
+        Me.idCategoriaTXT.DataBindings.Add(New System.Windows.Forms.Binding("Text", Me.AnagraficaProdottiBindingSource, "categoria", True))
         Me.idCategoriaTXT.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.idCategoriaTXT.Location = New System.Drawing.Point(106, 96)
         Me.idCategoriaTXT.Margin = New System.Windows.Forms.Padding(4)
@@ -117,19 +148,9 @@ Partial Class TostaturaForm
         Me.idCategoriaTXT.Size = New System.Drawing.Size(205, 22)
         Me.idCategoriaTXT.TabIndex = 41
         '
-        'ProdottiCategorieViewBindingSource
-        '
-        Me.ProdottiCategorieViewBindingSource.DataMember = "ProdottiCategorieView"
-        Me.ProdottiCategorieViewBindingSource.DataSource = Me.TostaturaDataSet
-        '
-        'TostaturaDataSet
-        '
-        Me.TostaturaDataSet.DataSetName = "TostaturaDataSet"
-        Me.TostaturaDataSet.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema
-        '
         'CalibroTXT
         '
-        Me.CalibroTXT.DataBindings.Add(New System.Windows.Forms.Binding("Text", Me.ProdottiCategorieViewBindingSource, "calibro", True))
+        Me.CalibroTXT.DataBindings.Add(New System.Windows.Forms.Binding("Text", Me.AnagraficaProdottiBindingSource, "calibro", True))
         Me.CalibroTXT.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.CalibroTXT.Location = New System.Drawing.Point(381, 96)
         Me.CalibroTXT.Margin = New System.Windows.Forms.Padding(4)
@@ -162,7 +183,7 @@ Partial Class TostaturaForm
         '
         'DescrizioneTXT
         '
-        Me.DescrizioneTXT.DataBindings.Add(New System.Windows.Forms.Binding("Text", Me.ProdottiCategorieViewBindingSource, "descrizione", True))
+        Me.DescrizioneTXT.DataBindings.Add(New System.Windows.Forms.Binding("Text", Me.AnagraficaProdottiBindingSource, "descrizione", True))
         Me.DescrizioneTXT.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.DescrizioneTXT.Location = New System.Drawing.Point(106, 60)
         Me.DescrizioneTXT.Margin = New System.Windows.Forms.Padding(4)
@@ -184,7 +205,7 @@ Partial Class TostaturaForm
         '
         'CodiceFinitoTXT
         '
-        Me.CodiceFinitoTXT.DataBindings.Add(New System.Windows.Forms.Binding("Text", Me.ProdottiCategorieViewBindingSource, "codice", True))
+        Me.CodiceFinitoTXT.DataBindings.Add(New System.Windows.Forms.Binding("Text", Me.AnagraficaProdottiBindingSource, "codice", True))
         Me.CodiceFinitoTXT.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.CodiceFinitoTXT.Location = New System.Drawing.Point(106, 28)
         Me.CodiceFinitoTXT.Margin = New System.Windows.Forms.Padding(4)
@@ -223,6 +244,7 @@ Partial Class TostaturaForm
         '
         'CategoriaGrzTXT
         '
+        Me.CategoriaGrzTXT.DataBindings.Add(New System.Windows.Forms.Binding("Text", Me.AnagraficaGrezziBindingSource, "categoria", True))
         Me.CategoriaGrzTXT.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.CategoriaGrzTXT.Location = New System.Drawing.Point(128, 98)
         Me.CategoriaGrzTXT.Margin = New System.Windows.Forms.Padding(4)
@@ -230,6 +252,11 @@ Partial Class TostaturaForm
         Me.CategoriaGrzTXT.ReadOnly = True
         Me.CategoriaGrzTXT.Size = New System.Drawing.Size(289, 22)
         Me.CategoriaGrzTXT.TabIndex = 43
+        '
+        'AnagraficaGrezziBindingSource
+        '
+        Me.AnagraficaGrezziBindingSource.DataMember = "AnagraficaGrezzi"
+        Me.AnagraficaGrezziBindingSource.DataSource = Me.TostaturaDataSet
         '
         'Label13
         '
@@ -244,12 +271,13 @@ Partial Class TostaturaForm
         '
         'DescrizioneGrzTXT
         '
+        Me.DescrizioneGrzTXT.DataBindings.Add(New System.Windows.Forms.Binding("Text", Me.AnagraficaGrezziBindingSource, "descrizione", True))
         Me.DescrizioneGrzTXT.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.DescrizioneGrzTXT.Location = New System.Drawing.Point(128, 60)
         Me.DescrizioneGrzTXT.Margin = New System.Windows.Forms.Padding(4)
         Me.DescrizioneGrzTXT.Name = "DescrizioneGrzTXT"
         Me.DescrizioneGrzTXT.ReadOnly = True
-        Me.DescrizioneGrzTXT.Size = New System.Drawing.Size(291, 22)
+        Me.DescrizioneGrzTXT.Size = New System.Drawing.Size(289, 22)
         Me.DescrizioneGrzTXT.TabIndex = 8
         '
         'Label3
@@ -265,6 +293,7 @@ Partial Class TostaturaForm
         '
         'CodiceGrzTXT
         '
+        Me.CodiceGrzTXT.DataBindings.Add(New System.Windows.Forms.Binding("Text", Me.AnagraficaGrezziBindingSource, "codice", True))
         Me.CodiceGrzTXT.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.CodiceGrzTXT.Location = New System.Drawing.Point(128, 25)
         Me.CodiceGrzTXT.Margin = New System.Windows.Forms.Padding(4)
@@ -286,30 +315,62 @@ Partial Class TostaturaForm
         '
         'GroupBox2
         '
+        Me.GroupBox2.Controls.Add(Me.idLavorazioneTXT)
+        Me.GroupBox2.Controls.Add(Me.IdParametriTXT)
         Me.GroupBox2.Controls.Add(Me.ComboBox2)
-        Me.GroupBox2.Controls.Add(Me.TextBox8)
-        Me.GroupBox2.Controls.Add(Me.TextBox9)
+        Me.GroupBox2.Controls.Add(Me.tCotturaTXT)
+        Me.GroupBox2.Controls.Add(Me.tempFornoTXT)
         Me.GroupBox2.Controls.Add(Me.Label11)
-        Me.GroupBox2.Controls.Add(Me.TextBox11)
+        Me.GroupBox2.Controls.Add(Me.qCaricoTXT)
         Me.GroupBox2.Controls.Add(Me.Label12)
-        Me.GroupBox2.Controls.Add(Me.TextBox6)
+        Me.GroupBox2.Controls.Add(Me.umidEsternaTXT)
         Me.GroupBox2.Controls.Add(Me.Label9)
         Me.GroupBox2.Controls.Add(Me.Label7)
         Me.GroupBox2.Controls.Add(Me.Label8)
-        Me.GroupBox2.Controls.Add(Me.TextBox7)
+        Me.GroupBox2.Controls.Add(Me.umidProdottoTXT)
         Me.GroupBox2.Controls.Add(Me.Label10)
         Me.GroupBox2.Enabled = False
         Me.GroupBox2.Location = New System.Drawing.Point(16, 252)
         Me.GroupBox2.Margin = New System.Windows.Forms.Padding(4)
         Me.GroupBox2.Name = "GroupBox2"
         Me.GroupBox2.Padding = New System.Windows.Forms.Padding(4)
-        Me.GroupBox2.Size = New System.Drawing.Size(855, 225)
+        Me.GroupBox2.Size = New System.Drawing.Size(855, 241)
         Me.GroupBox2.TabIndex = 18
         Me.GroupBox2.TabStop = False
         Me.GroupBox2.Text = "Parametri tostatura"
         '
+        'idLavorazioneTXT
+        '
+        Me.idLavorazioneTXT.DataBindings.Add(New System.Windows.Forms.Binding("Text", Me.ParametriTostaturaBindingSource, "tipo_lavorazione", True))
+        Me.idLavorazioneTXT.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.idLavorazioneTXT.Location = New System.Drawing.Point(371, 187)
+        Me.idLavorazioneTXT.Margin = New System.Windows.Forms.Padding(4)
+        Me.idLavorazioneTXT.Name = "idLavorazioneTXT"
+        Me.idLavorazioneTXT.ReadOnly = True
+        Me.idLavorazioneTXT.Size = New System.Drawing.Size(36, 22)
+        Me.idLavorazioneTXT.TabIndex = 43
+        '
+        'ParametriTostaturaBindingSource
+        '
+        Me.ParametriTostaturaBindingSource.DataMember = "ParametriTostatura"
+        Me.ParametriTostaturaBindingSource.DataSource = Me.TostaturaDataSet
+        '
+        'IdParametriTXT
+        '
+        Me.IdParametriTXT.DataBindings.Add(New System.Windows.Forms.Binding("Text", Me.AnagraficaProdottiBindingSource, "id_parametri", True))
+        Me.IdParametriTXT.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.IdParametriTXT.Location = New System.Drawing.Point(371, 27)
+        Me.IdParametriTXT.Margin = New System.Windows.Forms.Padding(4)
+        Me.IdParametriTXT.Name = "IdParametriTXT"
+        Me.IdParametriTXT.ReadOnly = True
+        Me.IdParametriTXT.Size = New System.Drawing.Size(36, 22)
+        Me.IdParametriTXT.TabIndex = 42
+        '
         'ComboBox2
         '
+        Me.ComboBox2.DataBindings.Add(New System.Windows.Forms.Binding("SelectedValue", Me.TipoLavorazioneBindingSource, "id", True))
+        Me.ComboBox2.DataSource = Me.TipoLavorazioneBindingSource
+        Me.ComboBox2.DisplayMember = "descrizione"
         Me.ComboBox2.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.ComboBox2.FormattingEnabled = True
         Me.ComboBox2.Location = New System.Drawing.Point(203, 187)
@@ -317,24 +378,32 @@ Partial Class TostaturaForm
         Me.ComboBox2.Name = "ComboBox2"
         Me.ComboBox2.Size = New System.Drawing.Size(160, 24)
         Me.ComboBox2.TabIndex = 25
+        Me.ComboBox2.ValueMember = "id"
         '
-        'TextBox8
+        'TipoLavorazioneBindingSource
         '
-        Me.TextBox8.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.TextBox8.Location = New System.Drawing.Point(203, 123)
-        Me.TextBox8.Margin = New System.Windows.Forms.Padding(4)
-        Me.TextBox8.Name = "TextBox8"
-        Me.TextBox8.Size = New System.Drawing.Size(160, 22)
-        Me.TextBox8.TabIndex = 22
+        Me.TipoLavorazioneBindingSource.DataMember = "TipoLavorazione"
+        Me.TipoLavorazioneBindingSource.DataSource = Me.TostaturaDataSet
         '
-        'TextBox9
+        'tCotturaTXT
         '
-        Me.TextBox9.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.TextBox9.Location = New System.Drawing.Point(203, 91)
-        Me.TextBox9.Margin = New System.Windows.Forms.Padding(4)
-        Me.TextBox9.Name = "TextBox9"
-        Me.TextBox9.Size = New System.Drawing.Size(160, 22)
-        Me.TextBox9.TabIndex = 20
+        Me.tCotturaTXT.DataBindings.Add(New System.Windows.Forms.Binding("Text", Me.ParametriTostaturaBindingSource, "tempo_cottura", True))
+        Me.tCotturaTXT.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.tCotturaTXT.Location = New System.Drawing.Point(203, 123)
+        Me.tCotturaTXT.Margin = New System.Windows.Forms.Padding(4)
+        Me.tCotturaTXT.Name = "tCotturaTXT"
+        Me.tCotturaTXT.Size = New System.Drawing.Size(160, 22)
+        Me.tCotturaTXT.TabIndex = 22
+        '
+        'tempFornoTXT
+        '
+        Me.tempFornoTXT.DataBindings.Add(New System.Windows.Forms.Binding("Text", Me.ParametriTostaturaBindingSource, "temperatura_forno", True))
+        Me.tempFornoTXT.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.tempFornoTXT.Location = New System.Drawing.Point(203, 91)
+        Me.tempFornoTXT.Margin = New System.Windows.Forms.Padding(4)
+        Me.tempFornoTXT.Name = "tempFornoTXT"
+        Me.tempFornoTXT.Size = New System.Drawing.Size(160, 22)
+        Me.tempFornoTXT.TabIndex = 20
         '
         'Label11
         '
@@ -347,14 +416,15 @@ Partial Class TostaturaForm
         Me.Label11.TabIndex = 24
         Me.Label11.Text = "Tipo Lavorazione:"
         '
-        'TextBox11
+        'qCaricoTXT
         '
-        Me.TextBox11.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.TextBox11.Location = New System.Drawing.Point(203, 155)
-        Me.TextBox11.Margin = New System.Windows.Forms.Padding(4)
-        Me.TextBox11.Name = "TextBox11"
-        Me.TextBox11.Size = New System.Drawing.Size(160, 22)
-        Me.TextBox11.TabIndex = 23
+        Me.qCaricoTXT.DataBindings.Add(New System.Windows.Forms.Binding("Text", Me.ParametriTostaturaBindingSource, "quantita_carico", True))
+        Me.qCaricoTXT.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.qCaricoTXT.Location = New System.Drawing.Point(203, 155)
+        Me.qCaricoTXT.Margin = New System.Windows.Forms.Padding(4)
+        Me.qCaricoTXT.Name = "qCaricoTXT"
+        Me.qCaricoTXT.Size = New System.Drawing.Size(160, 22)
+        Me.qCaricoTXT.TabIndex = 23
         '
         'Label12
         '
@@ -367,14 +437,15 @@ Partial Class TostaturaForm
         Me.Label12.TabIndex = 22
         Me.Label12.Text = "Quantità di carico: "
         '
-        'TextBox6
+        'umidEsternaTXT
         '
-        Me.TextBox6.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.TextBox6.Location = New System.Drawing.Point(203, 59)
-        Me.TextBox6.Margin = New System.Windows.Forms.Padding(4)
-        Me.TextBox6.Name = "TextBox6"
-        Me.TextBox6.Size = New System.Drawing.Size(160, 22)
-        Me.TextBox6.TabIndex = 18
+        Me.umidEsternaTXT.DataBindings.Add(New System.Windows.Forms.Binding("Text", Me.ParametriTostaturaBindingSource, "umidita_esterna", True))
+        Me.umidEsternaTXT.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.umidEsternaTXT.Location = New System.Drawing.Point(203, 59)
+        Me.umidEsternaTXT.Margin = New System.Windows.Forms.Padding(4)
+        Me.umidEsternaTXT.Name = "umidEsternaTXT"
+        Me.umidEsternaTXT.Size = New System.Drawing.Size(160, 22)
+        Me.umidEsternaTXT.TabIndex = 18
         '
         'Label9
         '
@@ -383,9 +454,9 @@ Partial Class TostaturaForm
         Me.Label9.Location = New System.Drawing.Point(8, 126)
         Me.Label9.Margin = New System.Windows.Forms.Padding(4, 0, 4, 0)
         Me.Label9.Name = "Label9"
-        Me.Label9.Size = New System.Drawing.Size(120, 16)
+        Me.Label9.Size = New System.Drawing.Size(112, 16)
         Me.Label9.TabIndex = 21
-        Me.Label9.Text = "Tempo dio cottura:"
+        Me.Label9.Text = "Tempo di cottura:"
         '
         'Label7
         '
@@ -409,14 +480,15 @@ Partial Class TostaturaForm
         Me.Label8.TabIndex = 15
         Me.Label8.Text = "Percentuale umidità prodotto: "
         '
-        'TextBox7
+        'umidProdottoTXT
         '
-        Me.TextBox7.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.TextBox7.Location = New System.Drawing.Point(203, 27)
-        Me.TextBox7.Margin = New System.Windows.Forms.Padding(4)
-        Me.TextBox7.Name = "TextBox7"
-        Me.TextBox7.Size = New System.Drawing.Size(160, 22)
-        Me.TextBox7.TabIndex = 16
+        Me.umidProdottoTXT.DataBindings.Add(New System.Windows.Forms.Binding("Text", Me.ParametriTostaturaBindingSource, "umidita_prodotto", True))
+        Me.umidProdottoTXT.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.umidProdottoTXT.Location = New System.Drawing.Point(203, 27)
+        Me.umidProdottoTXT.Margin = New System.Windows.Forms.Padding(4)
+        Me.umidProdottoTXT.Name = "umidProdottoTXT"
+        Me.umidProdottoTXT.Size = New System.Drawing.Size(160, 22)
+        Me.umidProdottoTXT.TabIndex = 16
         '
         'Label10
         '
@@ -497,34 +569,23 @@ Partial Class TostaturaForm
         Me.Label17.TabIndex = 33
         Me.Label17.Text = "Operatore:"
         '
-        'TableAdapterManager
+        'BindingNavigator1
         '
-        Me.TableAdapterManager.AnagraficaProdottiTableAdapter = Nothing
-        Me.TableAdapterManager.BackupDataSetBeforeUpdate = False
-        Me.TableAdapterManager.Connection = Nothing
-        Me.TableAdapterManager.OperatoriTableAdapter = Nothing
-        Me.TableAdapterManager.RuoliTableAdapter = Nothing
-        Me.TableAdapterManager.StoricoInputTostaturaTableAdapter = Nothing
-        Me.TableAdapterManager.TipoLavorazioneTableAdapter = Nothing
-        Me.TableAdapterManager.UpdateOrder = Tostatura.TostaturaDataSetTableAdapters.TableAdapterManager.UpdateOrderOption.InsertUpdateDelete
-        '
-        'ProdottiCategorieViewBindingNavigator
-        '
-        Me.ProdottiCategorieViewBindingNavigator.AddNewItem = Me.BindingNavigatorAddNewItem
-        Me.ProdottiCategorieViewBindingNavigator.BindingSource = Me.ProdottiCategorieViewBindingSource
-        Me.ProdottiCategorieViewBindingNavigator.CountItem = Me.BindingNavigatorCountItem
-        Me.ProdottiCategorieViewBindingNavigator.DeleteItem = Me.BindingNavigatorDeleteItem
-        Me.ProdottiCategorieViewBindingNavigator.Items.AddRange(New System.Windows.Forms.ToolStripItem() {Me.BindingNavigatorMoveFirstItem, Me.BindingNavigatorMovePreviousItem, Me.BindingNavigatorSeparator, Me.BindingNavigatorPositionItem, Me.BindingNavigatorCountItem, Me.BindingNavigatorSeparator1, Me.BindingNavigatorMoveNextItem, Me.BindingNavigatorMoveLastItem, Me.BindingNavigatorSeparator2, Me.BindingNavigatorAddNewItem, Me.BindingNavigatorDeleteItem, Me.ProdottiCategorieViewBindingNavigatorSaveItem, Me.ToolStripSeparator1, Me.ToolStripLabel1, Me.TSCodiceFinitoTXT})
-        Me.ProdottiCategorieViewBindingNavigator.Location = New System.Drawing.Point(0, 0)
-        Me.ProdottiCategorieViewBindingNavigator.MoveFirstItem = Me.BindingNavigatorMoveFirstItem
-        Me.ProdottiCategorieViewBindingNavigator.MoveLastItem = Me.BindingNavigatorMoveLastItem
-        Me.ProdottiCategorieViewBindingNavigator.MoveNextItem = Me.BindingNavigatorMoveNextItem
-        Me.ProdottiCategorieViewBindingNavigator.MovePreviousItem = Me.BindingNavigatorMovePreviousItem
-        Me.ProdottiCategorieViewBindingNavigator.Name = "ProdottiCategorieViewBindingNavigator"
-        Me.ProdottiCategorieViewBindingNavigator.PositionItem = Me.BindingNavigatorPositionItem
-        Me.ProdottiCategorieViewBindingNavigator.Size = New System.Drawing.Size(891, 25)
-        Me.ProdottiCategorieViewBindingNavigator.TabIndex = 37
-        Me.ProdottiCategorieViewBindingNavigator.Text = "BindingNavigator1"
+        Me.BindingNavigator1.AddNewItem = Me.BindingNavigatorAddNewItem
+        Me.BindingNavigator1.BindingSource = Me.AnagraficaProdottiBindingSource
+        Me.BindingNavigator1.CountItem = Me.BindingNavigatorCountItem
+        Me.BindingNavigator1.DeleteItem = Me.BindingNavigatorDeleteItem
+        Me.BindingNavigator1.Items.AddRange(New System.Windows.Forms.ToolStripItem() {Me.BindingNavigatorMoveFirstItem, Me.BindingNavigatorMovePreviousItem, Me.BindingNavigatorSeparator, Me.BindingNavigatorPositionItem, Me.BindingNavigatorCountItem, Me.BindingNavigatorSeparator1, Me.BindingNavigatorMoveNextItem, Me.BindingNavigatorMoveLastItem, Me.BindingNavigatorSeparator2, Me.BindingNavigatorAddNewItem, Me.BindingNavigatorDeleteItem})
+        Me.BindingNavigator1.Location = New System.Drawing.Point(0, 0)
+        Me.BindingNavigator1.MoveFirstItem = Me.BindingNavigatorMoveFirstItem
+        Me.BindingNavigator1.MoveLastItem = Me.BindingNavigatorMoveLastItem
+        Me.BindingNavigator1.MoveNextItem = Me.BindingNavigatorMoveNextItem
+        Me.BindingNavigator1.MovePreviousItem = Me.BindingNavigatorMovePreviousItem
+        Me.BindingNavigator1.Name = "BindingNavigator1"
+        Me.BindingNavigator1.PositionItem = Me.BindingNavigatorPositionItem
+        Me.BindingNavigator1.Size = New System.Drawing.Size(888, 25)
+        Me.BindingNavigator1.TabIndex = 37
+        Me.BindingNavigator1.Text = "BindingNavigator1"
         '
         'BindingNavigatorAddNewItem
         '
@@ -611,38 +672,44 @@ Partial Class TostaturaForm
         Me.BindingNavigatorSeparator2.Name = "BindingNavigatorSeparator2"
         Me.BindingNavigatorSeparator2.Size = New System.Drawing.Size(6, 25)
         '
-        'ProdottiCategorieViewBindingNavigatorSaveItem
+        'AnagraficaGrezziTableAdapter
         '
-        Me.ProdottiCategorieViewBindingNavigatorSaveItem.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image
-        Me.ProdottiCategorieViewBindingNavigatorSaveItem.Enabled = False
-        Me.ProdottiCategorieViewBindingNavigatorSaveItem.Image = CType(resources.GetObject("ProdottiCategorieViewBindingNavigatorSaveItem.Image"), System.Drawing.Image)
-        Me.ProdottiCategorieViewBindingNavigatorSaveItem.Name = "ProdottiCategorieViewBindingNavigatorSaveItem"
-        Me.ProdottiCategorieViewBindingNavigatorSaveItem.Size = New System.Drawing.Size(23, 22)
-        Me.ProdottiCategorieViewBindingNavigatorSaveItem.Text = "Salva dati"
+        Me.AnagraficaGrezziTableAdapter.ClearBeforeFill = True
         '
-        'ToolStripSeparator1
+        'TableAdapterManager
         '
-        Me.ToolStripSeparator1.Name = "ToolStripSeparator1"
-        Me.ToolStripSeparator1.Size = New System.Drawing.Size(6, 25)
+        Me.TableAdapterManager.AnagraficaGrezziTableAdapter = Me.AnagraficaGrezziTableAdapter
+        Me.TableAdapterManager.AnagraficaProdottiTableAdapter = Me.AnagraficaProdottiTableAdapter
+        Me.TableAdapterManager.BackupDataSetBeforeUpdate = False
+        Me.TableAdapterManager.OperatoriTableAdapter = Nothing
+        Me.TableAdapterManager.ParametriTostaturaDefaultTableAdapter = Nothing
+        Me.TableAdapterManager.ParametriTostaturaTableAdapter = Me.ParametriTostaturaTableAdapter
+        Me.TableAdapterManager.RuoliTableAdapter = Nothing
+        Me.TableAdapterManager.StoricoAllarmiTableAdapter = Nothing
+        Me.TableAdapterManager.StoricoInputTostaturaTableAdapter = Nothing
+        Me.TableAdapterManager.StoricoOutputTostaturaTableAdapter = Nothing
+        Me.TableAdapterManager.TipoLavorazioneTableAdapter = Me.TipoLavorazioneTableAdapter
+        Me.TableAdapterManager.UpdateOrder = Tostatura.TostaturaDataSetTableAdapters.TableAdapterManager.UpdateOrderOption.InsertUpdateDelete
         '
-        'ToolStripLabel1
+        'AnagraficaProdottiTableAdapter
         '
-        Me.ToolStripLabel1.Name = "ToolStripLabel1"
-        Me.ToolStripLabel1.Size = New System.Drawing.Size(43, 22)
-        Me.ToolStripLabel1.Text = "Codice:"
+        Me.AnagraficaProdottiTableAdapter.ClearBeforeFill = True
         '
-        'TSCodiceFinitoTXT
+        'ParametriTostaturaTableAdapter
         '
-        Me.TSCodiceFinitoTXT.Name = "TSCodiceFinitoTXT"
-        Me.TSCodiceFinitoTXT.Size = New System.Drawing.Size(100, 25)
+        Me.ParametriTostaturaTableAdapter.ClearBeforeFill = True
+        '
+        'TipoLavorazioneTableAdapter
+        '
+        Me.TipoLavorazioneTableAdapter.ClearBeforeFill = True
         '
         'TostaturaForm
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(8.0!, 16.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.BackColor = System.Drawing.SystemColors.Info
-        Me.ClientSize = New System.Drawing.Size(891, 585)
-        Me.Controls.Add(Me.ProdottiCategorieViewBindingNavigator)
+        Me.ClientSize = New System.Drawing.Size(888, 585)
+        Me.Controls.Add(Me.BindingNavigator1)
         Me.Controls.Add(Me.CodOpLbl)
         Me.Controls.Add(Me.OpLbl)
         Me.Controls.Add(Me.Label18)
@@ -658,15 +725,18 @@ Partial Class TostaturaForm
         Me.Text = "Tostatura"
         Me.GroupBox3.ResumeLayout(False)
         Me.GroupBox3.PerformLayout()
-        CType(Me.ProdottiCategorieViewBindingSource, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.AnagraficaProdottiBindingSource, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.TostaturaDataSet, System.ComponentModel.ISupportInitialize).EndInit()
         Me.GroupBox1.ResumeLayout(False)
         Me.GroupBox1.PerformLayout()
+        CType(Me.AnagraficaGrezziBindingSource, System.ComponentModel.ISupportInitialize).EndInit()
         Me.GroupBox2.ResumeLayout(False)
         Me.GroupBox2.PerformLayout()
-        CType(Me.ProdottiCategorieViewBindingNavigator, System.ComponentModel.ISupportInitialize).EndInit()
-        Me.ProdottiCategorieViewBindingNavigator.ResumeLayout(False)
-        Me.ProdottiCategorieViewBindingNavigator.PerformLayout()
+        CType(Me.ParametriTostaturaBindingSource, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.TipoLavorazioneBindingSource, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.BindingNavigator1, System.ComponentModel.ISupportInitialize).EndInit()
+        Me.BindingNavigator1.ResumeLayout(False)
+        Me.BindingNavigator1.PerformLayout()
         Me.ResumeLayout(False)
         Me.PerformLayout()
 
@@ -683,16 +753,16 @@ Partial Class TostaturaForm
     Friend WithEvents Label4 As System.Windows.Forms.Label
     Friend WithEvents GroupBox2 As System.Windows.Forms.GroupBox
     Friend WithEvents ComboBox2 As System.Windows.Forms.ComboBox
-    Friend WithEvents TextBox8 As System.Windows.Forms.TextBox
-    Friend WithEvents TextBox9 As System.Windows.Forms.TextBox
+    Friend WithEvents tCotturaTXT As System.Windows.Forms.TextBox
+    Friend WithEvents tempFornoTXT As System.Windows.Forms.TextBox
     Friend WithEvents Label11 As System.Windows.Forms.Label
-    Friend WithEvents TextBox11 As System.Windows.Forms.TextBox
+    Friend WithEvents qCaricoTXT As System.Windows.Forms.TextBox
     Friend WithEvents Label12 As System.Windows.Forms.Label
-    Friend WithEvents TextBox6 As System.Windows.Forms.TextBox
+    Friend WithEvents umidEsternaTXT As System.Windows.Forms.TextBox
     Friend WithEvents Label9 As System.Windows.Forms.Label
     Friend WithEvents Label7 As System.Windows.Forms.Label
     Friend WithEvents Label8 As System.Windows.Forms.Label
-    Friend WithEvents TextBox7 As System.Windows.Forms.TextBox
+    Friend WithEvents umidProdottoTXT As System.Windows.Forms.TextBox
     Friend WithEvents Label10 As System.Windows.Forms.Label
     Friend WithEvents Button1 As System.Windows.Forms.Button
     Friend WithEvents Button2 As System.Windows.Forms.Button
@@ -707,9 +777,12 @@ Partial Class TostaturaForm
     Friend WithEvents CategoriaGrzTXT As System.Windows.Forms.TextBox
     Friend WithEvents Label13 As System.Windows.Forms.Label
     Friend WithEvents TostaturaDataSet As Tostatura.TostaturaDataSet
-    Friend WithEvents ProdottiCategorieViewBindingSource As System.Windows.Forms.BindingSource
+    Friend WithEvents AnagraficaGrezziBindingSource As System.Windows.Forms.BindingSource
+    Friend WithEvents AnagraficaGrezziTableAdapter As Tostatura.TostaturaDataSetTableAdapters.AnagraficaGrezziTableAdapter
     Friend WithEvents TableAdapterManager As Tostatura.TostaturaDataSetTableAdapters.TableAdapterManager
-    Friend WithEvents ProdottiCategorieViewBindingNavigator As System.Windows.Forms.BindingNavigator
+    Friend WithEvents AnagraficaProdottiTableAdapter As Tostatura.TostaturaDataSetTableAdapters.AnagraficaProdottiTableAdapter
+    Friend WithEvents AnagraficaProdottiBindingSource As System.Windows.Forms.BindingSource
+    Friend WithEvents BindingNavigator1 As System.Windows.Forms.BindingNavigator
     Friend WithEvents BindingNavigatorAddNewItem As System.Windows.Forms.ToolStripButton
     Friend WithEvents BindingNavigatorCountItem As System.Windows.Forms.ToolStripLabel
     Friend WithEvents BindingNavigatorDeleteItem As System.Windows.Forms.ToolStripButton
@@ -721,8 +794,11 @@ Partial Class TostaturaForm
     Friend WithEvents BindingNavigatorMoveNextItem As System.Windows.Forms.ToolStripButton
     Friend WithEvents BindingNavigatorMoveLastItem As System.Windows.Forms.ToolStripButton
     Friend WithEvents BindingNavigatorSeparator2 As System.Windows.Forms.ToolStripSeparator
-    Friend WithEvents ProdottiCategorieViewBindingNavigatorSaveItem As System.Windows.Forms.ToolStripButton
-    Friend WithEvents ToolStripSeparator1 As System.Windows.Forms.ToolStripSeparator
-    Friend WithEvents ToolStripLabel1 As System.Windows.Forms.ToolStripLabel
-    Friend WithEvents TSCodiceFinitoTXT As System.Windows.Forms.ToolStripTextBox
+    Friend WithEvents codiceGrezzoTXT As System.Windows.Forms.TextBox
+    Friend WithEvents IdParametriTXT As System.Windows.Forms.TextBox
+    Friend WithEvents ParametriTostaturaTableAdapter As Tostatura.TostaturaDataSetTableAdapters.ParametriTostaturaTableAdapter
+    Friend WithEvents ParametriTostaturaBindingSource As System.Windows.Forms.BindingSource
+    Friend WithEvents idLavorazioneTXT As System.Windows.Forms.TextBox
+    Friend WithEvents TipoLavorazioneTableAdapter As Tostatura.TostaturaDataSetTableAdapters.TipoLavorazioneTableAdapter
+    Friend WithEvents TipoLavorazioneBindingSource As System.Windows.Forms.BindingSource
 End Class
