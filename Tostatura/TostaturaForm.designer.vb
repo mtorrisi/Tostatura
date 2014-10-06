@@ -61,7 +61,7 @@ Partial Class TostaturaForm
         Me.Label8 = New System.Windows.Forms.Label
         Me.umidProdottoTXT = New System.Windows.Forms.TextBox
         Me.Label10 = New System.Windows.Forms.Label
-        Me.Button1 = New System.Windows.Forms.Button
+        Me.tostaturaBTN = New System.Windows.Forms.Button
         Me.Button2 = New System.Windows.Forms.Button
         Me.CodOpLbl = New System.Windows.Forms.Label
         Me.OpLbl = New System.Windows.Forms.Label
@@ -84,6 +84,7 @@ Partial Class TostaturaForm
         Me.AnagraficaProdottiTableAdapter = New Tostatura.TostaturaDataSetTableAdapters.AnagraficaProdottiTableAdapter
         Me.ParametriTostaturaTableAdapter = New Tostatura.TostaturaDataSetTableAdapters.ParametriTostaturaTableAdapter
         Me.TipoLavorazioneTableAdapter = New Tostatura.TostaturaDataSetTableAdapters.TipoLavorazioneTableAdapter
+        Me.statusLBL = New System.Windows.Forms.ToolStripLabel
         Me.GroupBox3.SuspendLayout()
         CType(Me.AnagraficaProdottiBindingSource, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.TostaturaDataSet, System.ComponentModel.ISupportInitialize).BeginInit()
@@ -501,16 +502,16 @@ Partial Class TostaturaForm
         Me.Label10.TabIndex = 19
         Me.Label10.Text = "Temperatura forno:"
         '
-        'Button1
+        'tostaturaBTN
         '
-        Me.Button1.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Button1.Location = New System.Drawing.Point(12, 501)
-        Me.Button1.Margin = New System.Windows.Forms.Padding(4)
-        Me.Button1.Name = "Button1"
-        Me.Button1.Size = New System.Drawing.Size(120, 58)
-        Me.Button1.TabIndex = 19
-        Me.Button1.Text = "Avvia Tostatura"
-        Me.Button1.UseVisualStyleBackColor = True
+        Me.tostaturaBTN.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.tostaturaBTN.Location = New System.Drawing.Point(12, 501)
+        Me.tostaturaBTN.Margin = New System.Windows.Forms.Padding(4)
+        Me.tostaturaBTN.Name = "tostaturaBTN"
+        Me.tostaturaBTN.Size = New System.Drawing.Size(120, 58)
+        Me.tostaturaBTN.TabIndex = 19
+        Me.tostaturaBTN.Text = "Avvia Tostatura"
+        Me.tostaturaBTN.UseVisualStyleBackColor = True
         '
         'Button2
         '
@@ -575,7 +576,7 @@ Partial Class TostaturaForm
         Me.BindingNavigator1.BindingSource = Me.AnagraficaProdottiBindingSource
         Me.BindingNavigator1.CountItem = Me.BindingNavigatorCountItem
         Me.BindingNavigator1.DeleteItem = Me.BindingNavigatorDeleteItem
-        Me.BindingNavigator1.Items.AddRange(New System.Windows.Forms.ToolStripItem() {Me.BindingNavigatorMoveFirstItem, Me.BindingNavigatorMovePreviousItem, Me.BindingNavigatorSeparator, Me.BindingNavigatorPositionItem, Me.BindingNavigatorCountItem, Me.BindingNavigatorSeparator1, Me.BindingNavigatorMoveNextItem, Me.BindingNavigatorMoveLastItem, Me.BindingNavigatorSeparator2, Me.BindingNavigatorAddNewItem, Me.BindingNavigatorDeleteItem})
+        Me.BindingNavigator1.Items.AddRange(New System.Windows.Forms.ToolStripItem() {Me.BindingNavigatorMoveFirstItem, Me.BindingNavigatorMovePreviousItem, Me.BindingNavigatorSeparator, Me.BindingNavigatorPositionItem, Me.BindingNavigatorCountItem, Me.BindingNavigatorSeparator1, Me.BindingNavigatorMoveNextItem, Me.BindingNavigatorMoveLastItem, Me.BindingNavigatorSeparator2, Me.BindingNavigatorAddNewItem, Me.BindingNavigatorDeleteItem, Me.statusLBL})
         Me.BindingNavigator1.Location = New System.Drawing.Point(0, 0)
         Me.BindingNavigator1.MoveFirstItem = Me.BindingNavigatorMoveFirstItem
         Me.BindingNavigator1.MoveLastItem = Me.BindingNavigatorMoveLastItem
@@ -703,6 +704,15 @@ Partial Class TostaturaForm
         '
         Me.TipoLavorazioneTableAdapter.ClearBeforeFill = True
         '
+        'statusLBL
+        '
+        Me.statusLBL.Alignment = System.Windows.Forms.ToolStripItemAlignment.Right
+        Me.statusLBL.ForeColor = System.Drawing.Color.ForestGreen
+        Me.statusLBL.Name = "statusLBL"
+        Me.statusLBL.Size = New System.Drawing.Size(152, 22)
+        Me.statusLBL.Text = "Invio dati tostatura in corso..."
+        Me.statusLBL.Visible = False
+        '
         'TostaturaForm
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(8.0!, 16.0!)
@@ -715,7 +725,7 @@ Partial Class TostaturaForm
         Me.Controls.Add(Me.Label18)
         Me.Controls.Add(Me.Label17)
         Me.Controls.Add(Me.Button2)
-        Me.Controls.Add(Me.Button1)
+        Me.Controls.Add(Me.tostaturaBTN)
         Me.Controls.Add(Me.GroupBox2)
         Me.Controls.Add(Me.GroupBox1)
         Me.Controls.Add(Me.GroupBox3)
@@ -764,7 +774,7 @@ Partial Class TostaturaForm
     Friend WithEvents Label8 As System.Windows.Forms.Label
     Friend WithEvents umidProdottoTXT As System.Windows.Forms.TextBox
     Friend WithEvents Label10 As System.Windows.Forms.Label
-    Friend WithEvents Button1 As System.Windows.Forms.Button
+    Friend WithEvents tostaturaBTN As System.Windows.Forms.Button
     Friend WithEvents Button2 As System.Windows.Forms.Button
     Friend WithEvents CodOpLbl As System.Windows.Forms.Label
     Friend WithEvents OpLbl As System.Windows.Forms.Label
@@ -801,4 +811,5 @@ Partial Class TostaturaForm
     Friend WithEvents idLavorazioneTXT As System.Windows.Forms.TextBox
     Friend WithEvents TipoLavorazioneTableAdapter As Tostatura.TostaturaDataSetTableAdapters.TipoLavorazioneTableAdapter
     Friend WithEvents TipoLavorazioneBindingSource As System.Windows.Forms.BindingSource
+    Friend WithEvents statusLBL As System.Windows.Forms.ToolStripLabel
 End Class
