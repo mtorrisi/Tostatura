@@ -24,7 +24,7 @@ Public Class Utils
 
     Private dataWrote(9) As Object
 
-    Private DM_NewTostatura, DM_TostaturaDone, DM_TitoloFormula, DM_State, DM_Lotto
+    Private DM_NewTostatura, DM_TostaturaDone, DM_TitoloFormula, DM_State, DM_NewAllarme, DM_AllarmeLetto, DM_ParametriAllarme
     Dim connectioString = My.Settings.TostaturaConnectionString()
     Dim cn As New SqlConnection(connectioString)
     Dim reader As SqlDataReader
@@ -141,7 +141,7 @@ Public Class Utils
 
     Public Sub FineFormula()
         Try
-            PLCLink.WriteMemoryString(PoohFinsETN.MemoryTypes.DM, ptrFormula, "**")
+            'PLCLink.WriteMemoryString(PoohFinsETN.MemoryTypes.DM, ptrFormula, "**")
             
             PLCLink.WriteMemory(PoohFinsETN.MemoryTypes.DM, DM_NewTostatura, "0001")
             PLCLink.WriteMemory(PoohFinsETN.MemoryTypes.DM, DM_TostaturaDone, "0000")
@@ -162,12 +162,15 @@ Public Class Utils
                 Exit Sub
             End If
             Try
-                Dim s As String = PLCLink.ReadMemory(PoohFinsETN.MemoryTypes.DM, DM_TostaturaDone, 1)
-                If s.Equals("0001") Then
+                Dim tostaturaDone As String = PLCLink.ReadMemory(PoohFinsETN.MemoryTypes.DM, DM_TostaturaDone, 1)
+                Dim newAllarme As String = PLCLink.ReadMemory(PoohFinsETN.MemoryTypes.DM, DM_NewAllarme, 1)
+                If tostaturaDone.Equals("0001") Then
                     SalvaDatiTostatura()
-                    PLCLink.WriteMemory(PoohFinsETN.MemoryTypes.DM, WriteOffset + 21, "0000") '
-                    'OnStart(New EventArgs)
+
                     Exit While
+                ElseIf newAllarme.Equals("0001") Then
+                    SalvaDatiAllarme()
+                    PLCLink.WriteMemory(PoohFinsETN.MemoryTypes.DM, DM_NewAllarme, "0000")
                 End If
                 
                 System.Threading.Thread.Sleep(1000) 'aspetto 1 sec prima di riciclare 
@@ -283,6 +286,27 @@ Public Class Utils
                 ReadOffset = reader(0)
             End If
             reader.Close()
+            sql = "SELECT offset FROM AnagraficaDataMemory WHERE (codice_dm = 'NEWALLARME          ')" 'AND (id_formula= " & nFormula & ")"
+            Command = New SqlCommand(sql, cn)
+            reader = Command.ExecuteReader()
+            If reader.Read() Then
+                DM_NewAllarme = reader(0)
+            End If
+            reader.Close()
+            sql = "SELECT offset FROM AnagraficaDataMemory WHERE (codice_dm = 'ALLARMELETTO        ')" 'AND (id_formula= " & nFormula & ")"
+            Command = New SqlCommand(sql, cn)
+            reader = Command.ExecuteReader()
+            If reader.Read() Then
+                DM_AllarmeLetto = reader(0)
+            End If
+            reader.Close()
+            sql = "SELECT offset FROM AnagraficaDataMemory WHERE (codice_dm = 'PARAMETRIALLARME    ')" 'AND (id_formula= " & nFormula & ")"
+            Command = New SqlCommand(sql, cn)
+            reader = Command.ExecuteReader()
+            If reader.Read() Then
+                DM_ParametriAllarme = reader(0)
+            End If
+            reader.Close()
             cn.Close()
         Catch ex As Exception
             cn.Close()
@@ -290,165 +314,16 @@ Public Class Utils
         End Try
     End Sub
 
-    Private Sub Timer1_Tick(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles t.Tick
-
-        Dim countRipetizioni As Int16 = Int16.Parse(PLCLink.ReadMemory(PoohFinsETN.MemoryTypes.DM, WriteOffset + 21, 1))
-        ripetizione += 1
-
-        Dim ptr As Int16 = ReadOffset
-        Dim quantita(countRigheFormula - 1) As Double
-        Dim articoli(countRigheFormula - 1), varianti(countRigheFormula - 1), bilancie(countRigheFormula - 1) As String
-        Dim dosaggi(countRigheFormula - 1) As Int16
-        For i As Int16 = 0 To countRigheFormula - 1
-            Dim tmp As String = PLCLink.ReadMemory(PoohFinsETN.MemoryTypes.DM, ptr + i, 1)
-            quantita(i) = Double.Parse(tmp)
-        Next
-
-        Try
-            cn = New SqlConnection(connectioString)
-            cn.Open()
-
-            Dim sql As String
-            Dim Command As SqlCommand
-
-            sql = "SELECT p_decimale, codice_articolo, codice_variante, " & _
-            "codice_bilancia, ordine_dosaggio FROM CorpoFormuleView " & _
-                  "WHERE (id_formula= " & idFormula & ") AND (codice_prodotto_finito= '" & codArtFiglio & "' AND (data_formula= '" & DateTime.Today & "'))" & _
-                  "ORDER BY ordine_dosaggio"
-            Command = New SqlCommand(sql, cn)
-            reader = Command.ExecuteReader()
-            Dim i As Int16 = 0
-            While reader.Read()
-                Dim puntoDecimale As Int16 = reader.GetValue(0)
-                quantita(i) = quantita(i) / 10 ^ puntoDecimale
-                articoli(i) = reader.GetValue(1)
-                varianti(i) = reader.GetValue(2)
-                bilancie(i) = reader.GetValue(3)
-                dosaggi(i) = reader.GetValue(4)
-                i += 1
-            End While
-            reader.Close()
-            cn.Close()
-            cn.Open()
-            For x As Int16 = 0 To countRigheFormula - 1  ' non inserisce verificare
-                Dim sql1 As String = "INSERT INTO StoricoPesate" & _
-                                            "(codice_lotto, id_formula, n_pesata_giornaliera, codice_prodotto_finito, data_pesata, codice_articolo, codice_variante, codice_bilancia, dbl1, ordine_dosaggio, codice_operatore) " & _
-                                            "VALUES ('" & GetGiorno() & GetIdFormula() & GetNPesata(nPesataGiornaliera + ripetizione) & codOp.Substring(2, 2) & "'," & _
-                                            " " & idFormula & "," & nPesataGiornaliera + ripetizione & ",'" & codArtFiglio.Trim() & "', '" & DateTime.Now & "', '" & articoli(x) & "'," & _
-                                            " '" & varianti(x) & "','" & bilancie(x) & "'," & Str(quantita(x)) & " , " & dosaggi(x) & " , '" & codOp & "')"
-                Command = New SqlCommand(sql1, cn)
-                Dim c As Int16 = Command.ExecuteNonQuery()
-            Next
-
-        Catch ex As Exception
-            MsgBox("Attenzione si è verificato un problema." & vbNewLine & ex.Message, MsgBoxStyle.Critical, "Errore")
-        End Try
-        countRipetizioni -= 1
-        If countRipetizioni > 0 Then
-            Dim tmp As String = countRipetizioni.ToString()
-            While tmp.Length = 4
-                tmp = "0" & tmp
-            End While
-            PLCLink.WriteMemory(PoohFinsETN.MemoryTypes.DM, WriteOffset + 21, tmp)
-            OnRepeatDone(New EventArgs, countRipetizioni)
-
-        Else            'se non devo fare altre ripetizioni finisco la pesata e scateno l'evento
-            PLCLink.WriteMemory(PoohFinsETN.MemoryTypes.DM, DM_TostaturaDone, "0001")
-            PLCLink.WriteMemory(PoohFinsETN.MemoryTypes.DM, DM_NewTostatura, "0000") '
-            t.Enabled = False
-            OnTostaturaDone(New EventArgs, "")
-        End If
-
-
-        '        Try
-        ''
-        'ptrFormula = ReadOffset
-        'Dim nRipetizioni = PLCLink.ReadMemory(PoohFinsETN.MemoryTypes.DM, ptrFormula + 21, 1)
-
-        ''-----------Leggo la pesata realmente eseguita dal PLC e la memorizzo sul DB---------------------------------
-        'ptrFormula += 22
-
-        'cn = New SqlConnection(connectioString)
-        'cn.Open()
-        'For x As Int16 = 0 To nRipetizioni - 1
-        'While PLCLink.ReadMemoryString(PoohFinsETN.MemoryTypes.DM, ptrFormula, 1) <> "##"'
-
-        'Dim tmp As String = ""
-        'Dim puntoDecimale As Int16 = PLCLink.ReadMemory(PoohFinsETN.MemoryTypes.DM, ptrFormula + 46, 1)
-        ''Dim ordineDosaggio As Int16 = PLCLink.ReadMemory(PoohFinsETN.MemoryTypes.DM, ptrFormula, 1)
-        ''ptrFormula += 1
-        'Dim articolo As String = PLCLink.ReadMemoryString(PoohFinsETN.MemoryTypes.DM, ptrFormula, 10)
-        ''ptrFormula += 10
-        ''Dim variante As String = PLCLink.ReadMemoryString(PoohFinsETN.MemoryTypes.DM, ptrFormula, 10)
-        ''ptrFormula += 10
-        ''Dim bilancia As String = PLCLink.ReadMemoryString(PoohFinsETN.MemoryTypes.DM, ptrFormula, 10)
-        ''ptrFormula += 10
-        ''Dim dblx() As Double = {0.0, 0.0, 0.0, 0.0, 0.0}
-        ''Dim intx() As Int16 = {0, 0, 0, 0, 0}
-        ''Dim bitx() As Boolean = {False, False, False, False, False}
-        ''Dim nSilos As Int16 = 0
-
-
-        ''For i As Int16 = 0 To 14
-        ''tmp = PLCLink.ReadMemory(PoohFinsETN.MemoryTypes.DM, ptrFormula, 1)
-        ''If i <= 4 Then
-        '' dblx(i) = Double.Parse(tmp) / 10 ^ puntoDecimale
-        ''ElseIf i <= 9 Then
-        ''intx(i - 5) = Int16.Parse(tmp)
-        ''ElseIf i <= 14 Then
-        ''If tmp = "0000" Then
-        '' bitx(i - 10) = False
-        ''Else
-        ''bitx(i - 10) = True
-        ''End If
-        ''End If
-        ''ptrFormula += 1
-        ''Next
-        ''puntoDecimale = PLCLink.ReadMemory(PoohFinsETN.MemoryTypes.DM, ptrFormula, 1)
-        ''ptrFormula += 1
-        ''nSilos = PLCLink.ReadMemory(PoohFinsETN.MemoryTypes.DM, ptrFormula + 1, 1) 'metto +1 perchè il dm del puntoDecimale è stato già letto
-        ''ptrFormula += 1
-
-        'Try
-        'Dim sql As String
-        'Dim Command As SqlCommand'
-
-        'sql = "INSERT INTO StoricoPesate" & _
-        '     "(codice_lotto, id_formula, n_pesata_giornaliera, codice_prodotto_finito, data_pesata, codice_articolo, codice_variante, codice_bilancia, dbl1, dbl2, dbl3, " & _
-        '     "dbl4, dbl5, int1, int2, int3, int4, int5, bit1, bit2, bit3, bit4, bit5, ordine_dosaggio, codice_operatore) " & _
-        '     "VALUES ('" & GetGiorno() & GetIdFormula() & nPesataGiornaliera + GetNPesata(x + 1) & codOp.Substring(2, 2) & "'," & _
-        '     " " & idFormula & "," & nPesataGiornaliera + x + 1 & ",'" & codArtFiglio.Trim() & "', '" & DateTime.Now & "', '" & articolo.Trim() & "'," & _
-        '     " '" & variante.Trim() & "','" & bilancia.Trim() & "'," & Str(quantita) & "" '," & Str(dblx(1)) & "," & Str(dblx(2)) & "," & Str(dblx(3)) & "," & Str(dblx(4)) & "," & _
-        ''" " & Str(intx(0)) & ", " & Str(intx(1)) & ", " & Str(intx(2)) & "," & Str(intx(3)) & ", " & Str(intx(4)) & ", '" & Str(bitx(0)) & "', '" & Str(bitx(1)) & "'," & _
-        ''" '" & Str(bitx(2)) & "', '" & Str(bitx(3)) & "','" & Str(bitx(4)) & "', " & ordineDosaggio & ", '" & codOp & "')"
-        'Command = New SqlCommand(sql, cn)
-        'Command.ExecuteNonQuery()
-        'Catch ex As Exception
-        ' cn.Close()
-        ' MessageBox.Show("Errore durante il salvataggio della pesata sul DB: " & ex.Message, "ERRORE", MessageBoxButtons.OK, MessageBoxIcon.Exclamation)
-        ' End Try
-        'End While
-        ''ptrFormula = 7200
-        'Next
-
-        'Catch ex As Exception
-        ' MessageBox.Show("Errore in lettura da PLC: " & ex.Message, My.Application.Info.Title, MessageBoxButtons.OK, MessageBoxIcon.Exclamation)
-        'End Try
-
-        '        cn.Close()
-
-    End Sub
-
     Public Event TostaturaDone(ByVal msg As String)
 
     Protected Overridable Sub OnTostaturaDone(ByVal e As EventArgs, ByVal msg As String)
         RaiseEvent TostaturaDone(msg)
     End Sub
-    Public Event RipetizioneDone(ByVal rip As Int16)
+    'Public Event RipetizioneDone(ByVal rip As Int16)
 
-    Protected Overridable Sub OnRepeatDone(ByVal e As EventArgs, ByVal rip As Int16)
-        RaiseEvent RipetizioneDone(rip)
-    End Sub
+    'Protected Overridable Sub OnRepeatDone(ByVal e As EventArgs, ByVal rip As Int16)
+    '    RaiseEvent RipetizioneDone(rip)
+    'End Sub
 
 
     Public Function GetGiorno() As String
@@ -645,28 +520,64 @@ Public Class Utils
 
     Private Sub SalvaDatiTostatura()
         Dim fromPLC As String = ""
+        Dim idTostatura As String = ""
         Try
-            fromPLC = PLCLink.ReadMemory(PoohFinsETN.MemoryTypes.DM, ReadOffset, 44)
+            idTostatura = PLCLink.ReadMemory(PoohFinsETN.MemoryTypes.DM, WriteOffset, 1)
+            fromPLC = PLCLink.ReadMemory(PoohFinsETN.MemoryTypes.DM, ReadOffset + 1, 43)
         Catch ex As Exception
 
         End Try
 
-        'Try
-        '    cn = New SqlConnection(connectioString)
-        '    cn.Open()
+        Dim outputTostura = New OutputTostatura()
+        outputTostura.IdTostatura = Integer.Parse(idTostatura)
+        outputTostura.TemperaturaPreCarico = CDbl(Integer.Parse(fromPLC.Substring(0, 4)) / 10)
+        outputTostura.InizioCarico = HexToStr(fromPLC.Substring(4, 40))
+        outputTostura.TemperaturaInCarico = CDbl(Integer.Parse(fromPLC.Substring(44, 4)) / 10)
+        outputTostura.FineSostaForno = HexToStr(fromPLC.Substring(48, 40))
+        outputTostura.ScaricoGiostra = HexToStr(fromPLC.Substring(88, 40))
+        outputTostura.SostaGiostra = Integer.Parse(fromPLC.Substring(128, 4))
+        outputTostura.ScaricoCarrello = HexToStr(fromPLC.Substring(132, 40))
 
-        '    Dim sql As String
-        '    Dim Command As SqlCommand
+        Try
+            Dim sql As String
+            cn = New SqlConnection(connectioString)
+            cn.Open()
+            Dim cmd As SqlCommand
+            'sql = "INSERT INTO StoricoOutputTostatura (id_tostatura, temp_pre_carico, inizio_carico, temp_in_carico, data_fine_sosta_forno, avvio_scarico_giostra, tempo_sosta_giostra, avvio_scarico_carrello) " & _
+            '                            "VALUES (@p1,@p2,@p3,@p4,@p5,@p6,@p7,@p8)"
+            sql = "INSERT INTO StoricoOutputTostatura (id_tostatura, temp_pre_carico, temp_in_carico, tempo_sosta_giostra) " & _
+                                        "VALUES (@p1,@p2,@p3,@p4)"
+            cmd = New SqlCommand(sql, cn)
+            With cmd.Parameters
+                .Add("@p1", SqlDbType.Int).Value = outputTostura.IdTostatura
+                .Add("@p2", SqlDbType.Float).Value = outputTostura.TemperaturaPreCarico
+                '.Add("@p3", SqlDbType.DateTime).Value = outputTostura.InizioCarico
+                .Add("@p3", SqlDbType.Float).Value = outputTostura.TemperaturaInCarico
+                '.Add("@p5", SqlDbType.DateTime).Value = outputTostura.FineSostaForno
+                '.Add("@p6", SqlDbType.DateTime).Value = outputTostura.ScaricoGiostra
+                .Add("@p4", SqlDbType.Int).Value = outputTostura.SostaGiostra
+                '.Add("@p8", SqlDbType.DateTime).Value = outputTostura.ScaricoCarrello
+            End With
 
-        '    sql = "SELECT offset FROM AnagraficaDataMemory WHERE (codice_dm = 'START               ')" 'AND (id_formula= " & nFormula & ")"
-        '    Command = New SqlCommand(sql, cn)
+            cmd.ExecuteNonQuery()
 
-        '    cn.Close()
-        'Catch ex As Exception
-        '    cn.Close()
-        '    reader.Close()
-        '    MsgBox("Errore nel salvataggio dati di output")
-        'End Try
+            'objTransaction.Commit()
+            cn.Close()
+        Catch ex As Exception
+            'objTransaction.Rollback()
+            cn.Close()
+            MsgBox("Attenzione si è verificato un problema." & vbNewLine & ex.Message, MsgBoxStyle.Critical, "Errore")
+
+        End Try
     End Sub
+    Private Sub SalvaDatiAllarme()
+        Dim fromPLC As String = ""
+        Dim idTostatura As String = ""
+        Try
+            idTostatura = PLCLink.ReadMemory(PoohFinsETN.MemoryTypes.DM, WriteOffset, 1)
+            fromPLC = PLCLink.ReadMemory(PoohFinsETN.MemoryTypes.DM, DM_ParametriAllarme, 12)
+        Catch ex As Exception
 
+        End Try
+    End Sub
 End Class

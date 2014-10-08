@@ -132,6 +132,7 @@ Public Class TostaturaForm
 
     Private Sub Utils_PesataDone(ByVal msg As String) Handles u.TostaturaDone
         '... 
+        Me.tostaturaBTN.Enabled = True
         Me.statusLBL.Visible = False
         Me.statusLBL.ForeColor = System.Drawing.Color.ForestGreen
         Me.statusLBL.Text = "Invio formula in corso..."
@@ -201,7 +202,7 @@ Public Class TostaturaForm
 
         End Try
 
-        Return id
+        Return id + 1
     End Function
 
 End Class
