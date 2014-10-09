@@ -244,10 +244,10 @@
 
     Private Sub DescrizioneGrezzoCMB_SelectedIndexChanged(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles DescrizioneGrezzoCMB.SelectedIndexChanged
         'If CodiceGrezzoTXT.Text.Equals("") Then
-        If Me.DescrizioneGrezzoCMB.SelectedValue <> Nothing Then
-            'MsgBox("Prova2", MsgBoxStyle.Information, My.Application.Info.Title)
-            Me.CodiceGrezzoTXT.Text = Me.DescrizioneGrezzoCMB.SelectedValue.ToString()
-        End If
+        'If Me.DescrizioneGrezzoCMB.SelectedValue <> Nothing Then
+        'MsgBox("Prova2", MsgBoxStyle.Information, My.Application.Info.Title)
+        Me.CodiceGrezzoTXT.Text = Me.DescrizioneGrezzoCMB.SelectedValue.ToString()
+        'End If
     End Sub
 
     Private Sub IdParametriTXT_TextChanged(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles IdParametriTXT.TextChanged
