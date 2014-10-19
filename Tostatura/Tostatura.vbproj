@@ -134,6 +134,9 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>TostaturaDataSet.xsd</DependentUpon>
     </Compile>
+    <Compile Include="TostaturaDataSet.vb">
+      <DependentUpon>TostaturaDataSet.xsd</DependentUpon>
+    </Compile>
     <Compile Include="TostaturaForm.designer.vb">
       <DependentUpon>TostaturaForm.vb</DependentUpon>
     </Compile>
@@ -211,6 +214,9 @@
       <DependentUpon>TostaturaDataSet.xsd</DependentUpon>
     </None>
     <Content Include="Resources\Logo_its_Blu1.bmp" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="My Project\DataSources\" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.VisualBasic.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

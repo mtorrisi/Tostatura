@@ -27,18 +27,7 @@ Partial Class DialogTest
         Me.TableLayoutPanel1 = New System.Windows.Forms.TableLayoutPanel
         Me.OK_Button = New System.Windows.Forms.Button
         Me.Cancel_Button = New System.Windows.Forms.Button
-        Me.TostaturaDataSet = New Tostatura.TostaturaDataSet
-        Me.ParametriDeaultLavorazioneBindingSource = New System.Windows.Forms.BindingSource(Me.components)
-        Me.ParametriDeaultLavorazioneTableAdapter = New Tostatura.TostaturaDataSetTableAdapters.ParametriDeaultLavorazioneTableAdapter
-        Me.TableAdapterManager = New Tostatura.TostaturaDataSetTableAdapters.TableAdapterManager
         Me.ParametriDeaultLavorazioneDataGridView = New System.Windows.Forms.DataGridView
-        Me.DataGridViewTextBoxColumn1 = New System.Windows.Forms.DataGridViewTextBoxColumn
-        Me.DataGridViewTextBoxColumn2 = New System.Windows.Forms.DataGridViewTextBoxColumn
-        Me.DataGridViewTextBoxColumn3 = New System.Windows.Forms.DataGridViewTextBoxColumn
-        Me.DataGridViewTextBoxColumn4 = New System.Windows.Forms.DataGridViewTextBoxColumn
-        Me.DataGridViewTextBoxColumn5 = New System.Windows.Forms.DataGridViewTextBoxColumn
-        Me.DataGridViewTextBoxColumn6 = New System.Windows.Forms.DataGridViewTextBoxColumn
-        Me.DataGridViewTextBoxColumn7 = New System.Windows.Forms.DataGridViewTextBoxColumn
         Me.BindingNavigatorMoveFirstItem = New System.Windows.Forms.ToolStripButton
         Me.BindingNavigatorMovePreviousItem = New System.Windows.Forms.ToolStripButton
         Me.BindingNavigatorSeparator = New System.Windows.Forms.ToolStripSeparator
@@ -49,12 +38,24 @@ Partial Class DialogTest
         Me.BindingNavigatorMoveLastItem = New System.Windows.Forms.ToolStripButton
         Me.BindingNavigatorSeparator2 = New System.Windows.Forms.ToolStripSeparator
         Me.ParametriDeaultLavorazioneBindingNavigator = New System.Windows.Forms.BindingNavigator(Me.components)
+        Me.ParametriDeaultLavorazioneBindingSource = New System.Windows.Forms.BindingSource(Me.components)
+        Me.TostaturaDataSet = New Tostatura.TostaturaDataSet
+        Me.ParametriDeaultLavorazioneTableAdapter = New Tostatura.TostaturaDataSetTableAdapters.ParametriDeaultLavorazioneTableAdapter
+        Me.TableAdapterManager = New Tostatura.TostaturaDataSetTableAdapters.TableAdapterManager
+        Me.DataGridViewTextBoxColumn1 = New System.Windows.Forms.DataGridViewTextBoxColumn
+        Me.DataGridViewTextBoxColumn2 = New System.Windows.Forms.DataGridViewTextBoxColumn
+        Me.DataGridViewTextBoxColumn3 = New System.Windows.Forms.DataGridViewTextBoxColumn
+        Me.DataGridViewTextBoxColumn4 = New System.Windows.Forms.DataGridViewTextBoxColumn
+        Me.DataGridViewTextBoxColumn5 = New System.Windows.Forms.DataGridViewTextBoxColumn
+        Me.DataGridViewTextBoxColumn6 = New System.Windows.Forms.DataGridViewTextBoxColumn
+        Me.idTipoLavorazione = New System.Windows.Forms.DataGridViewTextBoxColumn
+        Me.tipo_lavorazione = New System.Windows.Forms.DataGridViewTextBoxColumn
         Me.TableLayoutPanel1.SuspendLayout()
-        CType(Me.TostaturaDataSet, System.ComponentModel.ISupportInitialize).BeginInit()
-        CType(Me.ParametriDeaultLavorazioneBindingSource, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.ParametriDeaultLavorazioneDataGridView, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.ParametriDeaultLavorazioneBindingNavigator, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.ParametriDeaultLavorazioneBindingNavigator.SuspendLayout()
+        CType(Me.ParametriDeaultLavorazioneBindingSource, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.TostaturaDataSet, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.SuspendLayout()
         '
         'TableLayoutPanel1
@@ -91,90 +92,20 @@ Partial Class DialogTest
         Me.Cancel_Button.TabIndex = 1
         Me.Cancel_Button.Text = "Annulla"
         '
-        'TostaturaDataSet
-        '
-        Me.TostaturaDataSet.DataSetName = "TostaturaDataSet"
-        Me.TostaturaDataSet.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema
-        '
-        'ParametriDeaultLavorazioneBindingSource
-        '
-        Me.ParametriDeaultLavorazioneBindingSource.DataMember = "ParametriDeaultLavorazione"
-        Me.ParametriDeaultLavorazioneBindingSource.DataSource = Me.TostaturaDataSet
-        '
-        'ParametriDeaultLavorazioneTableAdapter
-        '
-        Me.ParametriDeaultLavorazioneTableAdapter.ClearBeforeFill = True
-        '
-        'TableAdapterManager
-        '
-        Me.TableAdapterManager.AnagraficaGrezziTableAdapter = Nothing
-        Me.TableAdapterManager.AnagraficaProdottiTableAdapter = Nothing
-        Me.TableAdapterManager.BackupDataSetBeforeUpdate = False
-        Me.TableAdapterManager.Connection = Nothing
-        Me.TableAdapterManager.OperatoriTableAdapter = Nothing
-        Me.TableAdapterManager.ParametriTostaturaDefaultTableAdapter = Nothing
-        Me.TableAdapterManager.ParametriTostaturaTableAdapter = Nothing
-        Me.TableAdapterManager.RuoliTableAdapter = Nothing
-        Me.TableAdapterManager.StoricoAllarmiTableAdapter = Nothing
-        Me.TableAdapterManager.StoricoInputTostaturaTableAdapter = Nothing
-        Me.TableAdapterManager.StoricoOutputTostaturaTableAdapter = Nothing
-        Me.TableAdapterManager.TipoLavorazioneTableAdapter = Nothing
-        Me.TableAdapterManager.UpdateOrder = Tostatura.TostaturaDataSetTableAdapters.TableAdapterManager.UpdateOrderOption.InsertUpdateDelete
-        '
         'ParametriDeaultLavorazioneDataGridView
         '
+        Me.ParametriDeaultLavorazioneDataGridView.AllowUserToAddRows = False
+        Me.ParametriDeaultLavorazioneDataGridView.AllowUserToDeleteRows = False
         Me.ParametriDeaultLavorazioneDataGridView.AutoGenerateColumns = False
         Me.ParametriDeaultLavorazioneDataGridView.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill
         Me.ParametriDeaultLavorazioneDataGridView.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
-        Me.ParametriDeaultLavorazioneDataGridView.Columns.AddRange(New System.Windows.Forms.DataGridViewColumn() {Me.DataGridViewTextBoxColumn1, Me.DataGridViewTextBoxColumn2, Me.DataGridViewTextBoxColumn3, Me.DataGridViewTextBoxColumn4, Me.DataGridViewTextBoxColumn5, Me.DataGridViewTextBoxColumn6, Me.DataGridViewTextBoxColumn7})
+        Me.ParametriDeaultLavorazioneDataGridView.Columns.AddRange(New System.Windows.Forms.DataGridViewColumn() {Me.DataGridViewTextBoxColumn1, Me.DataGridViewTextBoxColumn2, Me.DataGridViewTextBoxColumn3, Me.DataGridViewTextBoxColumn4, Me.DataGridViewTextBoxColumn5, Me.DataGridViewTextBoxColumn6, Me.idTipoLavorazione, Me.tipo_lavorazione})
         Me.ParametriDeaultLavorazioneDataGridView.DataSource = Me.ParametriDeaultLavorazioneBindingSource
         Me.ParametriDeaultLavorazioneDataGridView.Location = New System.Drawing.Point(12, 52)
         Me.ParametriDeaultLavorazioneDataGridView.Name = "ParametriDeaultLavorazioneDataGridView"
+        Me.ParametriDeaultLavorazioneDataGridView.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect
         Me.ParametriDeaultLavorazioneDataGridView.Size = New System.Drawing.Size(675, 387)
         Me.ParametriDeaultLavorazioneDataGridView.TabIndex = 2
-        '
-        'DataGridViewTextBoxColumn1
-        '
-        Me.DataGridViewTextBoxColumn1.DataPropertyName = "id"
-        Me.DataGridViewTextBoxColumn1.HeaderText = "id"
-        Me.DataGridViewTextBoxColumn1.Name = "DataGridViewTextBoxColumn1"
-        Me.DataGridViewTextBoxColumn1.Visible = False
-        '
-        'DataGridViewTextBoxColumn2
-        '
-        Me.DataGridViewTextBoxColumn2.DataPropertyName = "umidita_prodotto"
-        Me.DataGridViewTextBoxColumn2.HeaderText = "% umidità prodotto"
-        Me.DataGridViewTextBoxColumn2.Name = "DataGridViewTextBoxColumn2"
-        '
-        'DataGridViewTextBoxColumn3
-        '
-        Me.DataGridViewTextBoxColumn3.DataPropertyName = "umidita_esterna"
-        Me.DataGridViewTextBoxColumn3.HeaderText = "% umidità esterna"
-        Me.DataGridViewTextBoxColumn3.Name = "DataGridViewTextBoxColumn3"
-        '
-        'DataGridViewTextBoxColumn4
-        '
-        Me.DataGridViewTextBoxColumn4.DataPropertyName = "temperatura_forno"
-        Me.DataGridViewTextBoxColumn4.HeaderText = "Temperatura forno"
-        Me.DataGridViewTextBoxColumn4.Name = "DataGridViewTextBoxColumn4"
-        '
-        'DataGridViewTextBoxColumn5
-        '
-        Me.DataGridViewTextBoxColumn5.DataPropertyName = "tempo_cottura"
-        Me.DataGridViewTextBoxColumn5.HeaderText = "Tempo di cottura"
-        Me.DataGridViewTextBoxColumn5.Name = "DataGridViewTextBoxColumn5"
-        '
-        'DataGridViewTextBoxColumn6
-        '
-        Me.DataGridViewTextBoxColumn6.DataPropertyName = "quantita_carico"
-        Me.DataGridViewTextBoxColumn6.HeaderText = "Quantità di carico"
-        Me.DataGridViewTextBoxColumn6.Name = "DataGridViewTextBoxColumn6"
-        '
-        'DataGridViewTextBoxColumn7
-        '
-        Me.DataGridViewTextBoxColumn7.DataPropertyName = "descrizione"
-        Me.DataGridViewTextBoxColumn7.HeaderText = "Tipo lavorazione"
-        Me.DataGridViewTextBoxColumn7.Name = "DataGridViewTextBoxColumn7"
         '
         'BindingNavigatorMoveFirstItem
         '
@@ -261,6 +192,86 @@ Partial Class DialogTest
         Me.ParametriDeaultLavorazioneBindingNavigator.TabIndex = 1
         Me.ParametriDeaultLavorazioneBindingNavigator.Text = "BindingNavigator1"
         '
+        'ParametriDeaultLavorazioneBindingSource
+        '
+        Me.ParametriDeaultLavorazioneBindingSource.DataMember = "ParametriDeaultLavorazione"
+        Me.ParametriDeaultLavorazioneBindingSource.DataSource = Me.TostaturaDataSet
+        '
+        'TostaturaDataSet
+        '
+        Me.TostaturaDataSet.DataSetName = "TostaturaDataSet"
+        Me.TostaturaDataSet.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema
+        '
+        'ParametriDeaultLavorazioneTableAdapter
+        '
+        Me.ParametriDeaultLavorazioneTableAdapter.ClearBeforeFill = True
+        '
+        'TableAdapterManager
+        '
+        Me.TableAdapterManager.AnagraficaGrezziTableAdapter = Nothing
+        Me.TableAdapterManager.AnagraficaProdottiTableAdapter = Nothing
+        Me.TableAdapterManager.BackupDataSetBeforeUpdate = False
+        Me.TableAdapterManager.Connection = Nothing
+        Me.TableAdapterManager.OperatoriTableAdapter = Nothing
+        Me.TableAdapterManager.ParametriTostaturaDefaultTableAdapter = Nothing
+        Me.TableAdapterManager.ParametriTostaturaTableAdapter = Nothing
+        Me.TableAdapterManager.RuoliTableAdapter = Nothing
+        Me.TableAdapterManager.StoricoAllarmiTableAdapter = Nothing
+        Me.TableAdapterManager.StoricoInputTostaturaTableAdapter = Nothing
+        Me.TableAdapterManager.StoricoOutputTostaturaTableAdapter = Nothing
+        Me.TableAdapterManager.TipoLavorazioneTableAdapter = Nothing
+        Me.TableAdapterManager.UpdateOrder = Tostatura.TostaturaDataSetTableAdapters.TableAdapterManager.UpdateOrderOption.InsertUpdateDelete
+        '
+        'DataGridViewTextBoxColumn1
+        '
+        Me.DataGridViewTextBoxColumn1.DataPropertyName = "id"
+        Me.DataGridViewTextBoxColumn1.HeaderText = "id"
+        Me.DataGridViewTextBoxColumn1.Name = "DataGridViewTextBoxColumn1"
+        Me.DataGridViewTextBoxColumn1.Visible = False
+        '
+        'DataGridViewTextBoxColumn2
+        '
+        Me.DataGridViewTextBoxColumn2.DataPropertyName = "umidita_prodotto"
+        Me.DataGridViewTextBoxColumn2.HeaderText = "% umidità prodotto"
+        Me.DataGridViewTextBoxColumn2.Name = "DataGridViewTextBoxColumn2"
+        '
+        'DataGridViewTextBoxColumn3
+        '
+        Me.DataGridViewTextBoxColumn3.DataPropertyName = "umidita_esterna"
+        Me.DataGridViewTextBoxColumn3.HeaderText = "% umidità esterna"
+        Me.DataGridViewTextBoxColumn3.Name = "DataGridViewTextBoxColumn3"
+        '
+        'DataGridViewTextBoxColumn4
+        '
+        Me.DataGridViewTextBoxColumn4.DataPropertyName = "temperatura_forno"
+        Me.DataGridViewTextBoxColumn4.HeaderText = "Temperatura forno"
+        Me.DataGridViewTextBoxColumn4.Name = "DataGridViewTextBoxColumn4"
+        '
+        'DataGridViewTextBoxColumn5
+        '
+        Me.DataGridViewTextBoxColumn5.DataPropertyName = "tempo_cottura"
+        Me.DataGridViewTextBoxColumn5.HeaderText = "Tempo di cottura"
+        Me.DataGridViewTextBoxColumn5.Name = "DataGridViewTextBoxColumn5"
+        '
+        'DataGridViewTextBoxColumn6
+        '
+        Me.DataGridViewTextBoxColumn6.DataPropertyName = "quantita_carico"
+        Me.DataGridViewTextBoxColumn6.HeaderText = "Quantità di carico"
+        Me.DataGridViewTextBoxColumn6.Name = "DataGridViewTextBoxColumn6"
+        '
+        'idTipoLavorazione
+        '
+        Me.idTipoLavorazione.DataPropertyName = "descrizione"
+        Me.idTipoLavorazione.HeaderText = "Tipo lavorazione"
+        Me.idTipoLavorazione.Name = "idTipoLavorazione"
+        '
+        'tipo_lavorazione
+        '
+        Me.tipo_lavorazione.DataPropertyName = "tipo_lavorazione"
+        Me.tipo_lavorazione.HeaderText = "tipo_lavorazione"
+        Me.tipo_lavorazione.Name = "tipo_lavorazione"
+        Me.tipo_lavorazione.Visible = False
+        '
         'DialogTest
         '
         Me.AcceptButton = Me.OK_Button
@@ -280,12 +291,12 @@ Partial Class DialogTest
         Me.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent
         Me.Text = "DialogTest"
         Me.TableLayoutPanel1.ResumeLayout(False)
-        CType(Me.TostaturaDataSet, System.ComponentModel.ISupportInitialize).EndInit()
-        CType(Me.ParametriDeaultLavorazioneBindingSource, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.ParametriDeaultLavorazioneDataGridView, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.ParametriDeaultLavorazioneBindingNavigator, System.ComponentModel.ISupportInitialize).EndInit()
         Me.ParametriDeaultLavorazioneBindingNavigator.ResumeLayout(False)
         Me.ParametriDeaultLavorazioneBindingNavigator.PerformLayout()
+        CType(Me.ParametriDeaultLavorazioneBindingSource, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.TostaturaDataSet, System.ComponentModel.ISupportInitialize).EndInit()
         Me.ResumeLayout(False)
         Me.PerformLayout()
 
@@ -298,13 +309,6 @@ Partial Class DialogTest
     Friend WithEvents ParametriDeaultLavorazioneTableAdapter As Tostatura.TostaturaDataSetTableAdapters.ParametriDeaultLavorazioneTableAdapter
     Friend WithEvents TableAdapterManager As Tostatura.TostaturaDataSetTableAdapters.TableAdapterManager
     Friend WithEvents ParametriDeaultLavorazioneDataGridView As System.Windows.Forms.DataGridView
-    Friend WithEvents DataGridViewTextBoxColumn1 As System.Windows.Forms.DataGridViewTextBoxColumn
-    Friend WithEvents DataGridViewTextBoxColumn2 As System.Windows.Forms.DataGridViewTextBoxColumn
-    Friend WithEvents DataGridViewTextBoxColumn3 As System.Windows.Forms.DataGridViewTextBoxColumn
-    Friend WithEvents DataGridViewTextBoxColumn4 As System.Windows.Forms.DataGridViewTextBoxColumn
-    Friend WithEvents DataGridViewTextBoxColumn5 As System.Windows.Forms.DataGridViewTextBoxColumn
-    Friend WithEvents DataGridViewTextBoxColumn6 As System.Windows.Forms.DataGridViewTextBoxColumn
-    Friend WithEvents DataGridViewTextBoxColumn7 As System.Windows.Forms.DataGridViewTextBoxColumn
     Friend WithEvents BindingNavigatorMoveFirstItem As System.Windows.Forms.ToolStripButton
     Friend WithEvents BindingNavigatorMovePreviousItem As System.Windows.Forms.ToolStripButton
     Friend WithEvents BindingNavigatorSeparator As System.Windows.Forms.ToolStripSeparator
@@ -315,5 +319,13 @@ Partial Class DialogTest
     Friend WithEvents BindingNavigatorMoveLastItem As System.Windows.Forms.ToolStripButton
     Friend WithEvents BindingNavigatorSeparator2 As System.Windows.Forms.ToolStripSeparator
     Friend WithEvents ParametriDeaultLavorazioneBindingNavigator As System.Windows.Forms.BindingNavigator
+    Friend WithEvents DataGridViewTextBoxColumn1 As System.Windows.Forms.DataGridViewTextBoxColumn
+    Friend WithEvents DataGridViewTextBoxColumn2 As System.Windows.Forms.DataGridViewTextBoxColumn
+    Friend WithEvents DataGridViewTextBoxColumn3 As System.Windows.Forms.DataGridViewTextBoxColumn
+    Friend WithEvents DataGridViewTextBoxColumn4 As System.Windows.Forms.DataGridViewTextBoxColumn
+    Friend WithEvents DataGridViewTextBoxColumn5 As System.Windows.Forms.DataGridViewTextBoxColumn
+    Friend WithEvents DataGridViewTextBoxColumn6 As System.Windows.Forms.DataGridViewTextBoxColumn
+    Friend WithEvents idTipoLavorazione As System.Windows.Forms.DataGridViewTextBoxColumn
+    Friend WithEvents tipo_lavorazione As System.Windows.Forms.DataGridViewTextBoxColumn
 
 End Class

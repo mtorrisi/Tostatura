@@ -29,15 +29,33 @@ Partial Class FormAnagrafiche
         Dim resources As System.ComponentModel.ComponentResourceManager = New System.ComponentModel.ComponentResourceManager(GetType(FormAnagrafiche))
         Me.SplitContainer1 = New System.Windows.Forms.SplitContainer
         Me.CtlAvanzatiGPB = New System.Windows.Forms.GroupBox
-        Me.Button8 = New System.Windows.Forms.Button
-        Me.Button5 = New System.Windows.Forms.Button
+        Me.DataMemoryBTN = New System.Windows.Forms.Button
         Me.OperatoriBTN = New System.Windows.Forms.Button
         Me.FinitiBTN = New System.Windows.Forms.Button
         Me.ProdottiBTN = New System.Windows.Forms.Button
+        Me.PnlOperatori = New System.Windows.Forms.Panel
+        Me.idOPeratoreTXT = New System.Windows.Forms.TextBox
+        Me.OperatoriBindingSource = New System.Windows.Forms.BindingSource(Me.components)
+        Me.TostaturaDataSet = New Tostatura.TostaturaDataSet
+        Me.IdRuoloTXT = New System.Windows.Forms.TextBox
+        Me.PswCHB = New System.Windows.Forms.CheckBox
+        Me.GroupBox4 = New System.Windows.Forms.GroupBox
+        Me.OperatoriRuoliViewDataGridView = New System.Windows.Forms.DataGridView
+        Me.IdDataGridViewTextBoxColumn = New System.Windows.Forms.DataGridViewTextBoxColumn
+        Me.NomeDataGridViewTextBoxColumn = New System.Windows.Forms.DataGridViewTextBoxColumn
+        Me.PasswordDataGridViewTextBoxColumn = New System.Windows.Forms.DataGridViewTextBoxColumn
+        Me.IdruoloDataGridViewTextBoxColumn = New System.Windows.Forms.DataGridViewTextBoxColumn
+        Me.Label19 = New System.Windows.Forms.Label
+        Me.PaswOperatoreTXT = New System.Windows.Forms.TextBox
+        Me.Label22 = New System.Windows.Forms.Label
+        Me.nomeOperatoreTXT = New System.Windows.Forms.TextBox
+        Me.Label23 = New System.Windows.Forms.Label
+        Me.RuoliCmb = New System.Windows.Forms.ComboBox
+        Me.RuoliBindingSource = New System.Windows.Forms.BindingSource(Me.components)
+        Me.Label21 = New System.Windows.Forms.Label
         Me.ProdottiFinitiPNL = New System.Windows.Forms.Panel
         Me.CodiceGrezzoTXT = New System.Windows.Forms.TextBox
         Me.AnagraficaProdottiBindingSource = New System.Windows.Forms.BindingSource(Me.components)
-        Me.TostaturaDataSet = New Tostatura.TostaturaDataSet
         Me.DescrizioneGrezzoCMB = New System.Windows.Forms.ComboBox
         Me.AnagraficaGrezziBindingSource = New System.Windows.Forms.BindingSource(Me.components)
         Me.Label18 = New System.Windows.Forms.Label
@@ -96,19 +114,6 @@ Partial Class FormAnagrafiche
         Me.AnagraficaDataMemoryDataGridView = New System.Windows.Forms.DataGridView
         Me.Label81 = New System.Windows.Forms.Label
         Me.CodBilanciaCollegataTXT = New System.Windows.Forms.TextBox
-        Me.PnlOperatori = New System.Windows.Forms.Panel
-        Me.PswCHB = New System.Windows.Forms.CheckBox
-        Me.GroupBox4 = New System.Windows.Forms.GroupBox
-        Me.Label19 = New System.Windows.Forms.Label
-        Me.PaswOperatoreTXT = New System.Windows.Forms.TextBox
-        Me.Label22 = New System.Windows.Forms.Label
-        Me.nomeOperatoreTXT = New System.Windows.Forms.TextBox
-        Me.codoperatoreTXT = New System.Windows.Forms.TextBox
-        Me.Label20 = New System.Windows.Forms.Label
-        Me.Label23 = New System.Windows.Forms.Label
-        Me.RuoliCmb = New System.Windows.Forms.ComboBox
-        Me.Label21 = New System.Windows.Forms.Label
-        Me.ruoloSelectedTXT = New System.Windows.Forms.TextBox
         Me.IdTXT = New System.Windows.Forms.TextBox
         Me.Label5 = New System.Windows.Forms.Label
         Me.DescrCategoriaTXT = New System.Windows.Forms.TextBox
@@ -136,15 +141,22 @@ Partial Class FormAnagrafiche
         Me.AnagraficaProdottiTableAdapter = New Tostatura.TostaturaDataSetTableAdapters.AnagraficaProdottiTableAdapter
         Me.TableAdapterManager = New Tostatura.TostaturaDataSetTableAdapters.TableAdapterManager
         Me.AnagraficaGrezziTableAdapter = New Tostatura.TostaturaDataSetTableAdapters.AnagraficaGrezziTableAdapter
+        Me.OperatoriTableAdapter = New Tostatura.TostaturaDataSetTableAdapters.OperatoriTableAdapter
         Me.ParametriTostaturaTableAdapter = New Tostatura.TostaturaDataSetTableAdapters.ParametriTostaturaTableAdapter
+        Me.RuoliTableAdapter = New Tostatura.TostaturaDataSetTableAdapters.RuoliTableAdapter
         Me.TipoLavorazioneTableAdapter = New Tostatura.TostaturaDataSetTableAdapters.TipoLavorazioneTableAdapter
         Me.SplitContainer1.Panel1.SuspendLayout()
         Me.SplitContainer1.Panel2.SuspendLayout()
         Me.SplitContainer1.SuspendLayout()
         Me.CtlAvanzatiGPB.SuspendLayout()
+        Me.PnlOperatori.SuspendLayout()
+        CType(Me.OperatoriBindingSource, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.TostaturaDataSet, System.ComponentModel.ISupportInitialize).BeginInit()
+        Me.GroupBox4.SuspendLayout()
+        CType(Me.OperatoriRuoliViewDataGridView, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.RuoliBindingSource, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.ProdottiFinitiPNL.SuspendLayout()
         CType(Me.AnagraficaProdottiBindingSource, System.ComponentModel.ISupportInitialize).BeginInit()
-        CType(Me.TostaturaDataSet, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.AnagraficaGrezziBindingSource, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.GroupBox1.SuspendLayout()
         CType(Me.ParametriTostaturaBindingSource, System.ComponentModel.ISupportInitialize).BeginInit()
@@ -154,7 +166,6 @@ Partial Class FormAnagrafiche
         Me.PnlDataMemory.SuspendLayout()
         Me.GroupBox13.SuspendLayout()
         CType(Me.AnagraficaDataMemoryDataGridView, System.ComponentModel.ISupportInitialize).BeginInit()
-        Me.PnlOperatori.SuspendLayout()
         CType(Me.BindingNavigator, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.BindingNavigator.SuspendLayout()
         Me.SuspendLayout()
@@ -177,10 +188,10 @@ Partial Class FormAnagrafiche
         '
         Me.SplitContainer1.Panel2.AutoScroll = True
         Me.SplitContainer1.Panel2.BackColor = System.Drawing.SystemColors.Info
+        Me.SplitContainer1.Panel2.Controls.Add(Me.PnlOperatori)
         Me.SplitContainer1.Panel2.Controls.Add(Me.ProdottiFinitiPNL)
         Me.SplitContainer1.Panel2.Controls.Add(Me.ProdottiGrezziPNL)
         Me.SplitContainer1.Panel2.Controls.Add(Me.PnlDataMemory)
-        Me.SplitContainer1.Panel2.Controls.Add(Me.PnlOperatori)
         Me.SplitContainer1.Size = New System.Drawing.Size(892, 596)
         Me.SplitContainer1.SplitterDistance = 148
         Me.SplitContainer1.TabIndex = 0
@@ -188,8 +199,7 @@ Partial Class FormAnagrafiche
         'CtlAvanzatiGPB
         '
         Me.CtlAvanzatiGPB.Anchor = CType((System.Windows.Forms.AnchorStyles.Left Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
-        Me.CtlAvanzatiGPB.Controls.Add(Me.Button8)
-        Me.CtlAvanzatiGPB.Controls.Add(Me.Button5)
+        Me.CtlAvanzatiGPB.Controls.Add(Me.DataMemoryBTN)
         Me.CtlAvanzatiGPB.Controls.Add(Me.OperatoriBTN)
         Me.CtlAvanzatiGPB.Location = New System.Drawing.Point(3, 298)
         Me.CtlAvanzatiGPB.Name = "CtlAvanzatiGPB"
@@ -199,29 +209,17 @@ Partial Class FormAnagrafiche
         Me.CtlAvanzatiGPB.Text = "Controlli Avanzati"
         Me.CtlAvanzatiGPB.Visible = False
         '
-        'Button8
+        'DataMemoryBTN
         '
-        Me.Button8.Anchor = CType((System.Windows.Forms.AnchorStyles.Left Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
-        Me.Button8.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Button8.Location = New System.Drawing.Point(0, 101)
-        Me.Button8.Name = "Button8"
-        Me.Button8.Size = New System.Drawing.Size(135, 47)
-        Me.Button8.TabIndex = 6
-        Me.Button8.Text = "Anagrafica Data Memory"
-        Me.Button8.TextImageRelation = System.Windows.Forms.TextImageRelation.TextBeforeImage
-        Me.Button8.UseVisualStyleBackColor = True
-        '
-        'Button5
-        '
-        Me.Button5.Anchor = CType((System.Windows.Forms.AnchorStyles.Left Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
-        Me.Button5.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Button5.Location = New System.Drawing.Point(0, 64)
-        Me.Button5.Name = "Button5"
-        Me.Button5.Size = New System.Drawing.Size(135, 31)
-        Me.Button5.TabIndex = 3
-        Me.Button5.Text = "Anagrafica PLC:"
-        Me.Button5.TextImageRelation = System.Windows.Forms.TextImageRelation.TextBeforeImage
-        Me.Button5.UseVisualStyleBackColor = True
+        Me.DataMemoryBTN.Anchor = CType((System.Windows.Forms.AnchorStyles.Left Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
+        Me.DataMemoryBTN.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.DataMemoryBTN.Location = New System.Drawing.Point(0, 64)
+        Me.DataMemoryBTN.Name = "DataMemoryBTN"
+        Me.DataMemoryBTN.Size = New System.Drawing.Size(135, 47)
+        Me.DataMemoryBTN.TabIndex = 6
+        Me.DataMemoryBTN.Text = "Anagrafica Data Memory"
+        Me.DataMemoryBTN.TextImageRelation = System.Windows.Forms.TextImageRelation.TextBeforeImage
+        Me.DataMemoryBTN.UseVisualStyleBackColor = True
         '
         'OperatoriBTN
         '
@@ -254,6 +252,199 @@ Partial Class FormAnagrafiche
         Me.ProdottiBTN.TabIndex = 0
         Me.ProdottiBTN.Text = "Anagrafica Grezzi"
         Me.ProdottiBTN.UseVisualStyleBackColor = True
+        '
+        'PnlOperatori
+        '
+        Me.PnlOperatori.Controls.Add(Me.idOPeratoreTXT)
+        Me.PnlOperatori.Controls.Add(Me.IdRuoloTXT)
+        Me.PnlOperatori.Controls.Add(Me.PswCHB)
+        Me.PnlOperatori.Controls.Add(Me.GroupBox4)
+        Me.PnlOperatori.Controls.Add(Me.Label19)
+        Me.PnlOperatori.Controls.Add(Me.PaswOperatoreTXT)
+        Me.PnlOperatori.Controls.Add(Me.Label22)
+        Me.PnlOperatori.Controls.Add(Me.nomeOperatoreTXT)
+        Me.PnlOperatori.Controls.Add(Me.Label23)
+        Me.PnlOperatori.Controls.Add(Me.RuoliCmb)
+        Me.PnlOperatori.Controls.Add(Me.Label21)
+        Me.PnlOperatori.Location = New System.Drawing.Point(3, -3)
+        Me.PnlOperatori.Name = "PnlOperatori"
+        Me.PnlOperatori.Size = New System.Drawing.Size(722, 581)
+        Me.PnlOperatori.TabIndex = 34
+        Me.PnlOperatori.Visible = False
+        '
+        'idOPeratoreTXT
+        '
+        Me.idOPeratoreTXT.DataBindings.Add(New System.Windows.Forms.Binding("Text", Me.OperatoriBindingSource, "id", True))
+        Me.idOPeratoreTXT.Location = New System.Drawing.Point(25, 55)
+        Me.idOPeratoreTXT.Name = "idOPeratoreTXT"
+        Me.idOPeratoreTXT.Size = New System.Drawing.Size(100, 20)
+        Me.idOPeratoreTXT.TabIndex = 39
+        '
+        'OperatoriBindingSource
+        '
+        Me.OperatoriBindingSource.DataMember = "Operatori"
+        Me.OperatoriBindingSource.DataSource = Me.TostaturaDataSet
+        '
+        'TostaturaDataSet
+        '
+        Me.TostaturaDataSet.DataSetName = "TostaturaDataSet"
+        Me.TostaturaDataSet.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema
+        '
+        'IdRuoloTXT
+        '
+        Me.IdRuoloTXT.DataBindings.Add(New System.Windows.Forms.Binding("Text", Me.OperatoriBindingSource, "id_ruolo", True))
+        Me.IdRuoloTXT.Location = New System.Drawing.Point(556, 164)
+        Me.IdRuoloTXT.Name = "IdRuoloTXT"
+        Me.IdRuoloTXT.Size = New System.Drawing.Size(100, 20)
+        Me.IdRuoloTXT.TabIndex = 38
+        '
+        'PswCHB
+        '
+        Me.PswCHB.AutoSize = True
+        Me.PswCHB.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.PswCHB.Location = New System.Drawing.Point(366, 133)
+        Me.PswCHB.Name = "PswCHB"
+        Me.PswCHB.Size = New System.Drawing.Size(131, 20)
+        Me.PswCHB.TabIndex = 33
+        Me.PswCHB.Text = "Mostra Password"
+        Me.PswCHB.UseVisualStyleBackColor = True
+        '
+        'GroupBox4
+        '
+        Me.GroupBox4.Controls.Add(Me.OperatoriRuoliViewDataGridView)
+        Me.GroupBox4.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.GroupBox4.Location = New System.Drawing.Point(19, 194)
+        Me.GroupBox4.Name = "GroupBox4"
+        Me.GroupBox4.Size = New System.Drawing.Size(682, 285)
+        Me.GroupBox4.TabIndex = 17
+        Me.GroupBox4.TabStop = False
+        Me.GroupBox4.Text = "Operatori presenti"
+        '
+        'OperatoriRuoliViewDataGridView
+        '
+        Me.OperatoriRuoliViewDataGridView.AllowUserToAddRows = False
+        Me.OperatoriRuoliViewDataGridView.AllowUserToDeleteRows = False
+        Me.OperatoriRuoliViewDataGridView.AutoGenerateColumns = False
+        Me.OperatoriRuoliViewDataGridView.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill
+        Me.OperatoriRuoliViewDataGridView.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
+        Me.OperatoriRuoliViewDataGridView.Columns.AddRange(New System.Windows.Forms.DataGridViewColumn() {Me.IdDataGridViewTextBoxColumn, Me.NomeDataGridViewTextBoxColumn, Me.PasswordDataGridViewTextBoxColumn, Me.IdruoloDataGridViewTextBoxColumn})
+        Me.OperatoriRuoliViewDataGridView.DataSource = Me.OperatoriBindingSource
+        Me.OperatoriRuoliViewDataGridView.Location = New System.Drawing.Point(11, 26)
+        Me.OperatoriRuoliViewDataGridView.Name = "OperatoriRuoliViewDataGridView"
+        Me.OperatoriRuoliViewDataGridView.ReadOnly = True
+        Me.OperatoriRuoliViewDataGridView.Size = New System.Drawing.Size(665, 253)
+        Me.OperatoriRuoliViewDataGridView.TabIndex = 0
+        '
+        'IdDataGridViewTextBoxColumn
+        '
+        Me.IdDataGridViewTextBoxColumn.DataPropertyName = "id"
+        Me.IdDataGridViewTextBoxColumn.HeaderText = "id"
+        Me.IdDataGridViewTextBoxColumn.Name = "IdDataGridViewTextBoxColumn"
+        Me.IdDataGridViewTextBoxColumn.ReadOnly = True
+        Me.IdDataGridViewTextBoxColumn.Visible = False
+        '
+        'NomeDataGridViewTextBoxColumn
+        '
+        Me.NomeDataGridViewTextBoxColumn.DataPropertyName = "nome"
+        Me.NomeDataGridViewTextBoxColumn.HeaderText = "Nome e Cognome"
+        Me.NomeDataGridViewTextBoxColumn.Name = "NomeDataGridViewTextBoxColumn"
+        Me.NomeDataGridViewTextBoxColumn.ReadOnly = True
+        '
+        'PasswordDataGridViewTextBoxColumn
+        '
+        Me.PasswordDataGridViewTextBoxColumn.DataPropertyName = "password"
+        Me.PasswordDataGridViewTextBoxColumn.HeaderText = "password"
+        Me.PasswordDataGridViewTextBoxColumn.Name = "PasswordDataGridViewTextBoxColumn"
+        Me.PasswordDataGridViewTextBoxColumn.ReadOnly = True
+        Me.PasswordDataGridViewTextBoxColumn.Visible = False
+        '
+        'IdruoloDataGridViewTextBoxColumn
+        '
+        Me.IdruoloDataGridViewTextBoxColumn.DataPropertyName = "id_ruolo"
+        Me.IdruoloDataGridViewTextBoxColumn.HeaderText = "Id ruolo"
+        Me.IdruoloDataGridViewTextBoxColumn.Name = "IdruoloDataGridViewTextBoxColumn"
+        Me.IdruoloDataGridViewTextBoxColumn.ReadOnly = True
+        '
+        'Label19
+        '
+        Me.Label19.AutoSize = True
+        Me.Label19.Font = New System.Drawing.Font("Microsoft Sans Serif", 24.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Label19.ForeColor = System.Drawing.SystemColors.HotTrack
+        Me.Label19.Location = New System.Drawing.Point(181, 36)
+        Me.Label19.Name = "Label19"
+        Me.Label19.Size = New System.Drawing.Size(315, 37)
+        Me.Label19.TabIndex = 15
+        Me.Label19.Text = "Anagrafica Operatori"
+        '
+        'PaswOperatoreTXT
+        '
+        Me.PaswOperatoreTXT.DataBindings.Add(New System.Windows.Forms.Binding("Text", Me.OperatoriBindingSource, "password", True))
+        Me.PaswOperatoreTXT.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.PaswOperatoreTXT.Location = New System.Drawing.Point(152, 131)
+        Me.PaswOperatoreTXT.MaxLength = 30
+        Me.PaswOperatoreTXT.Name = "PaswOperatoreTXT"
+        Me.PaswOperatoreTXT.Size = New System.Drawing.Size(188, 22)
+        Me.PaswOperatoreTXT.TabIndex = 32
+        Me.PaswOperatoreTXT.UseSystemPasswordChar = True
+        '
+        'Label22
+        '
+        Me.Label22.AutoSize = True
+        Me.Label22.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Label22.Location = New System.Drawing.Point(503, 133)
+        Me.Label22.Name = "Label22"
+        Me.Label22.Size = New System.Drawing.Size(47, 16)
+        Me.Label22.TabIndex = 33
+        Me.Label22.Text = "Ruolo:"
+        '
+        'nomeOperatoreTXT
+        '
+        Me.nomeOperatoreTXT.DataBindings.Add(New System.Windows.Forms.Binding("Text", Me.OperatoriBindingSource, "nome", True))
+        Me.nomeOperatoreTXT.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.nomeOperatoreTXT.Location = New System.Drawing.Point(152, 87)
+        Me.nomeOperatoreTXT.MaxLength = 30
+        Me.nomeOperatoreTXT.Name = "nomeOperatoreTXT"
+        Me.nomeOperatoreTXT.Size = New System.Drawing.Size(549, 22)
+        Me.nomeOperatoreTXT.TabIndex = 31
+        '
+        'Label23
+        '
+        Me.Label23.AutoSize = True
+        Me.Label23.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Label23.Location = New System.Drawing.Point(22, 136)
+        Me.Label23.Name = "Label23"
+        Me.Label23.Size = New System.Drawing.Size(71, 16)
+        Me.Label23.TabIndex = 35
+        Me.Label23.Text = "Password:"
+        '
+        'RuoliCmb
+        '
+        Me.RuoliCmb.DataBindings.Add(New System.Windows.Forms.Binding("SelectedValue", Me.RuoliBindingSource, "id", True))
+        Me.RuoliCmb.DataSource = Me.RuoliBindingSource
+        Me.RuoliCmb.DisplayMember = "ruolo"
+        Me.RuoliCmb.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList
+        Me.RuoliCmb.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.RuoliCmb.FormattingEnabled = True
+        Me.RuoliCmb.Location = New System.Drawing.Point(556, 128)
+        Me.RuoliCmb.Name = "RuoliCmb"
+        Me.RuoliCmb.Size = New System.Drawing.Size(145, 24)
+        Me.RuoliCmb.TabIndex = 35
+        Me.RuoliCmb.ValueMember = "id"
+        '
+        'RuoliBindingSource
+        '
+        Me.RuoliBindingSource.DataMember = "Ruoli"
+        Me.RuoliBindingSource.DataSource = Me.TostaturaDataSet
+        '
+        'Label21
+        '
+        Me.Label21.AutoSize = True
+        Me.Label21.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Label21.Location = New System.Drawing.Point(21, 90)
+        Me.Label21.Name = "Label21"
+        Me.Label21.Size = New System.Drawing.Size(121, 16)
+        Me.Label21.TabIndex = 32
+        Me.Label21.Text = "Nome e Cognome:"
         '
         'ProdottiFinitiPNL
         '
@@ -289,11 +480,6 @@ Partial Class FormAnagrafiche
         '
         Me.AnagraficaProdottiBindingSource.DataMember = "AnagraficaProdotti"
         Me.AnagraficaProdottiBindingSource.DataSource = Me.TostaturaDataSet
-        '
-        'TostaturaDataSet
-        '
-        Me.TostaturaDataSet.DataSetName = "TostaturaDataSet"
-        Me.TostaturaDataSet.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema
         '
         'DescrizioneGrezzoCMB
         '
@@ -916,147 +1102,6 @@ Partial Class FormAnagrafiche
         Me.CodBilanciaCollegataTXT.Size = New System.Drawing.Size(0, 22)
         Me.CodBilanciaCollegataTXT.TabIndex = 48
         '
-        'PnlOperatori
-        '
-        Me.PnlOperatori.Controls.Add(Me.PswCHB)
-        Me.PnlOperatori.Controls.Add(Me.GroupBox4)
-        Me.PnlOperatori.Controls.Add(Me.Label19)
-        Me.PnlOperatori.Controls.Add(Me.PaswOperatoreTXT)
-        Me.PnlOperatori.Controls.Add(Me.Label22)
-        Me.PnlOperatori.Controls.Add(Me.nomeOperatoreTXT)
-        Me.PnlOperatori.Controls.Add(Me.codoperatoreTXT)
-        Me.PnlOperatori.Controls.Add(Me.Label20)
-        Me.PnlOperatori.Controls.Add(Me.Label23)
-        Me.PnlOperatori.Controls.Add(Me.RuoliCmb)
-        Me.PnlOperatori.Controls.Add(Me.Label21)
-        Me.PnlOperatori.Controls.Add(Me.ruoloSelectedTXT)
-        Me.PnlOperatori.Location = New System.Drawing.Point(-5, -3)
-        Me.PnlOperatori.Name = "PnlOperatori"
-        Me.PnlOperatori.Size = New System.Drawing.Size(730, 581)
-        Me.PnlOperatori.TabIndex = 34
-        Me.PnlOperatori.Visible = False
-        '
-        'PswCHB
-        '
-        Me.PswCHB.AutoSize = True
-        Me.PswCHB.Location = New System.Drawing.Point(299, 137)
-        Me.PswCHB.Name = "PswCHB"
-        Me.PswCHB.Size = New System.Drawing.Size(107, 17)
-        Me.PswCHB.TabIndex = 33
-        Me.PswCHB.Text = "Mostra Password"
-        Me.PswCHB.UseVisualStyleBackColor = True
-        '
-        'GroupBox4
-        '
-        Me.GroupBox4.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.GroupBox4.Location = New System.Drawing.Point(19, 194)
-        Me.GroupBox4.Name = "GroupBox4"
-        Me.GroupBox4.Size = New System.Drawing.Size(682, 285)
-        Me.GroupBox4.TabIndex = 17
-        Me.GroupBox4.TabStop = False
-        Me.GroupBox4.Text = "Operatori presenti"
-        '
-        'Label19
-        '
-        Me.Label19.AutoSize = True
-        Me.Label19.Font = New System.Drawing.Font("Microsoft Sans Serif", 24.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label19.ForeColor = System.Drawing.SystemColors.HotTrack
-        Me.Label19.Location = New System.Drawing.Point(181, 36)
-        Me.Label19.Name = "Label19"
-        Me.Label19.Size = New System.Drawing.Size(315, 37)
-        Me.Label19.TabIndex = 15
-        Me.Label19.Text = "Anagrafica Operatori"
-        '
-        'PaswOperatoreTXT
-        '
-        Me.PaswOperatoreTXT.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.PaswOperatoreTXT.Location = New System.Drawing.Point(99, 133)
-        Me.PaswOperatoreTXT.MaxLength = 30
-        Me.PaswOperatoreTXT.Name = "PaswOperatoreTXT"
-        Me.PaswOperatoreTXT.ReadOnly = True
-        Me.PaswOperatoreTXT.Size = New System.Drawing.Size(188, 22)
-        Me.PaswOperatoreTXT.TabIndex = 32
-        Me.PaswOperatoreTXT.UseSystemPasswordChar = True
-        '
-        'Label22
-        '
-        Me.Label22.AutoSize = True
-        Me.Label22.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label22.Location = New System.Drawing.Point(431, 138)
-        Me.Label22.Name = "Label22"
-        Me.Label22.Size = New System.Drawing.Size(47, 16)
-        Me.Label22.TabIndex = 33
-        Me.Label22.Text = "Ruolo:"
-        '
-        'nomeOperatoreTXT
-        '
-        Me.nomeOperatoreTXT.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.nomeOperatoreTXT.Location = New System.Drawing.Point(415, 89)
-        Me.nomeOperatoreTXT.MaxLength = 30
-        Me.nomeOperatoreTXT.Name = "nomeOperatoreTXT"
-        Me.nomeOperatoreTXT.ReadOnly = True
-        Me.nomeOperatoreTXT.Size = New System.Drawing.Size(286, 22)
-        Me.nomeOperatoreTXT.TabIndex = 31
-        '
-        'codoperatoreTXT
-        '
-        Me.codoperatoreTXT.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.codoperatoreTXT.Location = New System.Drawing.Point(145, 89)
-        Me.codoperatoreTXT.MaxLength = 4
-        Me.codoperatoreTXT.Name = "codoperatoreTXT"
-        Me.codoperatoreTXT.ReadOnly = True
-        Me.codoperatoreTXT.Size = New System.Drawing.Size(133, 22)
-        Me.codoperatoreTXT.TabIndex = 29
-        '
-        'Label20
-        '
-        Me.Label20.AutoSize = True
-        Me.Label20.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label20.Location = New System.Drawing.Point(21, 92)
-        Me.Label20.Name = "Label20"
-        Me.Label20.Size = New System.Drawing.Size(118, 16)
-        Me.Label20.TabIndex = 30
-        Me.Label20.Text = "Codice Operatore:"
-        '
-        'Label23
-        '
-        Me.Label23.AutoSize = True
-        Me.Label23.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label23.Location = New System.Drawing.Point(22, 136)
-        Me.Label23.Name = "Label23"
-        Me.Label23.Size = New System.Drawing.Size(71, 16)
-        Me.Label23.TabIndex = 35
-        Me.Label23.Text = "Password:"
-        '
-        'RuoliCmb
-        '
-        Me.RuoliCmb.DisplayMember = "descrizione"
-        Me.RuoliCmb.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList
-        Me.RuoliCmb.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.RuoliCmb.FormattingEnabled = True
-        Me.RuoliCmb.Location = New System.Drawing.Point(484, 133)
-        Me.RuoliCmb.Name = "RuoliCmb"
-        Me.RuoliCmb.Size = New System.Drawing.Size(145, 24)
-        Me.RuoliCmb.TabIndex = 35
-        Me.RuoliCmb.ValueMember = "codice_ruolo"
-        '
-        'Label21
-        '
-        Me.Label21.AutoSize = True
-        Me.Label21.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label21.Location = New System.Drawing.Point(284, 92)
-        Me.Label21.Name = "Label21"
-        Me.Label21.Size = New System.Drawing.Size(121, 16)
-        Me.Label21.TabIndex = 32
-        Me.Label21.Text = "Nome e Cognome:"
-        '
-        'ruoloSelectedTXT
-        '
-        Me.ruoloSelectedTXT.Location = New System.Drawing.Point(529, 133)
-        Me.ruoloSelectedTXT.Name = "ruoloSelectedTXT"
-        Me.ruoloSelectedTXT.Size = New System.Drawing.Size(100, 20)
-        Me.ruoloSelectedTXT.TabIndex = 37
-        '
         'IdTXT
         '
         Me.IdTXT.Location = New System.Drawing.Point(0, 0)
@@ -1245,12 +1290,14 @@ Partial Class FormAnagrafiche
         '
         'TableAdapterManager
         '
+        Me.TableAdapterManager.AnagraficaDataMemoryTableAdapter = Nothing
         Me.TableAdapterManager.AnagraficaGrezziTableAdapter = Me.AnagraficaGrezziTableAdapter
         Me.TableAdapterManager.AnagraficaProdottiTableAdapter = Me.AnagraficaProdottiTableAdapter
         Me.TableAdapterManager.BackupDataSetBeforeUpdate = False
-        Me.TableAdapterManager.OperatoriTableAdapter = Nothing
+        Me.TableAdapterManager.OperatoriTableAdapter = Me.OperatoriTableAdapter
+        Me.TableAdapterManager.ParametriTostaturaDefaultTableAdapter = Nothing
         Me.TableAdapterManager.ParametriTostaturaTableAdapter = Me.ParametriTostaturaTableAdapter
-        Me.TableAdapterManager.RuoliTableAdapter = Nothing
+        Me.TableAdapterManager.RuoliTableAdapter = Me.RuoliTableAdapter
         Me.TableAdapterManager.StoricoAllarmiTableAdapter = Nothing
         Me.TableAdapterManager.StoricoInputTostaturaTableAdapter = Nothing
         Me.TableAdapterManager.StoricoOutputTostaturaTableAdapter = Nothing
@@ -1261,9 +1308,17 @@ Partial Class FormAnagrafiche
         '
         Me.AnagraficaGrezziTableAdapter.ClearBeforeFill = True
         '
+        'OperatoriTableAdapter
+        '
+        Me.OperatoriTableAdapter.ClearBeforeFill = True
+        '
         'ParametriTostaturaTableAdapter
         '
         Me.ParametriTostaturaTableAdapter.ClearBeforeFill = True
+        '
+        'RuoliTableAdapter
+        '
+        Me.RuoliTableAdapter.ClearBeforeFill = True
         '
         'TipoLavorazioneTableAdapter
         '
@@ -1283,10 +1338,16 @@ Partial Class FormAnagrafiche
         Me.SplitContainer1.Panel2.ResumeLayout(False)
         Me.SplitContainer1.ResumeLayout(False)
         Me.CtlAvanzatiGPB.ResumeLayout(False)
+        Me.PnlOperatori.ResumeLayout(False)
+        Me.PnlOperatori.PerformLayout()
+        CType(Me.OperatoriBindingSource, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.TostaturaDataSet, System.ComponentModel.ISupportInitialize).EndInit()
+        Me.GroupBox4.ResumeLayout(False)
+        CType(Me.OperatoriRuoliViewDataGridView, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.RuoliBindingSource, System.ComponentModel.ISupportInitialize).EndInit()
         Me.ProdottiFinitiPNL.ResumeLayout(False)
         Me.ProdottiFinitiPNL.PerformLayout()
         CType(Me.AnagraficaProdottiBindingSource, System.ComponentModel.ISupportInitialize).EndInit()
-        CType(Me.TostaturaDataSet, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.AnagraficaGrezziBindingSource, System.ComponentModel.ISupportInitialize).EndInit()
         Me.GroupBox1.ResumeLayout(False)
         Me.GroupBox1.PerformLayout()
@@ -1299,8 +1360,6 @@ Partial Class FormAnagrafiche
         Me.PnlDataMemory.PerformLayout()
         Me.GroupBox13.ResumeLayout(False)
         CType(Me.AnagraficaDataMemoryDataGridView, System.ComponentModel.ISupportInitialize).EndInit()
-        Me.PnlOperatori.ResumeLayout(False)
-        Me.PnlOperatori.PerformLayout()
         CType(Me.BindingNavigator, System.ComponentModel.ISupportInitialize).EndInit()
         Me.BindingNavigator.ResumeLayout(False)
         Me.BindingNavigator.PerformLayout()
@@ -1355,8 +1414,7 @@ Partial Class FormAnagrafiche
     Friend WithEvents Label81 As System.Windows.Forms.Label
     Friend WithEvents CodBilanciaCollegataTXT As System.Windows.Forms.TextBox
     Friend WithEvents CtlAvanzatiGPB As System.Windows.Forms.GroupBox
-    Friend WithEvents Button8 As System.Windows.Forms.Button
-    Friend WithEvents Button5 As System.Windows.Forms.Button
+    Friend WithEvents DataMemoryBTN As System.Windows.Forms.Button
     Friend WithEvents OperatoriBTN As System.Windows.Forms.Button
     Friend WithEvents FinitiBTN As System.Windows.Forms.Button
     Friend WithEvents ProdottiBTN As System.Windows.Forms.Button
@@ -1373,12 +1431,9 @@ Partial Class FormAnagrafiche
     Friend WithEvents PaswOperatoreTXT As System.Windows.Forms.TextBox
     Friend WithEvents Label22 As System.Windows.Forms.Label
     Friend WithEvents nomeOperatoreTXT As System.Windows.Forms.TextBox
-    Friend WithEvents codoperatoreTXT As System.Windows.Forms.TextBox
-    Friend WithEvents Label20 As System.Windows.Forms.Label
     Friend WithEvents Label23 As System.Windows.Forms.Label
     Friend WithEvents RuoliCmb As System.Windows.Forms.ComboBox
     Friend WithEvents Label21 As System.Windows.Forms.Label
-    Friend WithEvents ruoloSelectedTXT As System.Windows.Forms.TextBox
     Friend WithEvents AnagraficaGrezziTableAdapter As Tostatura.TostaturaDataSetTableAdapters.AnagraficaGrezziTableAdapter
     Friend WithEvents CategoriaTXT As System.Windows.Forms.TextBox
     Friend WithEvents Label3 As System.Windows.Forms.Label
@@ -1419,4 +1474,15 @@ Partial Class FormAnagrafiche
     Friend WithEvents ParametriTostaturaTableAdapter As Tostatura.TostaturaDataSetTableAdapters.ParametriTostaturaTableAdapter
     Friend WithEvents ParametriTostaturaBindingSource As System.Windows.Forms.BindingSource
     Friend WithEvents IdParametriTXT As System.Windows.Forms.TextBox
+    Friend WithEvents OperatoriRuoliViewDataGridView As System.Windows.Forms.DataGridView
+    Friend WithEvents OperatoriTableAdapter As Tostatura.TostaturaDataSetTableAdapters.OperatoriTableAdapter
+    Friend WithEvents OperatoriBindingSource As System.Windows.Forms.BindingSource
+    Friend WithEvents IdRuoloTXT As System.Windows.Forms.TextBox
+    Friend WithEvents RuoliTableAdapter As Tostatura.TostaturaDataSetTableAdapters.RuoliTableAdapter
+    Friend WithEvents RuoliBindingSource As System.Windows.Forms.BindingSource
+    Friend WithEvents idOPeratoreTXT As System.Windows.Forms.TextBox
+    Friend WithEvents IdDataGridViewTextBoxColumn As System.Windows.Forms.DataGridViewTextBoxColumn
+    Friend WithEvents NomeDataGridViewTextBoxColumn As System.Windows.Forms.DataGridViewTextBoxColumn
+    Friend WithEvents PasswordDataGridViewTextBoxColumn As System.Windows.Forms.DataGridViewTextBoxColumn
+    Friend WithEvents IdruoloDataGridViewTextBoxColumn As System.Windows.Forms.DataGridViewTextBoxColumn
 End Class
