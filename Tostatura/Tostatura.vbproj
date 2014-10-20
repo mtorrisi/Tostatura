@@ -71,6 +71,7 @@
     <Import Include="System.Xml.Linq" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Classi\Allarme.vb" />
     <Compile Include="DialogTest.Designer.vb">
       <DependentUpon>DialogTest.vb</DependentUpon>
     </Compile>
@@ -95,7 +96,7 @@
     <Compile Include="FormParametriDefault.vb">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="InputTostatura.vb" />
+    <Compile Include="Classi\InputTostatura.vb" />
     <Compile Include="LoginForm.designer.vb">
       <DependentUpon>LoginForm.vb</DependentUpon>
     </Compile>
@@ -112,7 +113,7 @@
       <AutoGen>True</AutoGen>
       <DependentUpon>Application.myapp</DependentUpon>
     </Compile>
-    <Compile Include="Operatore.vb" />
+    <Compile Include="Classi\Operatore.vb" />
     <Compile Include="My Project\AssemblyInfo.vb" />
     <Compile Include="My Project\Application.Designer.vb">
       <AutoGen>True</AutoGen>
@@ -128,7 +129,7 @@
       <DependentUpon>Settings.settings</DependentUpon>
       <DesignTimeSharedInput>True</DesignTimeSharedInput>
     </Compile>
-    <Compile Include="OutputTostatura.vb" />
+    <Compile Include="Classi\OutputTostatura.vb" />
     <Compile Include="TostaturaDataSet.Designer.vb">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>

@@ -575,8 +575,46 @@ Public Class Utils
         Dim idTostatura As String = ""
         Try
             idTostatura = PLCLink.ReadMemory(PoohFinsETN.MemoryTypes.DM, WriteOffset, 1)
-            fromPLC = PLCLink.ReadMemory(PoohFinsETN.MemoryTypes.DM, DM_ParametriAllarme, 12)
+            fromPLC = PLCLink.ReadMemory(PoohFinsETN.MemoryTypes.DM, DM_ParametriAllarme + 1, 12)
         Catch ex As Exception
+            MsgBox("ErrorEventArgs nella lettura dell'allarme")
+        End Try
+
+        Dim allarme As Allarme = New Allarme()
+        allarme.IdTostatura = Integer.Parse(idTostatura)
+        allarme.DataAllarme = HexToStr(fromPLC.Substring(0, 40))
+        allarme.Valvola = CDbl(Integer.Parse(fromPLC.Substring(40, 4)) / 10)
+        allarme.AperturaValvola = CDbl(Integer.Parse(fromPLC.Substring(44, 4)) / 10)
+
+        Try
+            Dim sql As String
+            cn = New SqlConnection(connectioString)
+            cn.Open()
+            Dim cmd As SqlCommand
+            'sql = "INSERT INTO StoricoOutputTostatura (id_tostatura, temp_pre_carico, inizio_carico, temp_in_carico, data_fine_sosta_forno, avvio_scarico_giostra, tempo_sosta_giostra, avvio_scarico_carrello) " & _
+            '                            "VALUES (@p1,@p2,@p3,@p4,@p5,@p6,@p7,@p8)"
+            sql = "INSERT INTO StoricoAllarmi (id_tostatura, data_allarme, valvola, apertura_valvola) " & _
+                                        "VALUES (@p1,@p2,@p3,@p4)"
+            cmd = New SqlCommand(sql, cn)
+            With cmd.Parameters
+                .Add("@p1", SqlDbType.Int).Value = allarme.IdTostatura
+                .Add("@p2", SqlDbType.DateTime).Value = Date.Now  'allarme.DataAllarme
+                '.Add("@p3", SqlDbType.DateTime).Value = outputTostura.InizioCarico
+                .Add("@p3", SqlDbType.Float).Value = allarme.Valvola
+                '.Add("@p5", SqlDbType.DateTime).Value = outputTostura.FineSostaForno
+                '.Add("@p6", SqlDbType.DateTime).Value = outputTostura.ScaricoGiostra
+                .Add("@p4", SqlDbType.Int).Value = allarme.AperturaValvola
+                '.Add("@p8", SqlDbType.DateTime).Value = outputTostura.ScaricoCarrello
+            End With
+
+            cmd.ExecuteNonQuery()
+
+            'objTransaction.Commit()
+            cn.Close()
+        Catch ex As Exception
+            'objTransaction.Rollback()
+            cn.Close()
+            MsgBox("Attenzione si è verificato un problema." & vbNewLine & ex.Message, MsgBoxStyle.Critical, "Errore")
 
         End Try
     End Sub
