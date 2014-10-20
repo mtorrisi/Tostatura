@@ -23,9 +23,6 @@ Partial Class FormAnagrafiche
     <System.Diagnostics.DebuggerStepThrough()> _
     Private Sub InitializeComponent()
         Me.components = New System.ComponentModel.Container
-        Dim DataGridViewCellStyle4 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle
-        Dim DataGridViewCellStyle5 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle
-        Dim DataGridViewCellStyle6 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle
         Dim resources As System.ComponentModel.ComponentResourceManager = New System.ComponentModel.ComponentResourceManager(GetType(FormAnagrafiche))
         Me.SplitContainer1 = New System.Windows.Forms.SplitContainer
         Me.CtlAvanzatiGPB = New System.Windows.Forms.GroupBox
@@ -33,10 +30,30 @@ Partial Class FormAnagrafiche
         Me.OperatoriBTN = New System.Windows.Forms.Button
         Me.FinitiBTN = New System.Windows.Forms.Button
         Me.ProdottiBTN = New System.Windows.Forms.Button
+        Me.PnlDataMemory = New System.Windows.Forms.Panel
+        Me.tipoOperazioneTXT = New System.Windows.Forms.TextBox
+        Me.AnagraficaDataMemoryBindingSource = New System.Windows.Forms.BindingSource(Me.components)
+        Me.TostaturaDataSet = New Tostatura.TostaturaDataSet
+        Me.DescrDataMemoryTXT = New System.Windows.Forms.TextBox
+        Me.indirizzoDataMemoryTXT = New System.Windows.Forms.TextBox
+        Me.Label78 = New System.Windows.Forms.Label
+        Me.LetturaRBT = New System.Windows.Forms.RadioButton
+        Me.ScritturaRBT = New System.Windows.Forms.RadioButton
+        Me.Label79 = New System.Windows.Forms.Label
+        Me.CodDataMemoryTXT = New System.Windows.Forms.TextBox
+        Me.Label80 = New System.Windows.Forms.Label
+        Me.GroupBox13 = New System.Windows.Forms.GroupBox
+        Me.AnagraficaDataMemoryDataGridView = New System.Windows.Forms.DataGridView
+        Me.DataGridViewTextBoxColumn4 = New System.Windows.Forms.DataGridViewTextBoxColumn
+        Me.DataGridViewTextBoxColumn5 = New System.Windows.Forms.DataGridViewTextBoxColumn
+        Me.DataGridViewTextBoxColumn6 = New System.Windows.Forms.DataGridViewTextBoxColumn
+        Me.DataGridViewTextBoxColumn7 = New System.Windows.Forms.DataGridViewTextBoxColumn
+        Me.DataGridViewTextBoxColumn8 = New System.Windows.Forms.DataGridViewTextBoxColumn
+        Me.Label81 = New System.Windows.Forms.Label
+        Me.CodBilanciaCollegataTXT = New System.Windows.Forms.TextBox
         Me.PnlOperatori = New System.Windows.Forms.Panel
         Me.idOPeratoreTXT = New System.Windows.Forms.TextBox
         Me.OperatoriBindingSource = New System.Windows.Forms.BindingSource(Me.components)
-        Me.TostaturaDataSet = New Tostatura.TostaturaDataSet
         Me.IdRuoloTXT = New System.Windows.Forms.TextBox
         Me.PswCHB = New System.Windows.Forms.CheckBox
         Me.GroupBox4 = New System.Windows.Forms.GroupBox
@@ -87,10 +104,6 @@ Partial Class FormAnagrafiche
         Me.Label8 = New System.Windows.Forms.Label
         Me.Label10 = New System.Windows.Forms.Label
         Me.ProdottiGrezziPNL = New System.Windows.Forms.Panel
-        Me.AnagraficaGrezziDataGridView = New System.Windows.Forms.DataGridView
-        Me.DataGridViewTextBoxColumn1 = New System.Windows.Forms.DataGridViewTextBoxColumn
-        Me.DataGridViewTextBoxColumn2 = New System.Windows.Forms.DataGridViewTextBoxColumn
-        Me.DataGridViewTextBoxColumn3 = New System.Windows.Forms.DataGridViewTextBoxColumn
         Me.CategoriaTXT = New System.Windows.Forms.TextBox
         Me.Label3 = New System.Windows.Forms.Label
         Me.DescrizioneTXT = New System.Windows.Forms.TextBox
@@ -98,22 +111,6 @@ Partial Class FormAnagrafiche
         Me.CodiceTXT = New System.Windows.Forms.TextBox
         Me.Label1 = New System.Windows.Forms.Label
         Me.Label30 = New System.Windows.Forms.Label
-        Me.PnlDataMemory = New System.Windows.Forms.Panel
-        Me.tipoOperazioneTXT = New System.Windows.Forms.TextBox
-        Me.BilanciaCollegataCMB = New System.Windows.Forms.ComboBox
-        Me.BilanciaCollegataCHB = New System.Windows.Forms.CheckBox
-        Me.DescrDataMemoryTXT = New System.Windows.Forms.TextBox
-        Me.indirizzoDataMemoryTXT = New System.Windows.Forms.TextBox
-        Me.Label78 = New System.Windows.Forms.Label
-        Me.LetturaRBT = New System.Windows.Forms.RadioButton
-        Me.ScritturaRBT = New System.Windows.Forms.RadioButton
-        Me.Label79 = New System.Windows.Forms.Label
-        Me.CodDataMemoryTXT = New System.Windows.Forms.TextBox
-        Me.Label80 = New System.Windows.Forms.Label
-        Me.GroupBox13 = New System.Windows.Forms.GroupBox
-        Me.AnagraficaDataMemoryDataGridView = New System.Windows.Forms.DataGridView
-        Me.Label81 = New System.Windows.Forms.Label
-        Me.CodBilanciaCollegataTXT = New System.Windows.Forms.TextBox
         Me.IdTXT = New System.Windows.Forms.TextBox
         Me.Label5 = New System.Windows.Forms.Label
         Me.DescrCategoriaTXT = New System.Windows.Forms.TextBox
@@ -140,18 +137,28 @@ Partial Class FormAnagrafiche
         Me.BNDescrizoneTXT = New System.Windows.Forms.ToolStripTextBox
         Me.AnagraficaProdottiTableAdapter = New Tostatura.TostaturaDataSetTableAdapters.AnagraficaProdottiTableAdapter
         Me.TableAdapterManager = New Tostatura.TostaturaDataSetTableAdapters.TableAdapterManager
+        Me.AnagraficaDataMemoryTableAdapter = New Tostatura.TostaturaDataSetTableAdapters.AnagraficaDataMemoryTableAdapter
         Me.AnagraficaGrezziTableAdapter = New Tostatura.TostaturaDataSetTableAdapters.AnagraficaGrezziTableAdapter
         Me.OperatoriTableAdapter = New Tostatura.TostaturaDataSetTableAdapters.OperatoriTableAdapter
         Me.ParametriTostaturaTableAdapter = New Tostatura.TostaturaDataSetTableAdapters.ParametriTostaturaTableAdapter
         Me.RuoliTableAdapter = New Tostatura.TostaturaDataSetTableAdapters.RuoliTableAdapter
         Me.TipoLavorazioneTableAdapter = New Tostatura.TostaturaDataSetTableAdapters.TipoLavorazioneTableAdapter
+        Me.GroupBox2 = New System.Windows.Forms.GroupBox
+        Me.AnagraficaGrezziDataGridView = New System.Windows.Forms.DataGridView
+        Me.DataGridViewTextBoxColumn1 = New System.Windows.Forms.DataGridViewTextBoxColumn
+        Me.DataGridViewTextBoxColumn2 = New System.Windows.Forms.DataGridViewTextBoxColumn
+        Me.DataGridViewTextBoxColumn3 = New System.Windows.Forms.DataGridViewTextBoxColumn
         Me.SplitContainer1.Panel1.SuspendLayout()
         Me.SplitContainer1.Panel2.SuspendLayout()
         Me.SplitContainer1.SuspendLayout()
         Me.CtlAvanzatiGPB.SuspendLayout()
+        Me.PnlDataMemory.SuspendLayout()
+        CType(Me.AnagraficaDataMemoryBindingSource, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.TostaturaDataSet, System.ComponentModel.ISupportInitialize).BeginInit()
+        Me.GroupBox13.SuspendLayout()
+        CType(Me.AnagraficaDataMemoryDataGridView, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.PnlOperatori.SuspendLayout()
         CType(Me.OperatoriBindingSource, System.ComponentModel.ISupportInitialize).BeginInit()
-        CType(Me.TostaturaDataSet, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.GroupBox4.SuspendLayout()
         CType(Me.OperatoriRuoliViewDataGridView, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.RuoliBindingSource, System.ComponentModel.ISupportInitialize).BeginInit()
@@ -162,12 +169,10 @@ Partial Class FormAnagrafiche
         CType(Me.ParametriTostaturaBindingSource, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.TipoLavorazioneBindingSource, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.ProdottiGrezziPNL.SuspendLayout()
-        CType(Me.AnagraficaGrezziDataGridView, System.ComponentModel.ISupportInitialize).BeginInit()
-        Me.PnlDataMemory.SuspendLayout()
-        Me.GroupBox13.SuspendLayout()
-        CType(Me.AnagraficaDataMemoryDataGridView, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.BindingNavigator, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.BindingNavigator.SuspendLayout()
+        Me.GroupBox2.SuspendLayout()
+        CType(Me.AnagraficaGrezziDataGridView, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.SuspendLayout()
         '
         'SplitContainer1
@@ -188,10 +193,10 @@ Partial Class FormAnagrafiche
         '
         Me.SplitContainer1.Panel2.AutoScroll = True
         Me.SplitContainer1.Panel2.BackColor = System.Drawing.SystemColors.Info
+        Me.SplitContainer1.Panel2.Controls.Add(Me.PnlDataMemory)
         Me.SplitContainer1.Panel2.Controls.Add(Me.PnlOperatori)
         Me.SplitContainer1.Panel2.Controls.Add(Me.ProdottiFinitiPNL)
         Me.SplitContainer1.Panel2.Controls.Add(Me.ProdottiGrezziPNL)
-        Me.SplitContainer1.Panel2.Controls.Add(Me.PnlDataMemory)
         Me.SplitContainer1.Size = New System.Drawing.Size(892, 596)
         Me.SplitContainer1.SplitterDistance = 148
         Me.SplitContainer1.TabIndex = 0
@@ -253,6 +258,207 @@ Partial Class FormAnagrafiche
         Me.ProdottiBTN.Text = "Anagrafica Grezzi"
         Me.ProdottiBTN.UseVisualStyleBackColor = True
         '
+        'PnlDataMemory
+        '
+        Me.PnlDataMemory.Controls.Add(Me.tipoOperazioneTXT)
+        Me.PnlDataMemory.Controls.Add(Me.DescrDataMemoryTXT)
+        Me.PnlDataMemory.Controls.Add(Me.indirizzoDataMemoryTXT)
+        Me.PnlDataMemory.Controls.Add(Me.Label78)
+        Me.PnlDataMemory.Controls.Add(Me.LetturaRBT)
+        Me.PnlDataMemory.Controls.Add(Me.ScritturaRBT)
+        Me.PnlDataMemory.Controls.Add(Me.Label79)
+        Me.PnlDataMemory.Controls.Add(Me.CodDataMemoryTXT)
+        Me.PnlDataMemory.Controls.Add(Me.Label80)
+        Me.PnlDataMemory.Controls.Add(Me.GroupBox13)
+        Me.PnlDataMemory.Controls.Add(Me.Label81)
+        Me.PnlDataMemory.Controls.Add(Me.CodBilanciaCollegataTXT)
+        Me.PnlDataMemory.Location = New System.Drawing.Point(3, 22)
+        Me.PnlDataMemory.Name = "PnlDataMemory"
+        Me.PnlDataMemory.Size = New System.Drawing.Size(719, 549)
+        Me.PnlDataMemory.TabIndex = 47
+        Me.PnlDataMemory.Visible = False
+        '
+        'tipoOperazioneTXT
+        '
+        Me.tipoOperazioneTXT.DataBindings.Add(New System.Windows.Forms.Binding("Text", Me.AnagraficaDataMemoryBindingSource, "tipo_operazione", True))
+        Me.tipoOperazioneTXT.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.tipoOperazioneTXT.Location = New System.Drawing.Point(494, 115)
+        Me.tipoOperazioneTXT.MaxLength = 30
+        Me.tipoOperazioneTXT.Name = "tipoOperazioneTXT"
+        Me.tipoOperazioneTXT.ReadOnly = True
+        Me.tipoOperazioneTXT.Size = New System.Drawing.Size(85, 22)
+        Me.tipoOperazioneTXT.TabIndex = 49
+        '
+        'AnagraficaDataMemoryBindingSource
+        '
+        Me.AnagraficaDataMemoryBindingSource.DataMember = "AnagraficaDataMemory"
+        Me.AnagraficaDataMemoryBindingSource.DataSource = Me.TostaturaDataSet
+        '
+        'TostaturaDataSet
+        '
+        Me.TostaturaDataSet.DataSetName = "TostaturaDataSet"
+        Me.TostaturaDataSet.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema
+        '
+        'DescrDataMemoryTXT
+        '
+        Me.DescrDataMemoryTXT.DataBindings.Add(New System.Windows.Forms.Binding("Text", Me.AnagraficaDataMemoryBindingSource, "descrizione", True))
+        Me.DescrDataMemoryTXT.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.DescrDataMemoryTXT.Location = New System.Drawing.Point(425, 78)
+        Me.DescrDataMemoryTXT.MaxLength = 30
+        Me.DescrDataMemoryTXT.Name = "DescrDataMemoryTXT"
+        Me.DescrDataMemoryTXT.Size = New System.Drawing.Size(283, 22)
+        Me.DescrDataMemoryTXT.TabIndex = 31
+        '
+        'indirizzoDataMemoryTXT
+        '
+        Me.indirizzoDataMemoryTXT.DataBindings.Add(New System.Windows.Forms.Binding("Text", Me.AnagraficaDataMemoryBindingSource, "offset", True))
+        Me.indirizzoDataMemoryTXT.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.indirizzoDataMemoryTXT.Location = New System.Drawing.Point(160, 118)
+        Me.indirizzoDataMemoryTXT.MaxLength = 16
+        Me.indirizzoDataMemoryTXT.Name = "indirizzoDataMemoryTXT"
+        Me.indirizzoDataMemoryTXT.ReadOnly = True
+        Me.indirizzoDataMemoryTXT.Size = New System.Drawing.Size(131, 22)
+        Me.indirizzoDataMemoryTXT.TabIndex = 45
+        '
+        'Label78
+        '
+        Me.Label78.AutoSize = True
+        Me.Label78.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Label78.Location = New System.Drawing.Point(96, 121)
+        Me.Label78.Name = "Label78"
+        Me.Label78.Size = New System.Drawing.Size(59, 16)
+        Me.Label78.TabIndex = 39
+        Me.Label78.Text = "Indirizzo:"
+        '
+        'LetturaRBT
+        '
+        Me.LetturaRBT.AutoSize = True
+        Me.LetturaRBT.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.LetturaRBT.Location = New System.Drawing.Point(340, 119)
+        Me.LetturaRBT.Name = "LetturaRBT"
+        Me.LetturaRBT.Size = New System.Drawing.Size(66, 20)
+        Me.LetturaRBT.TabIndex = 36
+        Me.LetturaRBT.TabStop = True
+        Me.LetturaRBT.Text = "Lettura"
+        Me.LetturaRBT.UseVisualStyleBackColor = True
+        '
+        'ScritturaRBT
+        '
+        Me.ScritturaRBT.AutoSize = True
+        Me.ScritturaRBT.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.ScritturaRBT.Location = New System.Drawing.Point(414, 119)
+        Me.ScritturaRBT.Name = "ScritturaRBT"
+        Me.ScritturaRBT.Size = New System.Drawing.Size(74, 20)
+        Me.ScritturaRBT.TabIndex = 37
+        Me.ScritturaRBT.TabStop = True
+        Me.ScritturaRBT.Text = "Scrittura"
+        Me.ScritturaRBT.UseVisualStyleBackColor = True
+        '
+        'Label79
+        '
+        Me.Label79.AutoSize = True
+        Me.Label79.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Label79.Location = New System.Drawing.Point(337, 81)
+        Me.Label79.Name = "Label79"
+        Me.Label79.Size = New System.Drawing.Size(82, 16)
+        Me.Label79.TabIndex = 32
+        Me.Label79.Text = "Descrizione:"
+        '
+        'CodDataMemoryTXT
+        '
+        Me.CodDataMemoryTXT.DataBindings.Add(New System.Windows.Forms.Binding("Text", Me.AnagraficaDataMemoryBindingSource, "codice_dm", True))
+        Me.CodDataMemoryTXT.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.CodDataMemoryTXT.Location = New System.Drawing.Point(161, 78)
+        Me.CodDataMemoryTXT.MaxLength = 30
+        Me.CodDataMemoryTXT.Name = "CodDataMemoryTXT"
+        Me.CodDataMemoryTXT.ReadOnly = True
+        Me.CodDataMemoryTXT.Size = New System.Drawing.Size(130, 22)
+        Me.CodDataMemoryTXT.TabIndex = 29
+        '
+        'Label80
+        '
+        Me.Label80.AutoSize = True
+        Me.Label80.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Label80.Location = New System.Drawing.Point(14, 81)
+        Me.Label80.Name = "Label80"
+        Me.Label80.Size = New System.Drawing.Size(141, 16)
+        Me.Label80.TabIndex = 30
+        Me.Label80.Text = "Codice Data Memory :"
+        '
+        'GroupBox13
+        '
+        Me.GroupBox13.Controls.Add(Me.AnagraficaDataMemoryDataGridView)
+        Me.GroupBox13.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.GroupBox13.Location = New System.Drawing.Point(16, 200)
+        Me.GroupBox13.Name = "GroupBox13"
+        Me.GroupBox13.Size = New System.Drawing.Size(701, 348)
+        Me.GroupBox13.TabIndex = 17
+        Me.GroupBox13.TabStop = False
+        Me.GroupBox13.Text = "Dettaglio Data Memory"
+        '
+        'AnagraficaDataMemoryDataGridView
+        '
+        Me.AnagraficaDataMemoryDataGridView.AutoGenerateColumns = False
+        Me.AnagraficaDataMemoryDataGridView.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill
+        Me.AnagraficaDataMemoryDataGridView.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
+        Me.AnagraficaDataMemoryDataGridView.Columns.AddRange(New System.Windows.Forms.DataGridViewColumn() {Me.DataGridViewTextBoxColumn4, Me.DataGridViewTextBoxColumn5, Me.DataGridViewTextBoxColumn6, Me.DataGridViewTextBoxColumn7, Me.DataGridViewTextBoxColumn8})
+        Me.AnagraficaDataMemoryDataGridView.DataSource = Me.AnagraficaDataMemoryBindingSource
+        Me.AnagraficaDataMemoryDataGridView.Location = New System.Drawing.Point(20, 34)
+        Me.AnagraficaDataMemoryDataGridView.Name = "AnagraficaDataMemoryDataGridView"
+        Me.AnagraficaDataMemoryDataGridView.Size = New System.Drawing.Size(672, 297)
+        Me.AnagraficaDataMemoryDataGridView.TabIndex = 0
+        '
+        'DataGridViewTextBoxColumn4
+        '
+        Me.DataGridViewTextBoxColumn4.DataPropertyName = "tipo_operazione"
+        Me.DataGridViewTextBoxColumn4.HeaderText = "Tipo Operazione"
+        Me.DataGridViewTextBoxColumn4.Name = "DataGridViewTextBoxColumn4"
+        '
+        'DataGridViewTextBoxColumn5
+        '
+        Me.DataGridViewTextBoxColumn5.DataPropertyName = "codice_dm"
+        Me.DataGridViewTextBoxColumn5.HeaderText = "Codice DM"
+        Me.DataGridViewTextBoxColumn5.Name = "DataGridViewTextBoxColumn5"
+        '
+        'DataGridViewTextBoxColumn6
+        '
+        Me.DataGridViewTextBoxColumn6.DataPropertyName = "descrizione"
+        Me.DataGridViewTextBoxColumn6.HeaderText = "Descrizione"
+        Me.DataGridViewTextBoxColumn6.Name = "DataGridViewTextBoxColumn6"
+        '
+        'DataGridViewTextBoxColumn7
+        '
+        Me.DataGridViewTextBoxColumn7.DataPropertyName = "offset"
+        Me.DataGridViewTextBoxColumn7.HeaderText = "Indirizzo"
+        Me.DataGridViewTextBoxColumn7.Name = "DataGridViewTextBoxColumn7"
+        '
+        'DataGridViewTextBoxColumn8
+        '
+        Me.DataGridViewTextBoxColumn8.DataPropertyName = "lunghezza"
+        Me.DataGridViewTextBoxColumn8.HeaderText = "Lunghezza"
+        Me.DataGridViewTextBoxColumn8.Name = "DataGridViewTextBoxColumn8"
+        '
+        'Label81
+        '
+        Me.Label81.AutoSize = True
+        Me.Label81.Font = New System.Drawing.Font("Microsoft Sans Serif", 24.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Label81.ForeColor = System.Drawing.SystemColors.HotTrack
+        Me.Label81.Location = New System.Drawing.Point(187, 12)
+        Me.Label81.Name = "Label81"
+        Me.Label81.Size = New System.Drawing.Size(372, 37)
+        Me.Label81.TabIndex = 15
+        Me.Label81.Text = "Anagrafica Data Memory"
+        '
+        'CodBilanciaCollegataTXT
+        '
+        Me.CodBilanciaCollegataTXT.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.CodBilanciaCollegataTXT.Location = New System.Drawing.Point(441, 120)
+        Me.CodBilanciaCollegataTXT.MaxLength = 30
+        Me.CodBilanciaCollegataTXT.Name = "CodBilanciaCollegataTXT"
+        Me.CodBilanciaCollegataTXT.ReadOnly = True
+        Me.CodBilanciaCollegataTXT.Size = New System.Drawing.Size(0, 22)
+        Me.CodBilanciaCollegataTXT.TabIndex = 48
+        '
         'PnlOperatori
         '
         Me.PnlOperatori.Controls.Add(Me.idOPeratoreTXT)
@@ -277,7 +483,7 @@ Partial Class FormAnagrafiche
         Me.idOPeratoreTXT.DataBindings.Add(New System.Windows.Forms.Binding("Text", Me.OperatoriBindingSource, "id", True))
         Me.idOPeratoreTXT.Location = New System.Drawing.Point(25, 55)
         Me.idOPeratoreTXT.Name = "idOPeratoreTXT"
-        Me.idOPeratoreTXT.Size = New System.Drawing.Size(100, 20)
+        Me.idOPeratoreTXT.Size = New System.Drawing.Size(0, 20)
         Me.idOPeratoreTXT.TabIndex = 39
         '
         'OperatoriBindingSource
@@ -285,17 +491,12 @@ Partial Class FormAnagrafiche
         Me.OperatoriBindingSource.DataMember = "Operatori"
         Me.OperatoriBindingSource.DataSource = Me.TostaturaDataSet
         '
-        'TostaturaDataSet
-        '
-        Me.TostaturaDataSet.DataSetName = "TostaturaDataSet"
-        Me.TostaturaDataSet.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema
-        '
         'IdRuoloTXT
         '
         Me.IdRuoloTXT.DataBindings.Add(New System.Windows.Forms.Binding("Text", Me.OperatoriBindingSource, "id_ruolo", True))
         Me.IdRuoloTXT.Location = New System.Drawing.Point(556, 164)
         Me.IdRuoloTXT.Name = "IdRuoloTXT"
-        Me.IdRuoloTXT.Size = New System.Drawing.Size(100, 20)
+        Me.IdRuoloTXT.Size = New System.Drawing.Size(0, 20)
         Me.IdRuoloTXT.TabIndex = 38
         '
         'PswCHB
@@ -781,7 +982,7 @@ Partial Class FormAnagrafiche
         '
         'ProdottiGrezziPNL
         '
-        Me.ProdottiGrezziPNL.Controls.Add(Me.AnagraficaGrezziDataGridView)
+        Me.ProdottiGrezziPNL.Controls.Add(Me.GroupBox2)
         Me.ProdottiGrezziPNL.Controls.Add(Me.CategoriaTXT)
         Me.ProdottiGrezziPNL.Controls.Add(Me.Label3)
         Me.ProdottiGrezziPNL.Controls.Add(Me.DescrizioneTXT)
@@ -794,60 +995,6 @@ Partial Class FormAnagrafiche
         Me.ProdottiGrezziPNL.Size = New System.Drawing.Size(723, 552)
         Me.ProdottiGrezziPNL.TabIndex = 0
         Me.ProdottiGrezziPNL.Visible = False
-        '
-        'AnagraficaGrezziDataGridView
-        '
-        Me.AnagraficaGrezziDataGridView.AutoGenerateColumns = False
-        Me.AnagraficaGrezziDataGridView.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill
-        DataGridViewCellStyle4.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft
-        DataGridViewCellStyle4.BackColor = System.Drawing.SystemColors.Control
-        DataGridViewCellStyle4.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        DataGridViewCellStyle4.ForeColor = System.Drawing.SystemColors.WindowText
-        DataGridViewCellStyle4.SelectionBackColor = System.Drawing.SystemColors.Highlight
-        DataGridViewCellStyle4.SelectionForeColor = System.Drawing.SystemColors.HighlightText
-        DataGridViewCellStyle4.WrapMode = System.Windows.Forms.DataGridViewTriState.[True]
-        Me.AnagraficaGrezziDataGridView.ColumnHeadersDefaultCellStyle = DataGridViewCellStyle4
-        Me.AnagraficaGrezziDataGridView.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
-        Me.AnagraficaGrezziDataGridView.Columns.AddRange(New System.Windows.Forms.DataGridViewColumn() {Me.DataGridViewTextBoxColumn1, Me.DataGridViewTextBoxColumn2, Me.DataGridViewTextBoxColumn3})
-        Me.AnagraficaGrezziDataGridView.DataSource = Me.AnagraficaGrezziBindingSource
-        DataGridViewCellStyle5.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft
-        DataGridViewCellStyle5.BackColor = System.Drawing.SystemColors.Window
-        DataGridViewCellStyle5.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        DataGridViewCellStyle5.ForeColor = System.Drawing.SystemColors.ControlText
-        DataGridViewCellStyle5.SelectionBackColor = System.Drawing.SystemColors.Highlight
-        DataGridViewCellStyle5.SelectionForeColor = System.Drawing.SystemColors.HighlightText
-        DataGridViewCellStyle5.WrapMode = System.Windows.Forms.DataGridViewTriState.[False]
-        Me.AnagraficaGrezziDataGridView.DefaultCellStyle = DataGridViewCellStyle5
-        Me.AnagraficaGrezziDataGridView.Location = New System.Drawing.Point(16, 194)
-        Me.AnagraficaGrezziDataGridView.Name = "AnagraficaGrezziDataGridView"
-        DataGridViewCellStyle6.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft
-        DataGridViewCellStyle6.BackColor = System.Drawing.SystemColors.Control
-        DataGridViewCellStyle6.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        DataGridViewCellStyle6.ForeColor = System.Drawing.SystemColors.WindowText
-        DataGridViewCellStyle6.SelectionBackColor = System.Drawing.SystemColors.Highlight
-        DataGridViewCellStyle6.SelectionForeColor = System.Drawing.SystemColors.HighlightText
-        DataGridViewCellStyle6.WrapMode = System.Windows.Forms.DataGridViewTriState.[True]
-        Me.AnagraficaGrezziDataGridView.RowHeadersDefaultCellStyle = DataGridViewCellStyle6
-        Me.AnagraficaGrezziDataGridView.Size = New System.Drawing.Size(690, 344)
-        Me.AnagraficaGrezziDataGridView.TabIndex = 33
-        '
-        'DataGridViewTextBoxColumn1
-        '
-        Me.DataGridViewTextBoxColumn1.DataPropertyName = "codice"
-        Me.DataGridViewTextBoxColumn1.HeaderText = "codice"
-        Me.DataGridViewTextBoxColumn1.Name = "DataGridViewTextBoxColumn1"
-        '
-        'DataGridViewTextBoxColumn2
-        '
-        Me.DataGridViewTextBoxColumn2.DataPropertyName = "descrizione"
-        Me.DataGridViewTextBoxColumn2.HeaderText = "descrizione"
-        Me.DataGridViewTextBoxColumn2.Name = "DataGridViewTextBoxColumn2"
-        '
-        'DataGridViewTextBoxColumn3
-        '
-        Me.DataGridViewTextBoxColumn3.DataPropertyName = "categoria"
-        Me.DataGridViewTextBoxColumn3.HeaderText = "categoria"
-        Me.DataGridViewTextBoxColumn3.Name = "DataGridViewTextBoxColumn3"
         '
         'CategoriaTXT
         '
@@ -917,190 +1064,6 @@ Partial Class FormAnagrafiche
         Me.Label30.Size = New System.Drawing.Size(383, 37)
         Me.Label30.TabIndex = 27
         Me.Label30.Text = "Anagrafica prodotti grezzi"
-        '
-        'PnlDataMemory
-        '
-        Me.PnlDataMemory.Controls.Add(Me.tipoOperazioneTXT)
-        Me.PnlDataMemory.Controls.Add(Me.BilanciaCollegataCMB)
-        Me.PnlDataMemory.Controls.Add(Me.BilanciaCollegataCHB)
-        Me.PnlDataMemory.Controls.Add(Me.DescrDataMemoryTXT)
-        Me.PnlDataMemory.Controls.Add(Me.indirizzoDataMemoryTXT)
-        Me.PnlDataMemory.Controls.Add(Me.Label78)
-        Me.PnlDataMemory.Controls.Add(Me.LetturaRBT)
-        Me.PnlDataMemory.Controls.Add(Me.ScritturaRBT)
-        Me.PnlDataMemory.Controls.Add(Me.Label79)
-        Me.PnlDataMemory.Controls.Add(Me.CodDataMemoryTXT)
-        Me.PnlDataMemory.Controls.Add(Me.Label80)
-        Me.PnlDataMemory.Controls.Add(Me.GroupBox13)
-        Me.PnlDataMemory.Controls.Add(Me.Label81)
-        Me.PnlDataMemory.Controls.Add(Me.CodBilanciaCollegataTXT)
-        Me.PnlDataMemory.Location = New System.Drawing.Point(3, 22)
-        Me.PnlDataMemory.Name = "PnlDataMemory"
-        Me.PnlDataMemory.Size = New System.Drawing.Size(719, 549)
-        Me.PnlDataMemory.TabIndex = 47
-        Me.PnlDataMemory.Visible = False
-        '
-        'tipoOperazioneTXT
-        '
-        Me.tipoOperazioneTXT.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.tipoOperazioneTXT.Location = New System.Drawing.Point(668, 81)
-        Me.tipoOperazioneTXT.MaxLength = 30
-        Me.tipoOperazioneTXT.Name = "tipoOperazioneTXT"
-        Me.tipoOperazioneTXT.ReadOnly = True
-        Me.tipoOperazioneTXT.Size = New System.Drawing.Size(0, 22)
-        Me.tipoOperazioneTXT.TabIndex = 49
-        '
-        'BilanciaCollegataCMB
-        '
-        Me.BilanciaCollegataCMB.DisplayMember = "descrizione"
-        Me.BilanciaCollegataCMB.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList
-        Me.BilanciaCollegataCMB.Enabled = False
-        Me.BilanciaCollegataCMB.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.BilanciaCollegataCMB.FormattingEnabled = True
-        Me.BilanciaCollegataCMB.Location = New System.Drawing.Point(427, 118)
-        Me.BilanciaCollegataCMB.Name = "BilanciaCollegataCMB"
-        Me.BilanciaCollegataCMB.Size = New System.Drawing.Size(163, 24)
-        Me.BilanciaCollegataCMB.TabIndex = 47
-        Me.BilanciaCollegataCMB.ValueMember = "codice_bilancia"
-        Me.BilanciaCollegataCMB.Visible = False
-        '
-        'BilanciaCollegataCHB
-        '
-        Me.BilanciaCollegataCHB.AutoSize = True
-        Me.BilanciaCollegataCHB.Enabled = False
-        Me.BilanciaCollegataCHB.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.BilanciaCollegataCHB.Location = New System.Drawing.Point(272, 120)
-        Me.BilanciaCollegataCHB.Name = "BilanciaCollegataCHB"
-        Me.BilanciaCollegataCHB.Size = New System.Drawing.Size(147, 20)
-        Me.BilanciaCollegataCHB.TabIndex = 46
-        Me.BilanciaCollegataCHB.Text = "Collegato a Bilancia"
-        Me.BilanciaCollegataCHB.UseVisualStyleBackColor = True
-        '
-        'DescrDataMemoryTXT
-        '
-        Me.DescrDataMemoryTXT.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.DescrDataMemoryTXT.Location = New System.Drawing.Point(425, 78)
-        Me.DescrDataMemoryTXT.MaxLength = 30
-        Me.DescrDataMemoryTXT.Name = "DescrDataMemoryTXT"
-        Me.DescrDataMemoryTXT.Size = New System.Drawing.Size(163, 22)
-        Me.DescrDataMemoryTXT.TabIndex = 31
-        '
-        'indirizzoDataMemoryTXT
-        '
-        Me.indirizzoDataMemoryTXT.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.indirizzoDataMemoryTXT.Location = New System.Drawing.Point(160, 118)
-        Me.indirizzoDataMemoryTXT.MaxLength = 16
-        Me.indirizzoDataMemoryTXT.Name = "indirizzoDataMemoryTXT"
-        Me.indirizzoDataMemoryTXT.ReadOnly = True
-        Me.indirizzoDataMemoryTXT.Size = New System.Drawing.Size(93, 22)
-        Me.indirizzoDataMemoryTXT.TabIndex = 45
-        '
-        'Label78
-        '
-        Me.Label78.AutoSize = True
-        Me.Label78.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label78.Location = New System.Drawing.Point(96, 121)
-        Me.Label78.Name = "Label78"
-        Me.Label78.Size = New System.Drawing.Size(59, 16)
-        Me.Label78.TabIndex = 39
-        Me.Label78.Text = "Indirizzo:"
-        '
-        'LetturaRBT
-        '
-        Me.LetturaRBT.AutoSize = True
-        Me.LetturaRBT.Enabled = False
-        Me.LetturaRBT.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.LetturaRBT.Location = New System.Drawing.Point(596, 81)
-        Me.LetturaRBT.Name = "LetturaRBT"
-        Me.LetturaRBT.Size = New System.Drawing.Size(66, 20)
-        Me.LetturaRBT.TabIndex = 36
-        Me.LetturaRBT.TabStop = True
-        Me.LetturaRBT.Text = "Lettura"
-        Me.LetturaRBT.UseVisualStyleBackColor = True
-        '
-        'ScritturaRBT
-        '
-        Me.ScritturaRBT.AutoSize = True
-        Me.ScritturaRBT.Enabled = False
-        Me.ScritturaRBT.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.ScritturaRBT.Location = New System.Drawing.Point(596, 116)
-        Me.ScritturaRBT.Name = "ScritturaRBT"
-        Me.ScritturaRBT.Size = New System.Drawing.Size(74, 20)
-        Me.ScritturaRBT.TabIndex = 37
-        Me.ScritturaRBT.TabStop = True
-        Me.ScritturaRBT.Text = "Scrittura"
-        Me.ScritturaRBT.UseVisualStyleBackColor = True
-        '
-        'Label79
-        '
-        Me.Label79.AutoSize = True
-        Me.Label79.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label79.Location = New System.Drawing.Point(337, 81)
-        Me.Label79.Name = "Label79"
-        Me.Label79.Size = New System.Drawing.Size(82, 16)
-        Me.Label79.TabIndex = 32
-        Me.Label79.Text = "Descrizione:"
-        '
-        'CodDataMemoryTXT
-        '
-        Me.CodDataMemoryTXT.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.CodDataMemoryTXT.Location = New System.Drawing.Point(161, 78)
-        Me.CodDataMemoryTXT.MaxLength = 30
-        Me.CodDataMemoryTXT.Name = "CodDataMemoryTXT"
-        Me.CodDataMemoryTXT.ReadOnly = True
-        Me.CodDataMemoryTXT.Size = New System.Drawing.Size(130, 22)
-        Me.CodDataMemoryTXT.TabIndex = 29
-        '
-        'Label80
-        '
-        Me.Label80.AutoSize = True
-        Me.Label80.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label80.Location = New System.Drawing.Point(14, 81)
-        Me.Label80.Name = "Label80"
-        Me.Label80.Size = New System.Drawing.Size(141, 16)
-        Me.Label80.TabIndex = 30
-        Me.Label80.Text = "Codice Data Memory :"
-        '
-        'GroupBox13
-        '
-        Me.GroupBox13.Controls.Add(Me.AnagraficaDataMemoryDataGridView)
-        Me.GroupBox13.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.GroupBox13.Location = New System.Drawing.Point(16, 200)
-        Me.GroupBox13.Name = "GroupBox13"
-        Me.GroupBox13.Size = New System.Drawing.Size(701, 348)
-        Me.GroupBox13.TabIndex = 17
-        Me.GroupBox13.TabStop = False
-        Me.GroupBox13.Text = "Dettaglio Data Memory"
-        '
-        'AnagraficaDataMemoryDataGridView
-        '
-        Me.AnagraficaDataMemoryDataGridView.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill
-        Me.AnagraficaDataMemoryDataGridView.Location = New System.Drawing.Point(8, 23)
-        Me.AnagraficaDataMemoryDataGridView.Name = "AnagraficaDataMemoryDataGridView"
-        Me.AnagraficaDataMemoryDataGridView.ReadOnly = True
-        Me.AnagraficaDataMemoryDataGridView.Size = New System.Drawing.Size(687, 319)
-        Me.AnagraficaDataMemoryDataGridView.TabIndex = 0
-        '
-        'Label81
-        '
-        Me.Label81.AutoSize = True
-        Me.Label81.Font = New System.Drawing.Font("Microsoft Sans Serif", 24.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label81.ForeColor = System.Drawing.SystemColors.HotTrack
-        Me.Label81.Location = New System.Drawing.Point(187, 12)
-        Me.Label81.Name = "Label81"
-        Me.Label81.Size = New System.Drawing.Size(372, 37)
-        Me.Label81.TabIndex = 15
-        Me.Label81.Text = "Anagrafica Data Memory"
-        '
-        'CodBilanciaCollegataTXT
-        '
-        Me.CodBilanciaCollegataTXT.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.CodBilanciaCollegataTXT.Location = New System.Drawing.Point(441, 120)
-        Me.CodBilanciaCollegataTXT.MaxLength = 30
-        Me.CodBilanciaCollegataTXT.Name = "CodBilanciaCollegataTXT"
-        Me.CodBilanciaCollegataTXT.ReadOnly = True
-        Me.CodBilanciaCollegataTXT.Size = New System.Drawing.Size(0, 22)
-        Me.CodBilanciaCollegataTXT.TabIndex = 48
         '
         'IdTXT
         '
@@ -1290,7 +1253,7 @@ Partial Class FormAnagrafiche
         '
         'TableAdapterManager
         '
-        Me.TableAdapterManager.AnagraficaDataMemoryTableAdapter = Nothing
+        Me.TableAdapterManager.AnagraficaDataMemoryTableAdapter = Me.AnagraficaDataMemoryTableAdapter
         Me.TableAdapterManager.AnagraficaGrezziTableAdapter = Me.AnagraficaGrezziTableAdapter
         Me.TableAdapterManager.AnagraficaProdottiTableAdapter = Me.AnagraficaProdottiTableAdapter
         Me.TableAdapterManager.BackupDataSetBeforeUpdate = False
@@ -1303,6 +1266,10 @@ Partial Class FormAnagrafiche
         Me.TableAdapterManager.StoricoOutputTostaturaTableAdapter = Nothing
         Me.TableAdapterManager.TipoLavorazioneTableAdapter = Me.TipoLavorazioneTableAdapter
         Me.TableAdapterManager.UpdateOrder = Tostatura.TostaturaDataSetTableAdapters.TableAdapterManager.UpdateOrderOption.InsertUpdateDelete
+        '
+        'AnagraficaDataMemoryTableAdapter
+        '
+        Me.AnagraficaDataMemoryTableAdapter.ClearBeforeFill = True
         '
         'AnagraficaGrezziTableAdapter
         '
@@ -1324,6 +1291,47 @@ Partial Class FormAnagrafiche
         '
         Me.TipoLavorazioneTableAdapter.ClearBeforeFill = True
         '
+        'GroupBox2
+        '
+        Me.GroupBox2.Controls.Add(Me.AnagraficaGrezziDataGridView)
+        Me.GroupBox2.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.GroupBox2.Location = New System.Drawing.Point(15, 191)
+        Me.GroupBox2.Name = "GroupBox2"
+        Me.GroupBox2.Size = New System.Drawing.Size(691, 351)
+        Me.GroupBox2.TabIndex = 34
+        Me.GroupBox2.TabStop = False
+        Me.GroupBox2.Text = "Prodotti Grezzi"
+        '
+        'AnagraficaGrezziDataGridView
+        '
+        Me.AnagraficaGrezziDataGridView.AutoGenerateColumns = False
+        Me.AnagraficaGrezziDataGridView.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill
+        Me.AnagraficaGrezziDataGridView.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
+        Me.AnagraficaGrezziDataGridView.Columns.AddRange(New System.Windows.Forms.DataGridViewColumn() {Me.DataGridViewTextBoxColumn1, Me.DataGridViewTextBoxColumn2, Me.DataGridViewTextBoxColumn3})
+        Me.AnagraficaGrezziDataGridView.DataSource = Me.AnagraficaGrezziBindingSource
+        Me.AnagraficaGrezziDataGridView.Location = New System.Drawing.Point(10, 26)
+        Me.AnagraficaGrezziDataGridView.Name = "AnagraficaGrezziDataGridView"
+        Me.AnagraficaGrezziDataGridView.Size = New System.Drawing.Size(670, 319)
+        Me.AnagraficaGrezziDataGridView.TabIndex = 34
+        '
+        'DataGridViewTextBoxColumn1
+        '
+        Me.DataGridViewTextBoxColumn1.DataPropertyName = "codice"
+        Me.DataGridViewTextBoxColumn1.HeaderText = "Codice"
+        Me.DataGridViewTextBoxColumn1.Name = "DataGridViewTextBoxColumn1"
+        '
+        'DataGridViewTextBoxColumn2
+        '
+        Me.DataGridViewTextBoxColumn2.DataPropertyName = "descrizione"
+        Me.DataGridViewTextBoxColumn2.HeaderText = "Descrizione"
+        Me.DataGridViewTextBoxColumn2.Name = "DataGridViewTextBoxColumn2"
+        '
+        'DataGridViewTextBoxColumn3
+        '
+        Me.DataGridViewTextBoxColumn3.DataPropertyName = "categoria"
+        Me.DataGridViewTextBoxColumn3.HeaderText = "Categoria"
+        Me.DataGridViewTextBoxColumn3.Name = "DataGridViewTextBoxColumn3"
+        '
         'FormAnagrafiche
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
@@ -1338,10 +1346,15 @@ Partial Class FormAnagrafiche
         Me.SplitContainer1.Panel2.ResumeLayout(False)
         Me.SplitContainer1.ResumeLayout(False)
         Me.CtlAvanzatiGPB.ResumeLayout(False)
+        Me.PnlDataMemory.ResumeLayout(False)
+        Me.PnlDataMemory.PerformLayout()
+        CType(Me.AnagraficaDataMemoryBindingSource, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.TostaturaDataSet, System.ComponentModel.ISupportInitialize).EndInit()
+        Me.GroupBox13.ResumeLayout(False)
+        CType(Me.AnagraficaDataMemoryDataGridView, System.ComponentModel.ISupportInitialize).EndInit()
         Me.PnlOperatori.ResumeLayout(False)
         Me.PnlOperatori.PerformLayout()
         CType(Me.OperatoriBindingSource, System.ComponentModel.ISupportInitialize).EndInit()
-        CType(Me.TostaturaDataSet, System.ComponentModel.ISupportInitialize).EndInit()
         Me.GroupBox4.ResumeLayout(False)
         CType(Me.OperatoriRuoliViewDataGridView, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.RuoliBindingSource, System.ComponentModel.ISupportInitialize).EndInit()
@@ -1355,14 +1368,11 @@ Partial Class FormAnagrafiche
         CType(Me.TipoLavorazioneBindingSource, System.ComponentModel.ISupportInitialize).EndInit()
         Me.ProdottiGrezziPNL.ResumeLayout(False)
         Me.ProdottiGrezziPNL.PerformLayout()
-        CType(Me.AnagraficaGrezziDataGridView, System.ComponentModel.ISupportInitialize).EndInit()
-        Me.PnlDataMemory.ResumeLayout(False)
-        Me.PnlDataMemory.PerformLayout()
-        Me.GroupBox13.ResumeLayout(False)
-        CType(Me.AnagraficaDataMemoryDataGridView, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.BindingNavigator, System.ComponentModel.ISupportInitialize).EndInit()
         Me.BindingNavigator.ResumeLayout(False)
         Me.BindingNavigator.PerformLayout()
+        Me.GroupBox2.ResumeLayout(False)
+        CType(Me.AnagraficaGrezziDataGridView, System.ComponentModel.ISupportInitialize).EndInit()
         Me.ResumeLayout(False)
         Me.PerformLayout()
 
@@ -1399,8 +1409,6 @@ Partial Class FormAnagrafiche
     Friend WithEvents Label5 As System.Windows.Forms.Label
     Friend WithEvents PnlDataMemory As System.Windows.Forms.Panel
     Friend WithEvents tipoOperazioneTXT As System.Windows.Forms.TextBox
-    Friend WithEvents BilanciaCollegataCMB As System.Windows.Forms.ComboBox
-    Friend WithEvents BilanciaCollegataCHB As System.Windows.Forms.CheckBox
     Friend WithEvents DescrDataMemoryTXT As System.Windows.Forms.TextBox
     Friend WithEvents indirizzoDataMemoryTXT As System.Windows.Forms.TextBox
     Friend WithEvents Label78 As System.Windows.Forms.Label
@@ -1410,7 +1418,6 @@ Partial Class FormAnagrafiche
     Friend WithEvents CodDataMemoryTXT As System.Windows.Forms.TextBox
     Friend WithEvents Label80 As System.Windows.Forms.Label
     Friend WithEvents GroupBox13 As System.Windows.Forms.GroupBox
-    Friend WithEvents AnagraficaDataMemoryDataGridView As System.Windows.Forms.DataGridView
     Friend WithEvents Label81 As System.Windows.Forms.Label
     Friend WithEvents CodBilanciaCollegataTXT As System.Windows.Forms.TextBox
     Friend WithEvents CtlAvanzatiGPB As System.Windows.Forms.GroupBox
@@ -1437,10 +1444,6 @@ Partial Class FormAnagrafiche
     Friend WithEvents AnagraficaGrezziTableAdapter As Tostatura.TostaturaDataSetTableAdapters.AnagraficaGrezziTableAdapter
     Friend WithEvents CategoriaTXT As System.Windows.Forms.TextBox
     Friend WithEvents Label3 As System.Windows.Forms.Label
-    Friend WithEvents AnagraficaGrezziDataGridView As System.Windows.Forms.DataGridView
-    Friend WithEvents DataGridViewTextBoxColumn1 As System.Windows.Forms.DataGridViewTextBoxColumn
-    Friend WithEvents DataGridViewTextBoxColumn2 As System.Windows.Forms.DataGridViewTextBoxColumn
-    Friend WithEvents DataGridViewTextBoxColumn3 As System.Windows.Forms.DataGridViewTextBoxColumn
     Friend WithEvents AnagraficaGrezziBindingSource As System.Windows.Forms.BindingSource
     Friend WithEvents CategoriaFinitoTXT As System.Windows.Forms.TextBox
     Friend WithEvents Label4 As System.Windows.Forms.Label
@@ -1485,4 +1488,17 @@ Partial Class FormAnagrafiche
     Friend WithEvents NomeDataGridViewTextBoxColumn As System.Windows.Forms.DataGridViewTextBoxColumn
     Friend WithEvents PasswordDataGridViewTextBoxColumn As System.Windows.Forms.DataGridViewTextBoxColumn
     Friend WithEvents IdruoloDataGridViewTextBoxColumn As System.Windows.Forms.DataGridViewTextBoxColumn
+    Friend WithEvents AnagraficaDataMemoryTableAdapter As Tostatura.TostaturaDataSetTableAdapters.AnagraficaDataMemoryTableAdapter
+    Friend WithEvents AnagraficaDataMemoryBindingSource As System.Windows.Forms.BindingSource
+    Friend WithEvents AnagraficaDataMemoryDataGridView As System.Windows.Forms.DataGridView
+    Friend WithEvents DataGridViewTextBoxColumn4 As System.Windows.Forms.DataGridViewTextBoxColumn
+    Friend WithEvents DataGridViewTextBoxColumn5 As System.Windows.Forms.DataGridViewTextBoxColumn
+    Friend WithEvents DataGridViewTextBoxColumn6 As System.Windows.Forms.DataGridViewTextBoxColumn
+    Friend WithEvents DataGridViewTextBoxColumn7 As System.Windows.Forms.DataGridViewTextBoxColumn
+    Friend WithEvents DataGridViewTextBoxColumn8 As System.Windows.Forms.DataGridViewTextBoxColumn
+    Friend WithEvents GroupBox2 As System.Windows.Forms.GroupBox
+    Friend WithEvents AnagraficaGrezziDataGridView As System.Windows.Forms.DataGridView
+    Friend WithEvents DataGridViewTextBoxColumn1 As System.Windows.Forms.DataGridViewTextBoxColumn
+    Friend WithEvents DataGridViewTextBoxColumn2 As System.Windows.Forms.DataGridViewTextBoxColumn
+    Friend WithEvents DataGridViewTextBoxColumn3 As System.Windows.Forms.DataGridViewTextBoxColumn
 End Class

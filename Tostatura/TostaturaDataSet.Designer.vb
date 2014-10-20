@@ -12295,7 +12295,7 @@ Namespace TostaturaDataSetTableAdapters
                 "zione], [offset], [lunghezza]) VALUES (@tipo_operazione, @codice_dm, @descrizion"& _ 
                 "e, @offset, @lunghezza);"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"SELECT tipo_operazione, codice_dm, descrizione, offset"& _ 
                 ", lunghezza FROM AnagraficaDataMemory WHERE (codice_dm = @codice_dm) AND (tipo_o"& _ 
-                "perazione = @tipo_operazione)"
+                "perazione = @tipo_operazione) ORDER BY offset"
             Me._adapter.InsertCommand.CommandType = Global.System.Data.CommandType.Text
             Me._adapter.InsertCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@tipo_operazione", Global.System.Data.SqlDbType.NChar, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "tipo_operazione", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
             Me._adapter.InsertCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@codice_dm", Global.System.Data.SqlDbType.NChar, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "codice_dm", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
@@ -12312,7 +12312,8 @@ Namespace TostaturaDataSetTableAdapters
                 "ND [offset] IS NULL) OR ([offset] = @Original_offset)) AND ((@IsNull_lunghezza ="& _ 
                 " 1 AND [lunghezza] IS NULL) OR ([lunghezza] = @Original_lunghezza)));"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"SELECT ti"& _ 
                 "po_operazione, codice_dm, descrizione, offset, lunghezza FROM AnagraficaDataMemo"& _ 
-                "ry WHERE (codice_dm = @codice_dm) AND (tipo_operazione = @tipo_operazione)"
+                "ry WHERE (codice_dm = @codice_dm) AND (tipo_operazione = @tipo_operazione) ORDER"& _ 
+                " BY offset"
             Me._adapter.UpdateCommand.CommandType = Global.System.Data.CommandType.Text
             Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@tipo_operazione", Global.System.Data.SqlDbType.NChar, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "tipo_operazione", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
             Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@codice_dm", Global.System.Data.SqlDbType.NChar, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "codice_dm", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
@@ -12341,7 +12342,7 @@ Namespace TostaturaDataSetTableAdapters
             Me._commandCollection(0) = New Global.System.Data.SqlClient.SqlCommand
             Me._commandCollection(0).Connection = Me.Connection
             Me._commandCollection(0).CommandText = "SELECT tipo_operazione, codice_dm, descrizione, offset, lunghezza FROM dbo.Anagra"& _ 
-                "ficaDataMemory"
+                "ficaDataMemory order by offset"
             Me._commandCollection(0).CommandType = Global.System.Data.CommandType.Text
         End Sub
         

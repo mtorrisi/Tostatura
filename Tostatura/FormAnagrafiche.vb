@@ -101,6 +101,10 @@ Public Class FormAnagrafiche
     End Sub
 
     Private Sub FormAnagrafiche_Load(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles MyBase.Load
+        'TODO: questa riga di codice carica i dati nella tabella 'TostaturaDataSet.AnagraficaDataMemory'. È possibile spostarla o rimuoverla se necessario.
+        Me.AnagraficaDataMemoryTableAdapter.Fill(Me.TostaturaDataSet.AnagraficaDataMemory)
+        'TODO: questa riga di codice carica i dati nella tabella 'TostaturaDataSet.AnagraficaDataMemory'. È possibile spostarla o rimuoverla se necessario.
+        Me.AnagraficaDataMemoryTableAdapter.Fill(Me.TostaturaDataSet.AnagraficaDataMemory)
         'TODO: questa riga di codice carica i dati nella tabella 'TostaturaDataSet.Ruoli'. È possibile spostarla o rimuoverla se necessario.
         Me.RuoliTableAdapter.Fill(Me.TostaturaDataSet.Ruoli)
         'TODO: questa riga di codice carica i dati nella tabella 'TostaturaDataSet.Operatori'. È possibile spostarla o rimuoverla se necessario.
@@ -164,6 +168,9 @@ Public Class FormAnagrafiche
         Me.ProdottiFinitiPNL.Visible = False
         Me.PnlOperatori.Visible = False
         Me.PnlDataMemory.Visible = True
+
+        Me.BindingNavigator.BindingSource = Me.AnagraficaDataMemoryBindingSource
+        Me.AnagraficaDataMemoryTableAdapter.Fill(Me.TostaturaDataSet.AnagraficaDataMemory)
     End Sub
     Private Sub CodiceTXT_Leave(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles CodiceTXT.Leave
         If Not CodiceTXT.ReadOnly Then
@@ -264,6 +271,8 @@ Public Class FormAnagrafiche
             Me.AnagraficaProdottiTableAdapter.Fill(Me.TostaturaDataSet.AnagraficaProdotti)
         ElseIf Me.PnlOperatori.Visible Then
             Me.OperatoriTableAdapter.Fill(Me.TostaturaDataSet.Operatori)
+        ElseIf Me.PnlDataMemory.Visible Then
+            Me.AnagraficaDataMemoryTableAdapter.Fill(Me.TostaturaDataSet.AnagraficaDataMemory)
         End If
 
     End Sub
@@ -374,11 +383,15 @@ Public Class FormAnagrafiche
 
         'End If
     End Sub
-
-    Private Sub AnagraficaDataMemoryBindingNavigatorSaveItem_Click(ByVal sender As System.Object, ByVal e As System.EventArgs)
-        Me.Validate()
-        'Me.AnagraficaDataMemoryBindingSource.EndEdit()
-        Me.TableAdapterManager.UpdateAll(Me.TostaturaDataSet)
-
+    Private Sub tipoOperazioneTXT_TextChanged(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles tipoOperazioneTXT.TextChanged
+        If Me.tipoOperazioneTXT.Text <> Nothing And Not Me.tipoOperazioneTXT.Text.Equals("") Then
+            If tipoOperazioneTXT.Text.Equals("W") Then
+                Me.ScritturaRBT.Checked = True
+                Me.LetturaRBT.Checked = False
+            Else
+                Me.ScritturaRBT.Checked = False
+                Me.LetturaRBT.Checked = True
+            End If
+        End If
     End Sub
 End Class
